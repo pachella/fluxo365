@@ -127,33 +127,6 @@ class PermissionManager {
     }
 
     /**
-     * Verifica se pode editar um formulário específico
-     */
-    public function canEditForm($pdo, $formId) {
-        if ($this->isAdmin()) {
-            return true; // Admin pode editar qualquer formulário
-        }
-
-        if ($this->isClient()) {
-            // Cliente só pode editar formulários que pertencem a ele
-            try {
-                $stmt = $pdo->prepare("SELECT user_id FROM forms WHERE id = :id");
-                $stmt->execute(['id' => $formId]);
-                $form = $stmt->fetch(PDO::FETCH_ASSOC);
-
-                if ($form && $form['user_id'] == $this->clientId) {
-                    return true;
-                }
-            } catch (PDOException $e) {
-                error_log('Erro ao verificar permissão de formulário: ' . $e->getMessage());
-                return false;
-            }
-        }
-
-        return false;
-    }
-
-    /**
      * Redireciona para página de acesso negado
      */
     public function denyAccess($message = 'Acesso negado') {

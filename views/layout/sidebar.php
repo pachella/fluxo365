@@ -1,32 +1,10 @@
 <?php
 // Incluir sistema de permissões
 require_once __DIR__ . '/../../core/PermissionManager.php';
-require_once __DIR__ . '/../../core/PlanService.php';
 
 // Verificar se usuário está logado
 if (!isset($_SESSION['user_role'])) {
     return;
-}
-
-// Verificar quantos formulários o usuário tem (para limite FREE)
-$userFormsCount = 0;
-if (isset($pdo) && isset($_SESSION['user_id'])) {
-    try {
-        $stmt = $pdo->prepare("SELECT COUNT(*) as total FROM forms WHERE user_id = :user_id");
-        $stmt->execute(['user_id' => $_SESSION['user_id']]);
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        $userFormsCount = $result['total'] ?? 0;
-    } catch (Exception $e) {
-        error_log("Erro ao contar formulários: " . $e->getMessage());
-    }
-}
-
-// Verificar se usuário atingiu limite FREE
-$canCreateForm = true;
-$limitMessage = '';
-if (PlanService::isFree() && $userFormsCount >= 2) {
-    $canCreateForm = false;
-    $limitMessage = 'Usuários FREE podem ter apenas 2 formulários. Faça upgrade para PRO!';
 }
 
 // Criar instância do PermissionManager
@@ -91,25 +69,7 @@ if ($permissionManager->isAdmin()) {
     </button>
   </div>
 
-  <!-- Header da sidebar (desktop) com botão de criar formulário -->
-  <div class="hidden lg:block p-6 border-b border-gray-200 dark:border-zinc-700">
-    <?php if ($canCreateForm): ?>
-      <button id="btnNewFormSidebar" class="w-full text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium bg-green-600 hover:bg-green-700">
-        + Criar Formulário
-      </button>
-    <?php else: ?>
-      <button 
-        onclick="showUpgradeAlert()" 
-        class="w-full text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600">
-        ✨ Upgrade para PRO
-      </button>
-      <p class="text-xs text-center text-gray-500 dark:text-gray-400 mt-2">
-        Limite de 2 formulários atingido
-      </p>
-    <?php endif; ?>
-  </div>
-
-  <nav class="flex-1 p-4 overflow-y-auto">
+  <nav class="flex-1 p-4 overflow-y-auto mt-4">
     <ul class="space-y-2">
       
       <?php foreach ($moduleStructure as $config): ?>
@@ -161,28 +121,10 @@ function openSidebar() {
 function closeSidebar() {
     const sidebar = document.getElementById('sidebar');
     const overlay = document.getElementById('sidebar-overlay');
-    
+
     sidebar.classList.add('-translate-x-full');
     overlay.classList.add('hidden');
     document.body.style.overflow = '';
-}
-
-// Mostrar alerta de upgrade
-function showUpgradeAlert() {
-    Swal.fire({
-        title: '✨ Upgrade para PRO',
-        html: '<?= $limitMessage ?><br><br>Com o plano PRO você terá:<br>• <strong>Formulários ilimitados</strong><br>• Suporte prioritário<br>• Recursos avançados',
-        icon: 'info',
-        confirmButtonText: 'Fazer Upgrade',
-        cancelButtonText: 'Agora não',
-        showCancelButton: true,
-        confirmButtonColor: '#a855f7',
-        cancelButtonColor: '#6b7280'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            window.location.href = '/upgrade';
-        }
-    });
 }
 
 // Fechar sidebar ao clicar em links (mobile)
@@ -195,18 +137,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-
-    // Botão criar formulário na sidebar
-    const btnNewFormSidebar = document.getElementById('btnNewFormSidebar');
-    if (btnNewFormSidebar) {
-        btnNewFormSidebar.addEventListener('click', () => {
-            if (typeof showFormModal === 'function') {
-                showFormModal();
-            } else {
-                console.error("Função showFormModal não encontrada.");
-            }
-        });
-    }
 });
 </script>
 

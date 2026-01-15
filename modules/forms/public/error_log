@@ -1,8 +1,0 @@
-[10-Nov-2025 16:14:02 America/Sao_Paulo] PHP Warning:  Undefined array key "success_message_title" in /home/webformtalk/hmg.formtalk.app/modules/forms/public/view.php on line 179
-[10-Nov-2025 16:14:02 America/Sao_Paulo] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/webformtalk/hmg.formtalk.app/modules/forms/public/view.php on line 179
-[10-Nov-2025 16:14:02 America/Sao_Paulo] PHP Warning:  Undefined array key "success_message_description" in /home/webformtalk/hmg.formtalk.app/modules/forms/public/view.php on line 180
-[10-Nov-2025 16:14:02 America/Sao_Paulo] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/webformtalk/hmg.formtalk.app/modules/forms/public/view.php on line 180
-[10-Nov-2025 16:14:26 America/Sao_Paulo] PHP Warning:  Undefined array key "success_message_title" in /home/webformtalk/hmg.formtalk.app/modules/forms/public/view.php on line 179
-[10-Nov-2025 16:14:26 America/Sao_Paulo] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/webformtalk/hmg.formtalk.app/modules/forms/public/view.php on line 179
-[10-Nov-2025 16:14:26 America/Sao_Paulo] PHP Warning:  Undefined array key "success_message_description" in /home/webformtalk/hmg.formtalk.app/modules/forms/public/view.php on line 180
-[10-Nov-2025 16:14:26 America/Sao_Paulo] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home/webformtalk/hmg.formtalk.app/modules/forms/public/view.php on line 180

@@ -1,4 +1,0 @@
-[10-Nov-2025 12:28:44 America/Sao_Paulo] PHP Deprecated:  json_decode(): Passing null to parameter #1 ($json) of type string is deprecated in /home/webformtalk/hmg.formtalk.app/modules/forms/builder/render/special_fields.php on line 8
-[10-Nov-2025 12:28:44 America/Sao_Paulo] PHP Deprecated:  json_decode(): Passing null to parameter #1 ($json) of type string is deprecated in /home/webformtalk/hmg.formtalk.app/modules/forms/builder/render/special_fields.php on line 8
-[10-Nov-2025 14:45:51 America/Sao_Paulo] PHP Deprecated:  json_decode(): Passing null to parameter #1 ($json) of type string is deprecated in /home/webformtalk/hmg.formtalk.app/modules/forms/builder/render/special_fields.php on line 8
-[10-Nov-2025 14:45:51 America/Sao_Paulo] PHP Deprecated:  json_decode(): Passing null to parameter #1 ($json) of type string is deprecated in /home/webformtalk/hmg.formtalk.app/modules/forms/builder/render/special_fields.php on line 8
