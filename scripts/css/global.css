@@ -1,0 +1,230 @@
+/* ============================================================================
+   FORMTALK - ESTILOS GLOBAIS
+   Cor da marca: #4EA44B (verde claro)
+   Dark mode: #545454 (cinza)
+
+   Light mode: botões verdes
+   Dark mode: botões cinza
+============================================================================ */
+
+/* ===================================================================
+   BOTÕES DENTRO DE MODAIS - COR SUPERSITES
+=================================================================== */
+
+/* Botões de confirmação do SweetAlert2 - Light mode */
+.swal2-confirm,
+button.swal2-confirm {
+    background-color: #4EA44B !important;
+}
+
+.swal2-confirm:hover,
+button.swal2-confirm:hover {
+    background-color: #3d8b40 !important;
+}
+
+/* Dark mode - botões cinza */
+html.dark .swal2-confirm,
+html.dark button.swal2-confirm,
+.dark .swal2-confirm,
+.dark button.swal2-confirm {
+    background-color: #545454 !important;
+}
+
+html.dark .swal2-confirm:hover,
+html.dark button.swal2-confirm:hover,
+.dark .swal2-confirm:hover,
+.dark button.swal2-confirm:hover {
+    background-color: #3d3d3d !important;
+}
+
+/* Botão criar formulário - Light mode */
+#btnNewForm,
+#btnNewFormSidebar {
+    background-color: #4EA44B !important;
+    width: 100%;
+}
+
+#btnNewForm:hover,
+#btnNewFormSidebar:hover {
+    background-color: #3d8b40 !important;
+}
+
+/* ===================================================================
+   BOTÕES DENTRO DO HTML DO MODAL
+   Pega botões com bg-indigo que estão dentro do .swal2-html-container
+   Incluindo <div>, <button> e <a>
+=================================================================== */
+
+/* Light mode - verde */
+.swal2-html-container button.bg-indigo-600,
+.swal2-html-container a.bg-indigo-600,
+.swal2-html-container div.bg-indigo-600,
+.swal2-popup button.bg-indigo-600,
+.swal2-popup a.bg-indigo-600,
+.swal2-popup div.bg-indigo-600 {
+    background-color: #4EA44B !important;
+}
+
+.swal2-html-container button.bg-indigo-600:hover,
+.swal2-html-container a.bg-indigo-600:hover,
+.swal2-html-container div.bg-indigo-600:hover,
+.swal2-popup button.bg-indigo-600:hover,
+.swal2-popup a.bg-indigo-600:hover,
+.swal2-popup div.bg-indigo-600:hover {
+    background-color: #3d8b40 !important;
+}
+
+/* Dark mode - cinza */
+html.dark .swal2-html-container button.bg-indigo-600,
+html.dark .swal2-html-container a.bg-indigo-600,
+html.dark .swal2-html-container div.bg-indigo-600,
+html.dark .swal2-popup button.bg-indigo-600,
+html.dark .swal2-popup a.bg-indigo-600,
+html.dark .swal2-popup div.bg-indigo-600,
+.dark .swal2-html-container button.bg-indigo-600,
+.dark .swal2-html-container a.bg-indigo-600,
+.dark .swal2-html-container div.bg-indigo-600,
+.dark .swal2-popup button.bg-indigo-600,
+.dark .swal2-popup a.bg-indigo-600,
+.dark .swal2-popup div.bg-indigo-600 {
+    background-color: #545454 !important;
+}
+
+html.dark .swal2-html-container button.bg-indigo-600:hover,
+html.dark .swal2-html-container a.bg-indigo-600:hover,
+html.dark .swal2-html-container div.bg-indigo-600:hover,
+html.dark .swal2-popup button.bg-indigo-600:hover,
+html.dark .swal2-popup a.bg-indigo-600:hover,
+html.dark .swal2-popup div.bg-indigo-600:hover,
+.dark .swal2-html-container button.bg-indigo-600:hover,
+.dark .swal2-html-container a.bg-indigo-600:hover,
+.dark .swal2-html-container div.bg-indigo-600:hover,
+.dark .swal2-popup button.bg-indigo-600:hover,
+.dark .swal2-popup a.bg-indigo-600:hover,
+.dark .swal2-popup div.bg-indigo-600:hover {
+    background-color: #3d3d3d !important;
+}
+
+/* Sobrescrever dark:bg-zinc-* APENAS dentro de modais - Dark mode cinza */
+html.dark .swal2-html-container button[class*="dark:bg-zinc"],
+html.dark .swal2-html-container a[class*="dark:bg-zinc"],
+html.dark .swal2-html-container div[class*="dark:bg-zinc"],
+html.dark .swal2-popup button[class*="dark:bg-zinc"],
+html.dark .swal2-popup a[class*="dark:bg-zinc"],
+html.dark .swal2-popup div[class*="dark:bg-zinc"],
+.dark .swal2-html-container button[class*="dark:bg-zinc"],
+.dark .swal2-html-container a[class*="dark:bg-zinc"],
+.dark .swal2-html-container div[class*="dark:bg-zinc"],
+.dark .swal2-popup button[class*="dark:bg-zinc"],
+.dark .swal2-popup a[class*="dark:bg-zinc"],
+.dark .swal2-popup div[class*="dark:bg-zinc"] {
+    background-color: #545454 !important;
+}
+
+html.dark .swal2-html-container button[class*="dark:bg-zinc"]:hover,
+html.dark .swal2-html-container a[class*="dark:bg-zinc"]:hover,
+html.dark .swal2-html-container div[class*="dark:bg-zinc"]:hover,
+html.dark .swal2-popup button[class*="dark:bg-zinc"]:hover,
+html.dark .swal2-popup a[class*="dark:bg-zinc"]:hover,
+html.dark .swal2-popup div[class*="dark:bg-zinc"]:hover,
+.dark .swal2-html-container button[class*="dark:bg-zinc"]:hover,
+.dark .swal2-html-container a[class*="dark:bg-zinc"]:hover,
+.dark .swal2-html-container div[class*="dark:bg-zinc"]:hover,
+.dark .swal2-popup button[class*="dark:bg-zinc"]:hover,
+.dark .swal2-popup a[class*="dark:bg-zinc"]:hover,
+.dark .swal2-popup div[class*="dark:bg-zinc"]:hover {
+    background-color: #3d3d3d !important;
+}
+
+/* ===================================================================
+   ESTADOS ESPECIAIS - APENAS EM MODAIS
+=================================================================== */
+
+/* Foco - Anel verde (light mode) */
+.swal2-popup button:focus,
+.swal2-popup a:focus,
+.swal2-confirm:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(78, 164, 75, 0.3) !important;
+}
+
+/* Foco - Anel cinza (dark mode) */
+html.dark .swal2-popup button:focus,
+html.dark .swal2-popup a:focus,
+html.dark .swal2-confirm:focus,
+.dark .swal2-popup button:focus,
+.dark .swal2-popup a:focus,
+.dark .swal2-confirm:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(84, 84, 84, 0.3) !important;
+}
+
+/* Disabled - Tom mais claro (light mode) */
+.swal2-popup button:disabled,
+.swal2-popup a:disabled {
+    background-color: #7ec47c !important;
+    cursor: not-allowed !important;
+    opacity: 0.6 !important;
+}
+
+/* Disabled - Tom mais claro (dark mode) */
+html.dark .swal2-popup button:disabled,
+html.dark .swal2-popup a:disabled,
+.dark .swal2-popup button:disabled,
+.dark .swal2-popup a:disabled {
+    background-color: #6b6b6b !important;
+    cursor: not-allowed !important;
+    opacity: 0.6 !important;
+}
+
+/* ===========================
+   SWEETALERT2 DARK MODE
+   =========================== */
+
+.dark .swal2-popup { 
+    background: #27272a !important; 
+    color: #e4e4e7 !important; 
+}
+
+.dark .swal2-title { 
+    color: #e4e4e7 !important; 
+}
+
+.dark .swal2-html-container { 
+    color: #d4d4d8 !important; 
+}
+
+.dark .swal2-popup input, 
+.dark .swal2-popup textarea, 
+.dark .swal2-popup select { 
+    background: #3f3f46 !important;
+    border: 1px solid #52525b !important;
+    color: #e4e4e7 !important;
+}
+
+.dark .swal2-popup input:focus, 
+.dark .swal2-popup textarea:focus, 
+.dark .swal2-popup select:focus { 
+    border-color: #71717a !important; 
+    outline: none; 
+}
+
+.swal2-container { 
+    backdrop-filter: blur(4px); 
+    -webkit-backdrop-filter: blur(4px); 
+}
+
+.swal2-container.swal2-backdrop-show { 
+    background: rgba(0, 0, 0, 0.5) !important; 
+}
+
+.dark .swal2-container.swal2-backdrop-show { 
+    background: rgba(0, 0, 0, 0.7) !important; 
+}
+
+@media (max-width: 640px) {
+    .swal2-popup { 
+        width: 95% !important; 
+        padding: 1rem !important; 
+    }
+}

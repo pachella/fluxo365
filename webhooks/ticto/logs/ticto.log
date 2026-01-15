@@ -1,0 +1,626 @@
+[2025-10-10 14:08:01] [info] ========== NOVO WEBHOOK RECEBIDO DA TICTO ==========
+[2025-10-10 14:08:01] [debug] Raw payload completo | Dados: Array
+(
+    [raw] => {"version":"2.0","commission_type":"producer","status":"authorized","status_date":"2025-10-10 11:39:58","token":"eRQ1PEZDEXrYaW5AzlZhqyYXI7TnJunFYVnJb2TloJgJLDftJLM0wV7E1PbhbUPWYmNrJaYzigGBsJ4x2J4yg1o7XHin7yXaMMBX","payment_method":"credit_card","query_params":{"pid":"AF428AF452","code":"O3271EECB","name":"Fabiana Falotico Carrazedo","event":"PageView","currency":"BRL","offer_code":"O3271EECB","product_id":"98006","payment_method":"credit_card"},"tracking":{"event":"PageView","utm_source":"N\u00e3o Informado","utm_medium":"N\u00e3o Informado","utm_campaign":"N\u00e3o Informado","utm_content":"N\u00e3o Informado","utm_term":"N\u00e3o Informado","src":"N\u00e3o Informado","sck":"N\u00e3o Informado","manychat_user_id":"N\u00e3o Informado"},"checkout_url":"https:\/\/checkout.ticto.app\/O3271EECB","order":{"id":3279746,"hash":"TOCD90E11010BUY862V","transaction_hash":"TPC116231010DXP9R7P","paid_amount":25512,"installments":1,"order_date":"2025-10-10 11:39:53"},"shipping":{"amount":0,"type":null,"method":null,"delivery_days":null},"offer":{"id":142619,"code":"O3271EECB","name":"Supersite Starter","description":"Tenha um site profissional em WordPress, criado no nosso modelo-base, com hospedagem semi-dedicada de alto desempenho, at\u00e9 3 contas de e-mail e manuten\u00e7\u00e3o t\u00e9cnica cont\u00ednua. Ideal para quem busca velocidade, seguran\u00e7a e praticidade sem precisar se preocupar com nada t\u00e9cnico. Dom\u00ednio n\u00e3o incluso.","price":16900,"is_subscription":true,"interval":1,"trial_days":0,"first_charge_price":31890},"item":{"product_name":"Site por Assinatura","product_id":98006,"refund_deadline":7,"offer_name":"Supersite Starter","offer_id":142619,"offer_code":"O3271EECB","coupon_id":109277,"coupon_name":"SUPER20","coupon_value":{"type":"percentage","value":20},"quantity":1,"amount":25512,"members_portal_id":null,"members_classroom_id":null,"days_of_access":30,"trial_days":0},"subscriptions":[{"id":519976,"interval":1,"successful_charges":1,"failed_charges":0,"trial_days":0,"first_charge_price":31890,"max_charges":null,"next_charge":"2025-11-10 00:00:00","canceled_at":null,"change_card_url":"https:\/\/dash.ticto.com.br\/change-card\/519976?orderCode=TOCD90E11010BUY862V&email=comercial@agencianoa.com.br"}],"transaction":{"hash":"TPC116231010DXP9R7P","cards":[{"brand":"master","holder":"FABIANA F CARRAZEDO","first_digits":"522626","last_digits":"7990"}]},"customer":{"cpf":"36948732879","cnpj":null,"name":"Fabiana Falotico Carrazedo","type":"person","email":"comercial@agencianoa.com.br","phone":{"ddd":"11","ddi":"+55","number":"995300069"},"address":{"city":"S\u00e3o Paulo","state":"SP","street":"Avenida Dom Pedro I","country":"Brasil","zip_code":"01552000","complement":"ap 202 bloco A","neighborhood":"Vila Monumento","street_number":"219"},"country":{"flag":{"src":"countries_flags\/br.svg"},"name":"Brazil","region":"Americas","iso_code":"BR","dial_code":"+55","languages":["Portuguese"]},"is_foreign":false,"language":"pt-BR","code":"9YOK4FFCXV1760107182"},"telefone":"11995300069","phone_local_code_customer":"","phone_number_customer":"11995300069","producer":{"id":2872526,"name":"GRUPO PACHELLA","email":"gerenciamento@pachella.com.br","pid":"","phone":"5511971404154","amount":18783,"cms":"187.83","document":"38151589000100"},"affiliates":[{"id":1388909,"name":"Luiz Paulo Braga Pachella","email":"luiz@pachella.com.br","pid":"AF428AF452","phone":"5511971404154","amount":4696,"cms":"46.96","document":null}],"coproducers":[],"marketplace_commission":1784}
+)
+
+[2025-10-10 14:08:01] [debug] Payload decodificado | Dados: Array
+(
+    [version] => 2.0
+    [commission_type] => producer
+    [status] => authorized
+    [status_date] => 2025-10-10 11:39:58
+    [token] => eRQ1PEZDEXrYaW5AzlZhqyYXI7TnJunFYVnJb2TloJgJLDftJLM0wV7E1PbhbUPWYmNrJaYzigGBsJ4x2J4yg1o7XHin7yXaMMBX
+    [payment_method] => credit_card
+    [query_params] => Array
+        (
+            [pid] => AF428AF452
+            [code] => O3271EECB
+            [name] => Fabiana Falotico Carrazedo
+            [event] => PageView
+            [currency] => BRL
+            [offer_code] => O3271EECB
+            [product_id] => 98006
+            [payment_method] => credit_card
+        )
+
+    [tracking] => Array
+        (
+            [event] => PageView
+            [utm_source] => Não Informado
+            [utm_medium] => Não Informado
+            [utm_campaign] => Não Informado
+            [utm_content] => Não Informado
+            [utm_term] => Não Informado
+            [src] => Não Informado
+            [sck] => Não Informado
+            [manychat_user_id] => Não Informado
+        )
+
+    [checkout_url] => https://checkout.ticto.app/O3271EECB
+    [order] => Array
+        (
+            [id] => 3279746
+            [hash] => TOCD90E11010BUY862V
+            [transaction_hash] => TPC116231010DXP9R7P
+            [paid_amount] => 25512
+            [installments] => 1
+            [order_date] => 2025-10-10 11:39:53
+        )
+
+    [shipping] => Array
+        (
+            [amount] => 0
+            [type] => 
+            [method] => 
+            [delivery_days] => 
+        )
+
+    [offer] => Array
+        (
+            [id] => 142619
+            [code] => O3271EECB
+            [name] => Supersite Starter
+            [description] => Tenha um site profissional em WordPress, criado no nosso modelo-base, com hospedagem semi-dedicada de alto desempenho, até 3 contas de e-mail e manutenção técnica contínua. Ideal para quem busca velocidade, segurança e praticidade sem precisar se preocupar com nada técnico. Domínio não incluso.
+            [price] => 16900
+            [is_subscription] => 1
+            [interval] => 1
+            [trial_days] => 0
+            [first_charge_price] => 31890
+        )
+
+    [item] => Array
+        (
+            [product_name] => Site por Assinatura
+            [product_id] => 98006
+            [refund_deadline] => 7
+            [offer_name] => Supersite Starter
+            [offer_id] => 142619
+            [offer_code] => O3271EECB
+            [coupon_id] => 109277
+            [coupon_name] => SUPER20
+            [coupon_value] => Array
+                (
+                    [type] => percentage
+                    [value] => 20
+                )
+
+            [quantity] => 1
+            [amount] => 25512
+            [members_portal_id] => 
+            [members_classroom_id] => 
+            [days_of_access] => 30
+            [trial_days] => 0
+        )
+
+    [subscriptions] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 519976
+                    [interval] => 1
+                    [successful_charges] => 1
+                    [failed_charges] => 0
+                    [trial_days] => 0
+                    [first_charge_price] => 31890
+                    [max_charges] => 
+                    [next_charge] => 2025-11-10 00:00:00
+                    [canceled_at] => 
+                    [change_card_url] => https://dash.ticto.com.br/change-card/519976?orderCode=TOCD90E11010BUY862V&email=comercial@agencianoa.com.br
+                )
+
+        )
+
+    [transaction] => Array
+        (
+            [hash] => TPC116231010DXP9R7P
+            [cards] => Array
+                (
+                    [0] => Array
+                        (
+                            [brand] => master
+                            [holder] => FABIANA F CARRAZEDO
+                            [first_digits] => 522626
+                            [last_digits] => 7990
+                        )
+
+                )
+
+        )
+
+    [customer] => Array
+        (
+            [cpf] => 36948732879
+            [cnpj] => 
+            [name] => Fabiana Falotico Carrazedo
+            [type] => person
+            [email] => comercial@agencianoa.com.br
+            [phone] => Array
+                (
+                    [ddd] => 11
+                    [ddi] => +55
+                    [number] => 995300069
+                )
+
+            [address] => Array
+                (
+                    [city] => São Paulo
+                    [state] => SP
+                    [street] => Avenida Dom Pedro I
+                    [country] => Brasil
+                    [zip_code] => 01552000
+                    [complement] => ap 202 bloco A
+                    [neighborhood] => Vila Monumento
+                    [street_number] => 219
+                )
+
+            [country] => Array
+                (
+                    [flag] => Array
+                        (
+                            [src] => countries_flags/br.svg
+                        )
+
+                    [name] => Brazil
+                    [region] => Americas
+                    [iso_code] => BR
+                    [dial_code] => +55
+                    [languages] => Array
+                        (
+                            [0] => Portuguese
+                        )
+
+                )
+
+            [is_foreign] => 
+            [language] => pt-BR
+            [code] => 9YOK4FFCXV1760107182
+        )
+
+    [telefone] => 11995300069
+    [phone_local_code_customer] => 
+    [phone_number_customer] => 11995300069
+    [producer] => Array
+        (
+            [id] => 2872526
+            [name] => GRUPO PACHELLA
+            [email] => gerenciamento@pachella.com.br
+            [pid] => 
+            [phone] => 5511971404154
+            [amount] => 18783
+            [cms] => 187.83
+            [document] => 38151589000100
+        )
+
+    [affiliates] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 1388909
+                    [name] => Luiz Paulo Braga Pachella
+                    [email] => luiz@pachella.com.br
+                    [pid] => AF428AF452
+                    [phone] => 5511971404154
+                    [amount] => 4696
+                    [cms] => 46.96
+                    [document] => 
+                )
+
+        )
+
+    [coproducers] => Array
+        (
+        )
+
+    [marketplace_commission] => 1784
+)
+
+[2025-10-10 14:08:01] [debug] Chaves principais | Dados: Array
+(
+    [chaves] => Array
+        (
+            [0] => version
+            [1] => commission_type
+            [2] => status
+            [3] => status_date
+            [4] => token
+            [5] => payment_method
+            [6] => query_params
+            [7] => tracking
+            [8] => checkout_url
+            [9] => order
+            [10] => shipping
+            [11] => offer
+            [12] => item
+            [13] => subscriptions
+            [14] => transaction
+            [15] => customer
+            [16] => telefone
+            [17] => phone_local_code_customer
+            [18] => phone_number_customer
+            [19] => producer
+            [20] => affiliates
+            [21] => coproducers
+            [22] => marketplace_commission
+        )
+
+)
+
+[2025-10-10 14:08:01] [info] Webhook Ticto recebido | Dados: Array
+(
+    [status] => authorized
+    [order_hash] => TOCD90E11010BUY862V
+    [customer_email] => comercial@agencianoa.com.br
+)
+
+[2025-10-10 14:08:02] [info] Webhook processado com sucesso | Dados: Array
+(
+    [success] => 1
+    [message] => Assinatura criada com sucesso
+    [subscription_id] => 64
+    [action] => created
+)
+
+[2025-10-11 16:14:20] [info] ========== NOVO WEBHOOK RECEBIDO DA TICTO ==========
+[2025-10-11 16:14:20] [debug] Raw payload completo | Dados: Array
+(
+    [raw] => {"status":"waiting_payment","payment_method":"bank_slip","url_params":{"query_params":{"code":"O132FE82D"}},"order":{"hash":"TOB12609GU88Q5","paid_amount":50000,"installments":1},"item":{"product_name":"Paki Guthrie","product_id":1,"offer_name":"Teste qa","offer_id":16,"coupon_id":null,"quantity":1,"amount":50000,"members_portal_id":24,"members_classroom_id":123,"days_of_access":null,"trial_days":null},"transaction":{"bank_slip_code":"03399.85301 29700.000242 2722020.901016 2 7815002200015630","bank_slip_url":"https://boleto.sandbox.pagseguro.com.br/f92e014a-b80c-4b0e-94a1-eb8811e991de.pdf"},"customer":{"cpf":"00442742299","cnpj":null,"name":"Cliente Teste","type":"person","email":"emailteste@customerteste.com.io","is_foreign":false,"phone":{"ddd":"999","ddi":"+55","number":"995682466"},"address":{"street":"Rua teste","street_number":"222","complement":"Complemento Teste","neighborhood":"Teste de Bairro","city":"São Paulo","state":"SP","zip_code":"13044207"}},"token":"eRQ1PEZDEXrYaW5AzlZhqyYXI7TnJunFYVnJb2TloJgJLDftJLM0wV7E1PbhbUPWYmNrJaYzigGBsJ4x2J4yg1o7XHin7yXaMMBX"}
+)
+
+[2025-10-11 16:14:20] [debug] Payload decodificado | Dados: Array
+(
+    [status] => waiting_payment
+    [payment_method] => bank_slip
+    [url_params] => Array
+        (
+            [query_params] => Array
+                (
+                    [code] => O132FE82D
+                )
+
+        )
+
+    [order] => Array
+        (
+            [hash] => TOB12609GU88Q5
+            [paid_amount] => 50000
+            [installments] => 1
+        )
+
+    [item] => Array
+        (
+            [product_name] => Paki Guthrie
+            [product_id] => 1
+            [offer_name] => Teste qa
+            [offer_id] => 16
+            [coupon_id] => 
+            [quantity] => 1
+            [amount] => 50000
+            [members_portal_id] => 24
+            [members_classroom_id] => 123
+            [days_of_access] => 
+            [trial_days] => 
+        )
+
+    [transaction] => Array
+        (
+            [bank_slip_code] => 03399.85301 29700.000242 2722020.901016 2 7815002200015630
+            [bank_slip_url] => https://boleto.sandbox.pagseguro.com.br/f92e014a-b80c-4b0e-94a1-eb8811e991de.pdf
+        )
+
+    [customer] => Array
+        (
+            [cpf] => 00442742299
+            [cnpj] => 
+            [name] => Cliente Teste
+            [type] => person
+            [email] => emailteste@customerteste.com.io
+            [is_foreign] => 
+            [phone] => Array
+                (
+                    [ddd] => 999
+                    [ddi] => +55
+                    [number] => 995682466
+                )
+
+            [address] => Array
+                (
+                    [street] => Rua teste
+                    [street_number] => 222
+                    [complement] => Complemento Teste
+                    [neighborhood] => Teste de Bairro
+                    [city] => São Paulo
+                    [state] => SP
+                    [zip_code] => 13044207
+                )
+
+        )
+
+    [token] => eRQ1PEZDEXrYaW5AzlZhqyYXI7TnJunFYVnJb2TloJgJLDftJLM0wV7E1PbhbUPWYmNrJaYzigGBsJ4x2J4yg1o7XHin7yXaMMBX
+)
+
+[2025-10-11 16:14:20] [debug] Chaves principais | Dados: Array
+(
+    [chaves] => Array
+        (
+            [0] => status
+            [1] => payment_method
+            [2] => url_params
+            [3] => order
+            [4] => item
+            [5] => transaction
+            [6] => customer
+            [7] => token
+        )
+
+)
+
+[2025-10-11 16:14:20] [info] Webhook Ticto recebido | Dados: Array
+(
+    [status] => waiting_payment
+    [order_hash] => TOB12609GU88Q5
+    [customer_email] => emailteste@customerteste.com.io
+)
+
+[2025-10-11 16:14:20] [info] Status waiting_payment ignorado - aguardando aprovação
+[2025-10-13 10:47:34] [info] ========== NOVO WEBHOOK RECEBIDO DA TICTO ==========
+[2025-10-13 10:47:34] [debug] Raw payload completo | Dados: Array
+(
+    [raw] => {"version":"2.0","commission_type":"producer","status":"authorized","status_date":"2025-10-13 10:47:33","token":"eRQ1PEZDEXrYaW5AzlZhqyYXI7TnJunFYVnJb2TloJgJLDftJLM0wV7E1PbhbUPWYmNrJaYzigGBsJ4x2J4yg1o7XHin7yXaMMBX","payment_method":"credit_card","query_params":{"pid":"AF428AF452","code":"O3271EECB","event":"PageView","currency":"BRL","offer_code":"O3271EECB","product_id":"98006","payment_method":"credit_card"},"tracking":{"event":"PageView","utm_source":"N\u00e3o Informado","utm_medium":"N\u00e3o Informado","utm_campaign":"N\u00e3o Informado","utm_content":"N\u00e3o Informado","utm_term":"N\u00e3o Informado","src":"N\u00e3o Informado","sck":"N\u00e3o Informado","manychat_user_id":"N\u00e3o Informado"},"checkout_url":"https:\/\/checkout.ticto.app\/O3271EECB","order":{"id":3288925,"hash":"TOCCF1011310I81944D","transaction_hash":"TPC169191310UWR81WCK","paid_amount":22323,"installments":1,"order_date":"2025-10-13 10:47:29"},"shipping":{"amount":0,"type":null,"method":null,"delivery_days":null},"offer":{"id":142619,"code":"O3271EECB","name":"Supersite Starter","description":"Tenha um site profissional em WordPress, criado no nosso modelo-base, com hospedagem semi-dedicada de alto desempenho, at\u00e9 3 contas de e-mail e manuten\u00e7\u00e3o t\u00e9cnica cont\u00ednua. Ideal para quem busca velocidade, seguran\u00e7a e praticidade sem precisar se preocupar com nada t\u00e9cnico. Dom\u00ednio n\u00e3o incluso.","price":16900,"is_subscription":true,"interval":1,"trial_days":0,"first_charge_price":31890},"item":{"product_name":"Site por Assinatura","product_id":98006,"refund_deadline":7,"offer_name":"Supersite Starter","offer_id":142619,"offer_code":"O3271EECB","coupon_id":109278,"coupon_name":"SUPER30","coupon_value":{"type":"percentage","value":30},"quantity":1,"amount":22323,"members_portal_id":null,"members_classroom_id":null,"days_of_access":30,"trial_days":0},"subscriptions":[{"id":522862,"interval":1,"successful_charges":1,"failed_charges":0,"trial_days":0,"first_charge_price":31890,"max_charges":null,"next_charge":"2025-11-13 00:00:00","canceled_at":null,"change_card_url":"https:\/\/dash.ticto.com.br\/change-card\/522862?orderCode=TOCCF1011310I81944D&email=vitor@jvamaquinas.com.br"}],"transaction":{"hash":"TPC169191310UWR81WCK","cards":[{"brand":"visa","holder":"JORGE BARRIVIERA","first_digits":"455187","last_digits":"7829"}]},"customer":{"cpf":null,"cnpj":"07736603000103","name":"Vitor Franco Barriviera","type":"company","email":"vitor@jvamaquinas.com.br","phone":{"ddd":"11","ddi":"+55","number":"942835767"},"address":{"city":"S\u00e3o Paulo","state":"SP","street":"Rua Santa \u00c2ngela","country":"Brasil","zip_code":"02727000","neighborhood":"Vila Palmeiras","street_number":"454"},"country":{"flag":{"src":"countries_flags\/br.svg"},"name":"Brazil","region":"Americas","iso_code":"BR","dial_code":"+55","languages":["Portuguese"]},"is_foreign":false,"language":"pt-BR","code":"LPIRUFZXNC1760363242"},"telefone":"11942835767","phone_local_code_customer":"","phone_number_customer":"11942835767","producer":{"id":2872526,"name":"GRUPO PACHELLA","email":"gerenciamento@pachella.com.br","pid":"","phone":"5511971404154","amount":16410,"cms":"164.10","document":"38151589000100"},"affiliates":[{"id":1388909,"name":"Luiz Paulo Braga Pachella","email":"luiz@pachella.com.br","pid":"AF428AF452","phone":"5511971404154","amount":4103,"cms":"41.03","document":null}],"coproducers":[],"marketplace_commission":1561}
+)
+
+[2025-10-13 10:47:34] [debug] Payload decodificado | Dados: Array
+(
+    [version] => 2.0
+    [commission_type] => producer
+    [status] => authorized
+    [status_date] => 2025-10-13 10:47:33
+    [token] => eRQ1PEZDEXrYaW5AzlZhqyYXI7TnJunFYVnJb2TloJgJLDftJLM0wV7E1PbhbUPWYmNrJaYzigGBsJ4x2J4yg1o7XHin7yXaMMBX
+    [payment_method] => credit_card
+    [query_params] => Array
+        (
+            [pid] => AF428AF452
+            [code] => O3271EECB
+            [event] => PageView
+            [currency] => BRL
+            [offer_code] => O3271EECB
+            [product_id] => 98006
+            [payment_method] => credit_card
+        )
+
+    [tracking] => Array
+        (
+            [event] => PageView
+            [utm_source] => Não Informado
+            [utm_medium] => Não Informado
+            [utm_campaign] => Não Informado
+            [utm_content] => Não Informado
+            [utm_term] => Não Informado
+            [src] => Não Informado
+            [sck] => Não Informado
+            [manychat_user_id] => Não Informado
+        )
+
+    [checkout_url] => https://checkout.ticto.app/O3271EECB
+    [order] => Array
+        (
+            [id] => 3288925
+            [hash] => TOCCF1011310I81944D
+            [transaction_hash] => TPC169191310UWR81WCK
+            [paid_amount] => 22323
+            [installments] => 1
+            [order_date] => 2025-10-13 10:47:29
+        )
+
+    [shipping] => Array
+        (
+            [amount] => 0
+            [type] => 
+            [method] => 
+            [delivery_days] => 
+        )
+
+    [offer] => Array
+        (
+            [id] => 142619
+            [code] => O3271EECB
+            [name] => Supersite Starter
+            [description] => Tenha um site profissional em WordPress, criado no nosso modelo-base, com hospedagem semi-dedicada de alto desempenho, até 3 contas de e-mail e manutenção técnica contínua. Ideal para quem busca velocidade, segurança e praticidade sem precisar se preocupar com nada técnico. Domínio não incluso.
+            [price] => 16900
+            [is_subscription] => 1
+            [interval] => 1
+            [trial_days] => 0
+            [first_charge_price] => 31890
+        )
+
+    [item] => Array
+        (
+            [product_name] => Site por Assinatura
+            [product_id] => 98006
+            [refund_deadline] => 7
+            [offer_name] => Supersite Starter
+            [offer_id] => 142619
+            [offer_code] => O3271EECB
+            [coupon_id] => 109278
+            [coupon_name] => SUPER30
+            [coupon_value] => Array
+                (
+                    [type] => percentage
+                    [value] => 30
+                )
+
+            [quantity] => 1
+            [amount] => 22323
+            [members_portal_id] => 
+            [members_classroom_id] => 
+            [days_of_access] => 30
+            [trial_days] => 0
+        )
+
+    [subscriptions] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 522862
+                    [interval] => 1
+                    [successful_charges] => 1
+                    [failed_charges] => 0
+                    [trial_days] => 0
+                    [first_charge_price] => 31890
+                    [max_charges] => 
+                    [next_charge] => 2025-11-13 00:00:00
+                    [canceled_at] => 
+                    [change_card_url] => https://dash.ticto.com.br/change-card/522862?orderCode=TOCCF1011310I81944D&email=vitor@jvamaquinas.com.br
+                )
+
+        )
+
+    [transaction] => Array
+        (
+            [hash] => TPC169191310UWR81WCK
+            [cards] => Array
+                (
+                    [0] => Array
+                        (
+                            [brand] => visa
+                            [holder] => JORGE BARRIVIERA
+                            [first_digits] => 455187
+                            [last_digits] => 7829
+                        )
+
+                )
+
+        )
+
+    [customer] => Array
+        (
+            [cpf] => 
+            [cnpj] => 07736603000103
+            [name] => Vitor Franco Barriviera
+            [type] => company
+            [email] => vitor@jvamaquinas.com.br
+            [phone] => Array
+                (
+                    [ddd] => 11
+                    [ddi] => +55
+                    [number] => 942835767
+                )
+
+            [address] => Array
+                (
+                    [city] => São Paulo
+                    [state] => SP
+                    [street] => Rua Santa Ângela
+                    [country] => Brasil
+                    [zip_code] => 02727000
+                    [neighborhood] => Vila Palmeiras
+                    [street_number] => 454
+                )
+
+            [country] => Array
+                (
+                    [flag] => Array
+                        (
+                            [src] => countries_flags/br.svg
+                        )
+
+                    [name] => Brazil
+                    [region] => Americas
+                    [iso_code] => BR
+                    [dial_code] => +55
+                    [languages] => Array
+                        (
+                            [0] => Portuguese
+                        )
+
+                )
+
+            [is_foreign] => 
+            [language] => pt-BR
+            [code] => LPIRUFZXNC1760363242
+        )
+
+    [telefone] => 11942835767
+    [phone_local_code_customer] => 
+    [phone_number_customer] => 11942835767
+    [producer] => Array
+        (
+            [id] => 2872526
+            [name] => GRUPO PACHELLA
+            [email] => gerenciamento@pachella.com.br
+            [pid] => 
+            [phone] => 5511971404154
+            [amount] => 16410
+            [cms] => 164.10
+            [document] => 38151589000100
+        )
+
+    [affiliates] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 1388909
+                    [name] => Luiz Paulo Braga Pachella
+                    [email] => luiz@pachella.com.br
+                    [pid] => AF428AF452
+                    [phone] => 5511971404154
+                    [amount] => 4103
+                    [cms] => 41.03
+                    [document] => 
+                )
+
+        )
+
+    [coproducers] => Array
+        (
+        )
+
+    [marketplace_commission] => 1561
+)
+
+[2025-10-13 10:47:34] [debug] Chaves principais | Dados: Array
+(
+    [chaves] => Array
+        (
+            [0] => version
+            [1] => commission_type
+            [2] => status
+            [3] => status_date
+            [4] => token
+            [5] => payment_method
+            [6] => query_params
+            [7] => tracking
+            [8] => checkout_url
+            [9] => order
+            [10] => shipping
+            [11] => offer
+            [12] => item
+            [13] => subscriptions
+            [14] => transaction
+            [15] => customer
+            [16] => telefone
+            [17] => phone_local_code_customer
+            [18] => phone_number_customer
+            [19] => producer
+            [20] => affiliates
+            [21] => coproducers
+            [22] => marketplace_commission
+        )
+
+)
+
+[2025-10-13 10:47:34] [info] Webhook Ticto recebido | Dados: Array
+(
+    [status] => authorized
+    [order_hash] => TOCCF1011310I81944D
+    [customer_email] => vitor@jvamaquinas.com.br
+)
+
+[2025-10-13 10:47:34] [info] Webhook processado com sucesso | Dados: Array
+(
+    [success] => 1
+    [message] => Assinatura criada com sucesso
+    [subscription_id] => 65
+    [action] => created
+)
+

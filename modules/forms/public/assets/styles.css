@@ -1,0 +1,344 @@
+/* A fonte é definida dinamicamente no view.php via inline style no body */
+
+body {
+    background: #ffffff;
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(30px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+.progress-bar {
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Estilo TypeForm para inputs */
+input[type="text"],
+input[type="email"],
+input[type="date"],
+textarea,
+select {
+    border: none;
+    border-bottom: 2px solid #555;
+    background: transparent;
+    transition: border-color 0.2s ease;
+    font-size: 1.125rem;
+    padding: 0.75rem 0;
+}
+
+/* Placeholders com 20% de opacidade da cor do texto */
+input::placeholder,
+textarea::placeholder,
+select::placeholder {
+    opacity: 0.2;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    opacity: 0.2;
+}
+
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+    opacity: 0.2;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+    opacity: 0.2;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-bottom-color: #4EA44B;
+}
+
+/* Radio/Checkbox buttons estilo botão com letras */
+.radio-option {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 2px solid #374151;
+    background: transparent;
+    position: relative;
+}
+
+.radio-option:hover {
+    border-color: #4f46e5;
+    background: rgba(79, 70, 229, 0.05);
+}
+
+.radio-option.selected {
+    border-color: #4f46e5;
+    background: #4f46e5;
+    color: white;
+}
+
+.radio-option.selected .option-letter {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.radio-option.selected .radio-label {
+    color: white;
+}
+
+.option-letter {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    background: #374151;
+    color: white;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-right: 1rem;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.radio-option input[type="radio"],
+.radio-option input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Botões */
+.btn-primary {
+    background: #4f46e5;
+    color: white;
+    padding: 0.875rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-primary:hover {
+    background: #4338ca;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.3);
+}
+
+.btn-secondary {
+    color: #6b7280;
+    padding: 0.875rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    color: #111827;
+}
+
+.question-number {
+    color: #4f46e5;
+    font-weight: 700;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+}
+
+/* Mensagens de erro */
+.error-message {
+    color: #ef4444;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    animation: fadeIn 0.3s ease-out;
+}
+
+input.error,
+textarea.error,
+select.error {
+    border-bottom-color: #ef4444 !important;
+}
+
+/* Rating Stars */
+.rating-stars {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 2.5rem;
+}
+
+.rating-stars .star {
+    color: #d1d5db;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.rating-stars .star:hover,
+.rating-stars .star.active {
+    color: #fbbf24;
+    transform: scale(1.1);
+}
+
+/* Slider */
+input[type="range"] {
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;
+    background: #e5e7eb;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #4f46e5;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    background: #4338ca;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #4f46e5;
+    cursor: pointer;
+    border: none;
+}
+
+.slider-value {
+    display: inline-block;
+    min-width: 3rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #4f46e5;
+}
+
+/* File Upload */
+.file-upload-area {
+    border: 2px dashed #d1d5db;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.file-upload-area:hover {
+    border-color: #4f46e5;
+    background: rgba(79, 70, 229, 0.05);
+}
+
+.file-upload-area.dragover {
+    border-color: #4f46e5;
+    background: rgba(79, 70, 229, 0.1);
+}
+
+/* Terms Checkbox */
+.terms-checkbox {
+    display: flex;
+    align-items: start;
+    gap: 0.75rem;
+}
+
+.terms-checkbox input[type="checkbox"] {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+/* Address Fields */
+.address-fields {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* Terms Text Box - Inline com scroll */
+.terms-text-box {
+    border:1px solid!important;
+    padding: 20px !important;
+    max-height: 200px !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    margin-bottom: 1rem !important;
+    font-size: 0.875rem !important;
+    color: #555 !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: #d1d5db transparent !important;
+    border-radius:8px;
+}
+
+/* Chrome, Edge, Safari */
+.terms-text-box::-webkit-scrollbar {
+    width: 6px !important;
+}
+
+.terms-text-box::-webkit-scrollbar-track {
+    background: transparent !important;
+}
+
+.terms-text-box::-webkit-scrollbar-thumb {
+    background-color: #d1d5db !important;
+    border-radius: 10px !important;
+}
+
+.terms-text-box::-webkit-scrollbar-thumb:hover {
+    background-color: #9ca3af !important;
+}
+
+/* Dark mode */
+.dark .terms-text-box {
+    background: #27272a !important;
+    border-color: #3f3f46 !important;
+    color: #d4d4d8 !important;
+}
+
+.dark .terms-text-box::-webkit-scrollbar-thumb {
+    background-color: #52525b !important;
+}
+
+.dark .terms-text-box::-webkit-scrollbar-thumb:hover {
+    background-color: #71717a !important;
+}
+
+/* Terms Link Box */
+.terms-link-box {
+    background: #f0f9ff;
+    border: 2px solid #bfdbfe;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.terms-link-box a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+}

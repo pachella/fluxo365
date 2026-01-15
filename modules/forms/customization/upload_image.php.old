@@ -1,0 +1,276 @@
+<?php
+session_start();
+
+// Verificar se usuário está logado
+if (!isset($_SESSION['user_id'])) {
+    http_response_code(401);
+    echo json_encode(['success' => false, 'error' => 'Não autorizado']);
+    exit;
+}
+
+// Verificar se recebeu arquivo
+if (!isset($_FILES['image']) || !isset($_POST['form_id']) || !isset($_POST['field_name'])) {
+    http_response_code(400);
+    echo json_encode(['success' => false, 'error' => 'Dados incompletos']);
+    exit;
+}
+
+$file = $_FILES['image'];
+$formId = intval($_POST['form_id']);
+$fieldName = $_POST['field_name'];
+
+// Validar field_name
+if (!in_array($fieldName, ['background_image', 'logo', 'media_image', 'image_choice'])) {
+    http_response_code(400);
+    echo json_encode(['success' => false, 'error' => 'Campo inválido']);
+    exit;
+}
+
+// Verificar erros no upload
+if ($file['error'] !== UPLOAD_ERR_OK) {
+    http_response_code(400);
+    echo json_encode(['success' => false, 'error' => 'Erro no upload do arquivo']);
+    exit;
+}
+
+// Validar tipo de arquivo
+$allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
+$finfo = finfo_open(FILEINFO_MIME_TYPE);
+$mimeType = finfo_file($finfo, $file['tmp_name']);
+finfo_close($finfo);
+
+if (!in_array($mimeType, $allowedTypes)) {
+    http_response_code(400);
+    echo json_encode(['success' => false, 'error' => 'Tipo de arquivo não permitido. Use JPG, PNG ou WebP']);
+    exit;
+}
+
+// Validar tamanho (max 10MB)
+$maxSize = 10 * 1024 * 1024; // 10MB
+if ($file['size'] > $maxSize) {
+    http_response_code(400);
+    echo json_encode(['success' => false, 'error' => 'Arquivo muito grande. Máximo 10MB']);
+    exit;
+}
+
+// Criar diretório de upload se não existir
+$uploadDir = __DIR__ . '/../../../uploads/forms/' . $formId . '/';
+if (!is_dir($uploadDir)) {
+    mkdir($uploadDir, 0755, true);
+}
+
+// Sanitizar nome do arquivo
+$originalFilename = pathinfo($file['name'], PATHINFO_FILENAME);
+$sanitizedFilename = sanitizeFilename($originalFilename);
+$extension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+
+// Nome temporário
+$tempFilename = $sanitizedFilename . '-' . date('YmdHis') . '.' . $extension;
+$tempPath = $uploadDir . $tempFilename;
+
+// Mover arquivo para diretório temporário
+if (!move_uploaded_file($file['tmp_name'], $tempPath)) {
+    http_response_code(500);
+    echo json_encode(['success' => false, 'error' => 'Erro ao salvar arquivo']);
+    exit;
+}
+
+// Processar imagem: redimensionar e converter para WebP
+try {
+    $webpPath = processImage($tempPath, $uploadDir, $sanitizedFilename);
+    
+    if (!$webpPath) {
+        throw new Exception('Erro ao processar imagem');
+    }
+    
+    // Remover arquivo original se não for WebP
+    if ($extension !== 'webp' && file_exists($tempPath)) {
+        unlink($tempPath);
+    }
+    
+    // Gerar URL pública
+    $publicUrl = '/uploads/forms/' . $formId . '/' . basename($webpPath);
+    
+    echo json_encode([
+        'success' => true,
+        'url' => $publicUrl,
+        'filename' => basename($webpPath)
+    ]);
+    
+} catch (Exception $e) {
+    // Limpar arquivo temporário em caso de erro
+    if (file_exists($tempPath)) {
+        unlink($tempPath);
+    }
+    
+    http_response_code(500);
+    echo json_encode(['success' => false, 'error' => $e->getMessage()]);
+}
+
+/**
+ * Sanitizar nome do arquivo
+ */
+function sanitizeFilename($filename) {
+    $filename = strtolower($filename);
+    
+    $replacements = [
+        '/[áàâãäå]/u' => 'a',
+        '/[éèêë]/u' => 'e',
+        '/[íìîï]/u' => 'i',
+        '/[óòôõö]/u' => 'o',
+        '/[úùûü]/u' => 'u',
+        '/[ç]/u' => 'c',
+        '/[ñ]/u' => 'n',
+        '/\s+/' => '-',
+        '/[^a-z0-9\-_]/' => '',
+        '/\-+/' => '-'
+    ];
+    
+    foreach ($replacements as $pattern => $replacement) {
+        $filename = preg_replace($pattern, $replacement, $filename);
+    }
+    
+    return trim($filename, '-');
+}
+
+/**
+ * Processar imagem: redimensionar e converter para WebP
+ */
+function processImage($imagePath, $outputDir, $baseFilename) {
+    $extension = strtolower(pathinfo($imagePath, PATHINFO_EXTENSION));
+    
+    // Se já for WebP, só redimensiona
+    if ($extension === 'webp') {
+        resizeImage($imagePath, $imagePath);
+        return $imagePath;
+    }
+    
+    // Carregar imagem conforme o tipo
+    switch ($extension) {
+        case 'jpg':
+        case 'jpeg':
+            $image = imagecreatefromjpeg($imagePath);
+            break;
+        case 'png':
+            $image = imagecreatefrompng($imagePath);
+            if ($image !== false) {
+                imagepalettetotruecolor($image);
+                imagealphablending($image, true);
+                imagesavealpha($image, true);
+            }
+            break;
+        default:
+            throw new Exception('Tipo de imagem não suportado');
+    }
+    
+    if (!$image) {
+        throw new Exception('Erro ao carregar imagem');
+    }
+    
+    // Redimensionar se necessário (max 1920px de largura)
+    $image = resizeImageResource($image, 1920);
+    
+    // Gerar nome do arquivo WebP
+    $webpFilename = $baseFilename . '-' . date('YmdHis') . '.webp';
+    $webpPath = $outputDir . $webpFilename;
+    
+    // Converter para WebP com qualidade 85
+    $quality = 85;
+    $success = imagewebp($image, $webpPath, $quality);
+    
+    imagedestroy($image);
+    
+    if (!$success || !file_exists($webpPath) || filesize($webpPath) === 0) {
+        throw new Exception('Erro ao converter imagem para WebP');
+    }
+    
+    return $webpPath;
+}
+
+/**
+ * Redimensionar imagem mantendo proporção
+ */
+function resizeImage($imagePath, $outputPath, $maxWidth = 1920) {
+    $extension = strtolower(pathinfo($imagePath, PATHINFO_EXTENSION));
+    
+    // Carregar imagem
+    switch ($extension) {
+        case 'jpg':
+        case 'jpeg':
+            $image = imagecreatefromjpeg($imagePath);
+            break;
+        case 'png':
+            $image = imagecreatefrompng($imagePath);
+            break;
+        case 'webp':
+            $image = imagecreatefromwebp($imagePath);
+            break;
+        default:
+            return false;
+    }
+    
+    if (!$image) {
+        return false;
+    }
+    
+    $resizedImage = resizeImageResource($image, $maxWidth);
+    
+    // Salvar imagem redimensionada
+    $success = false;
+    switch ($extension) {
+        case 'jpg':
+        case 'jpeg':
+            $success = imagejpeg($resizedImage, $outputPath, 90);
+            break;
+        case 'png':
+            $success = imagepng($resizedImage, $outputPath, 9);
+            break;
+        case 'webp':
+            $success = imagewebp($resizedImage, $outputPath, 85);
+            break;
+    }
+    
+    imagedestroy($image);
+    imagedestroy($resizedImage);
+    
+    return $success;
+}
+
+/**
+ * Redimensionar resource de imagem
+ */
+function resizeImageResource($image, $maxWidth = 1920) {
+    $originalWidth = imagesx($image);
+    $originalHeight = imagesy($image);
+    
+    // Se a imagem já é menor que o máximo, retorna a original
+    if ($originalWidth <= $maxWidth) {
+        return $image;
+    }
+    
+    // Calcular novas dimensões mantendo proporção
+    $newWidth = $maxWidth;
+    $newHeight = intval(($originalHeight / $originalWidth) * $newWidth);
+    
+    // Criar nova imagem redimensionada
+    $resizedImage = imagecreatetruecolor($newWidth, $newHeight);
+    
+    // Preservar transparência para PNG/WebP
+    imagealphablending($resizedImage, false);
+    imagesavealpha($resizedImage, true);
+    $transparent = imagecolorallocatealpha($resizedImage, 255, 255, 255, 127);
+    imagefilledrectangle($resizedImage, 0, 0, $newWidth, $newHeight, $transparent);
+    
+    // Redimensionar
+    imagecopyresampled(
+        $resizedImage,
+        $image,
+        0, 0, 0, 0,
+        $newWidth,
+        $newHeight,
+        $originalWidth,
+        $originalHeight
+    );
+    
+    return $resizedImage;
+}

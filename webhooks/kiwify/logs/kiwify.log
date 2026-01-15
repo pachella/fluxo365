@@ -1,0 +1,4879 @@
+[2025-10-02 13:35:59] [debug] === PAYLOAD COMPLETO DA KIWIFY ===
+[2025-10-02 13:35:59] [debug] Raw payload | Dados: Array
+(
+    [raw] => {"order_id":"41ad8dbd-5870-401d-b53e-c0618492aeeb","order_ref":"LWYwvlT","order_status":"paid","product_type":"membership","payment_method":"credit_card","store_id":"QI19B2KfN9FssQc","payment_merchant_id":16227850,"installments":1,"card_type":"mastercard","card_last4digits":"6144","card_rejection_reason":null,"boleto_URL":null,"boleto_barcode":null,"boleto_expiry_date":null,"pix_code":null,"pix_expiration":null,"sale_type":"producer","created_at":"2025-10-02 16:35","updated_at":"2025-10-02 16:35","approved_date":"2025-10-03 16:35","refunded_at":null,"webhook_event_type":"order_approved","Product":{"product_id":"a2585af0-8c89-4274-9c64-79264eead75d","product_name":"Example product"},"Customer":{"full_name":"John Doe","first_name":"John","email":"johndoe@example.com","mobile":"+64944965603","cnpj":"17432474670658","ip":"af8c:1e78:35bf:93d2:db17:61f6:66f:2bb0","instagram":"@kiwify","street":"Rua 1001","number":"315","complement":"SL 05","neighborhood":"Centro","city":"Balneário Camboriú","state":"SC","zipcode":"88330-756"},"Commissions":{"charge_amount":6405,"product_base_price":6405,"product_base_price_currency":"BRL","kiwify_fee":705,"kiwify_fee_currency":"BRL","settlement_amount":6405,"settlement_amount_currency":"BRL","sale_tax_rate":0,"sale_tax_amount":0,"commissioned_stores":[{"id":"085a5c36-c18b-4ca7-a42b-4a2f5e8f2ec1","type":"producer","custom_name":"Example store","email":"example@store.domain","value":"5700"},{"id":"a5eeb250-b2e1-4ea0-aeef-3f0139436e6f","type":"coproducer","custom_name":"Example coproducer","email":"example@coproducer.domain","value":"5700"},{"id":"fb1065fd-c33c-49a1-8f5e-98570a6a6503","type":"affiliate","affiliate_id":"ntbblYh","custom_name":"Example affiliate","email":"example@affiliate.domain","value":"5700"}],"currency":"BRL","my_commission":5700,"funds_status":null,"estimated_deposit_date":null,"deposit_date":null},"TrackingParameters":{"src":null,"sck":null,"utm_source":null,"utm_medium":null,"utm_campaign":null,"utm_content":null,"utm_term":null,"s1":null,"s2":null,"s3":null},"Subscription":{"id":"47f17906-58fb-42a0-9afa-2f7c5c3d04bb","start_date":"2025-09-29T16:35:59.929Z","next_payment":"2025-10-06T16:35:59.929Z","status":"active","plan":{"id":"4e7b4ab2-40fc-4ab3-a2a4-b9b9d0ccc77c","name":"Example plan","frequency":"weekly","qty_charges":0},"charges":{"completed":[{"order_id":"41ad8dbd-5870-401d-b53e-c0618492aeeb","amount":5700,"status":"paid","installments":1,"card_type":"mastercard","card_last_digits":"7603","card_first_digits":"175103","created_at":"2025-09-29T16:35:59.929Z"}],"future":[{"charge_date":"2025-10-06T16:35:59.929Z"}]}},"subscription_id":"47f17906-58fb-42a0-9afa-2f7c5c3d04bb","access_url":null}
+)
+
+[2025-10-02 13:35:59] [debug] Payload completo decodificado | Dados: Array
+(
+    [order_id] => 41ad8dbd-5870-401d-b53e-c0618492aeeb
+    [order_ref] => LWYwvlT
+    [order_status] => paid
+    [product_type] => membership
+    [payment_method] => credit_card
+    [store_id] => QI19B2KfN9FssQc
+    [payment_merchant_id] => 16227850
+    [installments] => 1
+    [card_type] => mastercard
+    [card_last4digits] => 6144
+    [card_rejection_reason] => 
+    [boleto_URL] => 
+    [boleto_barcode] => 
+    [boleto_expiry_date] => 
+    [pix_code] => 
+    [pix_expiration] => 
+    [sale_type] => producer
+    [created_at] => 2025-10-02 16:35
+    [updated_at] => 2025-10-02 16:35
+    [approved_date] => 2025-10-03 16:35
+    [refunded_at] => 
+    [webhook_event_type] => order_approved
+    [Product] => Array
+        (
+            [product_id] => a2585af0-8c89-4274-9c64-79264eead75d
+            [product_name] => Example product
+        )
+
+    [Customer] => Array
+        (
+            [full_name] => John Doe
+            [first_name] => John
+            [email] => johndoe@example.com
+            [mobile] => +64944965603
+            [cnpj] => 17432474670658
+            [ip] => af8c:1e78:35bf:93d2:db17:61f6:66f:2bb0
+            [instagram] => @kiwify
+            [street] => Rua 1001
+            [number] => 315
+            [complement] => SL 05
+            [neighborhood] => Centro
+            [city] => Balneário Camboriú
+            [state] => SC
+            [zipcode] => 88330-756
+        )
+
+    [Commissions] => Array
+        (
+            [charge_amount] => 6405
+            [product_base_price] => 6405
+            [product_base_price_currency] => BRL
+            [kiwify_fee] => 705
+            [kiwify_fee_currency] => BRL
+            [settlement_amount] => 6405
+            [settlement_amount_currency] => BRL
+            [sale_tax_rate] => 0
+            [sale_tax_amount] => 0
+            [commissioned_stores] => Array
+                (
+                    [0] => Array
+                        (
+                            [id] => 085a5c36-c18b-4ca7-a42b-4a2f5e8f2ec1
+                            [type] => producer
+                            [custom_name] => Example store
+                            [email] => example@store.domain
+                            [value] => 5700
+                        )
+
+                    [1] => Array
+                        (
+                            [id] => a5eeb250-b2e1-4ea0-aeef-3f0139436e6f
+                            [type] => coproducer
+                            [custom_name] => Example coproducer
+                            [email] => example@coproducer.domain
+                            [value] => 5700
+                        )
+
+                    [2] => Array
+                        (
+                            [id] => fb1065fd-c33c-49a1-8f5e-98570a6a6503
+                            [type] => affiliate
+                            [affiliate_id] => ntbblYh
+                            [custom_name] => Example affiliate
+                            [email] => example@affiliate.domain
+                            [value] => 5700
+                        )
+
+                )
+
+            [currency] => BRL
+            [my_commission] => 5700
+            [funds_status] => 
+            [estimated_deposit_date] => 
+            [deposit_date] => 
+        )
+
+    [TrackingParameters] => Array
+        (
+            [src] => 
+            [sck] => 
+            [utm_source] => 
+            [utm_medium] => 
+            [utm_campaign] => 
+            [utm_content] => 
+            [utm_term] => 
+            [s1] => 
+            [s2] => 
+            [s3] => 
+        )
+
+    [Subscription] => Array
+        (
+            [id] => 47f17906-58fb-42a0-9afa-2f7c5c3d04bb
+            [start_date] => 2025-09-29T16:35:59.929Z
+            [next_payment] => 2025-10-06T16:35:59.929Z
+            [status] => active
+            [plan] => Array
+                (
+                    [id] => 4e7b4ab2-40fc-4ab3-a2a4-b9b9d0ccc77c
+                    [name] => Example plan
+                    [frequency] => weekly
+                    [qty_charges] => 0
+                )
+
+            [charges] => Array
+                (
+                    [completed] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [order_id] => 41ad8dbd-5870-401d-b53e-c0618492aeeb
+                                    [amount] => 5700
+                                    [status] => paid
+                                    [installments] => 1
+                                    [card_type] => mastercard
+                                    [card_last_digits] => 7603
+                                    [card_first_digits] => 175103
+                                    [created_at] => 2025-09-29T16:35:59.929Z
+                                )
+
+                        )
+
+                    [future] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [charge_date] => 2025-10-06T16:35:59.929Z
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [subscription_id] => 47f17906-58fb-42a0-9afa-2f7c5c3d04bb
+    [access_url] => 
+)
+
+[2025-10-02 13:35:59] [debug] Customer data completo | Dados: Array
+(
+    [full_name] => John Doe
+    [first_name] => John
+    [email] => johndoe@example.com
+    [mobile] => +64944965603
+    [cnpj] => 17432474670658
+    [ip] => af8c:1e78:35bf:93d2:db17:61f6:66f:2bb0
+    [instagram] => @kiwify
+    [street] => Rua 1001
+    [number] => 315
+    [complement] => SL 05
+    [neighborhood] => Centro
+    [city] => Balneário Camboriú
+    [state] => SC
+    [zipcode] => 88330-756
+)
+
+[2025-10-02 13:35:59] [debug] Product data completo | Dados: Array
+(
+    [product_id] => a2585af0-8c89-4274-9c64-79264eead75d
+    [product_name] => Example product
+)
+
+[2025-10-02 13:35:59] [debug] Subscription data completo | Dados: Array
+(
+    [id] => 47f17906-58fb-42a0-9afa-2f7c5c3d04bb
+    [start_date] => 2025-09-29T16:35:59.929Z
+    [next_payment] => 2025-10-06T16:35:59.929Z
+    [status] => active
+    [plan] => Array
+        (
+            [id] => 4e7b4ab2-40fc-4ab3-a2a4-b9b9d0ccc77c
+            [name] => Example plan
+            [frequency] => weekly
+            [qty_charges] => 0
+        )
+
+    [charges] => Array
+        (
+            [completed] => Array
+                (
+                    [0] => Array
+                        (
+                            [order_id] => 41ad8dbd-5870-401d-b53e-c0618492aeeb
+                            [amount] => 5700
+                            [status] => paid
+                            [installments] => 1
+                            [card_type] => mastercard
+                            [card_last_digits] => 7603
+                            [card_first_digits] => 175103
+                            [created_at] => 2025-09-29T16:35:59.929Z
+                        )
+
+                )
+
+            [future] => Array
+                (
+                    [0] => Array
+                        (
+                            [charge_date] => 2025-10-06T16:35:59.929Z
+                        )
+
+                )
+
+        )
+
+)
+
+[2025-10-02 13:35:59] [debug] Commissions data completo | Dados: Array
+(
+    [charge_amount] => 6405
+    [product_base_price] => 6405
+    [product_base_price_currency] => BRL
+    [kiwify_fee] => 705
+    [kiwify_fee_currency] => BRL
+    [settlement_amount] => 6405
+    [settlement_amount_currency] => BRL
+    [sale_tax_rate] => 0
+    [sale_tax_amount] => 0
+    [commissioned_stores] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 085a5c36-c18b-4ca7-a42b-4a2f5e8f2ec1
+                    [type] => producer
+                    [custom_name] => Example store
+                    [email] => example@store.domain
+                    [value] => 5700
+                )
+
+            [1] => Array
+                (
+                    [id] => a5eeb250-b2e1-4ea0-aeef-3f0139436e6f
+                    [type] => coproducer
+                    [custom_name] => Example coproducer
+                    [email] => example@coproducer.domain
+                    [value] => 5700
+                )
+
+            [2] => Array
+                (
+                    [id] => fb1065fd-c33c-49a1-8f5e-98570a6a6503
+                    [type] => affiliate
+                    [affiliate_id] => ntbblYh
+                    [custom_name] => Example affiliate
+                    [email] => example@affiliate.domain
+                    [value] => 5700
+                )
+
+        )
+
+    [currency] => BRL
+    [my_commission] => 5700
+    [funds_status] => 
+    [estimated_deposit_date] => 
+    [deposit_date] => 
+)
+
+[2025-10-02 13:35:59] [debug] Todas as chaves do payload principal | Dados: Array
+(
+    [chaves] => Array
+        (
+            [0] => order_id
+            [1] => order_ref
+            [2] => order_status
+            [3] => product_type
+            [4] => payment_method
+            [5] => store_id
+            [6] => payment_merchant_id
+            [7] => installments
+            [8] => card_type
+            [9] => card_last4digits
+            [10] => card_rejection_reason
+            [11] => boleto_URL
+            [12] => boleto_barcode
+            [13] => boleto_expiry_date
+            [14] => pix_code
+            [15] => pix_expiration
+            [16] => sale_type
+            [17] => created_at
+            [18] => updated_at
+            [19] => approved_date
+            [20] => refunded_at
+            [21] => webhook_event_type
+            [22] => Product
+            [23] => Customer
+            [24] => Commissions
+            [25] => TrackingParameters
+            [26] => Subscription
+            [27] => subscription_id
+            [28] => access_url
+        )
+
+)
+
+[2025-10-02 13:35:59] [debug] === FIM DEBUG COMPLETO ===
+[2025-10-02 13:35:59] [info] Webhook recebido da Kiwify | Dados: Array
+(
+    [event] => order_approved
+    [order_id] => 41ad8dbd-5870-401d-b53e-c0618492aeeb
+)
+
+[2025-10-02 13:35:59] [info] Processando nova compra | Dados: Array
+(
+    [cliente] => John Doe
+    [email] => johndoe@example.com
+    [valor_bruto] => 64.05
+    [valor_liquido] => 0
+    [comissao_afiliado] => 0
+    [taxa_kiwify] => 7.05
+    [tem_afiliado] => 
+)
+
+[2025-10-02 13:35:59] [info] Compra processada com sucesso | Dados: Array
+(
+    [success] => 1
+    [subscription_id] => 43
+    [message] => Assinatura criada com sucesso
+)
+
+[2025-10-02 13:37:30] [debug] === PAYLOAD COMPLETO DA KIWIFY ===
+[2025-10-02 13:37:30] [debug] Raw payload | Dados: Array
+(
+    [raw] => {"order_id":"d3da97fc-4267-4cf2-a7a6-06c1732bf9e5","order_ref":"iuOqPgT","order_status":"paid","product_type":"membership","payment_method":"credit_card","store_id":"XInciYsP3nau1he","payment_merchant_id":80399601,"installments":1,"card_type":"mastercard","card_last4digits":"7405","card_rejection_reason":null,"boleto_URL":null,"boleto_barcode":null,"boleto_expiry_date":null,"pix_code":null,"pix_expiration":null,"sale_type":"producer","created_at":"2025-10-02 16:37","updated_at":"2025-10-02 16:37","approved_date":"2025-10-03 16:37","refunded_at":null,"webhook_event_type":"order_approved","Product":{"product_id":"ecc2d251-0931-4495-a651-7971872c580a","product_name":"Example product"},"Customer":{"full_name":"John Doe","first_name":"John","email":"johndoe@example.com","mobile":"+46992997230","CPF":"15565024566","ip":"142.154.177.81","instagram":"@kiwify","street":"Rua 1001","number":"315","complement":"SL 05","neighborhood":"Centro","city":"Balneário Camboriú","state":"SC","zipcode":"88330-756"},"Commissions":{"charge_amount":2602,"product_base_price":2602,"product_base_price_currency":"BRL","kiwify_fee":286,"kiwify_fee_currency":"BRL","settlement_amount":2602,"settlement_amount_currency":"BRL","sale_tax_rate":0,"sale_tax_amount":0,"commissioned_stores":[{"id":"b6c5364e-41f2-40a0-b9d3-fcb1d67a1683","type":"producer","custom_name":"Example store","email":"example@store.domain","value":"2316"},{"id":"13930420-418c-454e-adc2-403c62f9be2a","type":"coproducer","custom_name":"Example coproducer","email":"example@coproducer.domain","value":"2316"},{"id":"e08b53c7-1052-4d39-844a-961b4430ef0b","type":"affiliate","affiliate_id":"LOgHzsI","custom_name":"Example affiliate","email":"example@affiliate.domain","value":"2316"}],"currency":"BRL","my_commission":2316,"funds_status":null,"estimated_deposit_date":null,"deposit_date":null},"TrackingParameters":{"src":null,"sck":null,"utm_source":null,"utm_medium":null,"utm_campaign":null,"utm_content":null,"utm_term":null,"s1":null,"s2":null,"s3":null},"Subscription":{"id":"6a669626-8a25-4edf-989d-3f40e648fda0","start_date":"2025-09-29T16:37:30.629Z","next_payment":"2025-10-06T16:37:30.629Z","status":"active","plan":{"id":"2801aeb7-902e-4b63-8940-a6c4f3b629e1","name":"Example plan","frequency":"weekly","qty_charges":0},"charges":{"completed":[{"order_id":"d3da97fc-4267-4cf2-a7a6-06c1732bf9e5","amount":2316,"status":"paid","installments":1,"card_type":"mastercard","card_last_digits":"1282","card_first_digits":"754914","created_at":"2025-09-29T16:37:30.629Z"}],"future":[{"charge_date":"2025-10-06T16:37:30.629Z"}]}},"subscription_id":"6a669626-8a25-4edf-989d-3f40e648fda0","access_url":null}
+)
+
+[2025-10-02 13:37:30] [debug] Payload completo decodificado | Dados: Array
+(
+    [order_id] => d3da97fc-4267-4cf2-a7a6-06c1732bf9e5
+    [order_ref] => iuOqPgT
+    [order_status] => paid
+    [product_type] => membership
+    [payment_method] => credit_card
+    [store_id] => XInciYsP3nau1he
+    [payment_merchant_id] => 80399601
+    [installments] => 1
+    [card_type] => mastercard
+    [card_last4digits] => 7405
+    [card_rejection_reason] => 
+    [boleto_URL] => 
+    [boleto_barcode] => 
+    [boleto_expiry_date] => 
+    [pix_code] => 
+    [pix_expiration] => 
+    [sale_type] => producer
+    [created_at] => 2025-10-02 16:37
+    [updated_at] => 2025-10-02 16:37
+    [approved_date] => 2025-10-03 16:37
+    [refunded_at] => 
+    [webhook_event_type] => order_approved
+    [Product] => Array
+        (
+            [product_id] => ecc2d251-0931-4495-a651-7971872c580a
+            [product_name] => Example product
+        )
+
+    [Customer] => Array
+        (
+            [full_name] => John Doe
+            [first_name] => John
+            [email] => johndoe@example.com
+            [mobile] => +46992997230
+            [CPF] => 15565024566
+            [ip] => 142.154.177.81
+            [instagram] => @kiwify
+            [street] => Rua 1001
+            [number] => 315
+            [complement] => SL 05
+            [neighborhood] => Centro
+            [city] => Balneário Camboriú
+            [state] => SC
+            [zipcode] => 88330-756
+        )
+
+    [Commissions] => Array
+        (
+            [charge_amount] => 2602
+            [product_base_price] => 2602
+            [product_base_price_currency] => BRL
+            [kiwify_fee] => 286
+            [kiwify_fee_currency] => BRL
+            [settlement_amount] => 2602
+            [settlement_amount_currency] => BRL
+            [sale_tax_rate] => 0
+            [sale_tax_amount] => 0
+            [commissioned_stores] => Array
+                (
+                    [0] => Array
+                        (
+                            [id] => b6c5364e-41f2-40a0-b9d3-fcb1d67a1683
+                            [type] => producer
+                            [custom_name] => Example store
+                            [email] => example@store.domain
+                            [value] => 2316
+                        )
+
+                    [1] => Array
+                        (
+                            [id] => 13930420-418c-454e-adc2-403c62f9be2a
+                            [type] => coproducer
+                            [custom_name] => Example coproducer
+                            [email] => example@coproducer.domain
+                            [value] => 2316
+                        )
+
+                    [2] => Array
+                        (
+                            [id] => e08b53c7-1052-4d39-844a-961b4430ef0b
+                            [type] => affiliate
+                            [affiliate_id] => LOgHzsI
+                            [custom_name] => Example affiliate
+                            [email] => example@affiliate.domain
+                            [value] => 2316
+                        )
+
+                )
+
+            [currency] => BRL
+            [my_commission] => 2316
+            [funds_status] => 
+            [estimated_deposit_date] => 
+            [deposit_date] => 
+        )
+
+    [TrackingParameters] => Array
+        (
+            [src] => 
+            [sck] => 
+            [utm_source] => 
+            [utm_medium] => 
+            [utm_campaign] => 
+            [utm_content] => 
+            [utm_term] => 
+            [s1] => 
+            [s2] => 
+            [s3] => 
+        )
+
+    [Subscription] => Array
+        (
+            [id] => 6a669626-8a25-4edf-989d-3f40e648fda0
+            [start_date] => 2025-09-29T16:37:30.629Z
+            [next_payment] => 2025-10-06T16:37:30.629Z
+            [status] => active
+            [plan] => Array
+                (
+                    [id] => 2801aeb7-902e-4b63-8940-a6c4f3b629e1
+                    [name] => Example plan
+                    [frequency] => weekly
+                    [qty_charges] => 0
+                )
+
+            [charges] => Array
+                (
+                    [completed] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [order_id] => d3da97fc-4267-4cf2-a7a6-06c1732bf9e5
+                                    [amount] => 2316
+                                    [status] => paid
+                                    [installments] => 1
+                                    [card_type] => mastercard
+                                    [card_last_digits] => 1282
+                                    [card_first_digits] => 754914
+                                    [created_at] => 2025-09-29T16:37:30.629Z
+                                )
+
+                        )
+
+                    [future] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [charge_date] => 2025-10-06T16:37:30.629Z
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [subscription_id] => 6a669626-8a25-4edf-989d-3f40e648fda0
+    [access_url] => 
+)
+
+[2025-10-02 13:37:30] [debug] Customer data completo | Dados: Array
+(
+    [full_name] => John Doe
+    [first_name] => John
+    [email] => johndoe@example.com
+    [mobile] => +46992997230
+    [CPF] => 15565024566
+    [ip] => 142.154.177.81
+    [instagram] => @kiwify
+    [street] => Rua 1001
+    [number] => 315
+    [complement] => SL 05
+    [neighborhood] => Centro
+    [city] => Balneário Camboriú
+    [state] => SC
+    [zipcode] => 88330-756
+)
+
+[2025-10-02 13:37:30] [debug] Product data completo | Dados: Array
+(
+    [product_id] => ecc2d251-0931-4495-a651-7971872c580a
+    [product_name] => Example product
+)
+
+[2025-10-02 13:37:30] [debug] Subscription data completo | Dados: Array
+(
+    [id] => 6a669626-8a25-4edf-989d-3f40e648fda0
+    [start_date] => 2025-09-29T16:37:30.629Z
+    [next_payment] => 2025-10-06T16:37:30.629Z
+    [status] => active
+    [plan] => Array
+        (
+            [id] => 2801aeb7-902e-4b63-8940-a6c4f3b629e1
+            [name] => Example plan
+            [frequency] => weekly
+            [qty_charges] => 0
+        )
+
+    [charges] => Array
+        (
+            [completed] => Array
+                (
+                    [0] => Array
+                        (
+                            [order_id] => d3da97fc-4267-4cf2-a7a6-06c1732bf9e5
+                            [amount] => 2316
+                            [status] => paid
+                            [installments] => 1
+                            [card_type] => mastercard
+                            [card_last_digits] => 1282
+                            [card_first_digits] => 754914
+                            [created_at] => 2025-09-29T16:37:30.629Z
+                        )
+
+                )
+
+            [future] => Array
+                (
+                    [0] => Array
+                        (
+                            [charge_date] => 2025-10-06T16:37:30.629Z
+                        )
+
+                )
+
+        )
+
+)
+
+[2025-10-02 13:37:30] [debug] Commissions data completo | Dados: Array
+(
+    [charge_amount] => 2602
+    [product_base_price] => 2602
+    [product_base_price_currency] => BRL
+    [kiwify_fee] => 286
+    [kiwify_fee_currency] => BRL
+    [settlement_amount] => 2602
+    [settlement_amount_currency] => BRL
+    [sale_tax_rate] => 0
+    [sale_tax_amount] => 0
+    [commissioned_stores] => Array
+        (
+            [0] => Array
+                (
+                    [id] => b6c5364e-41f2-40a0-b9d3-fcb1d67a1683
+                    [type] => producer
+                    [custom_name] => Example store
+                    [email] => example@store.domain
+                    [value] => 2316
+                )
+
+            [1] => Array
+                (
+                    [id] => 13930420-418c-454e-adc2-403c62f9be2a
+                    [type] => coproducer
+                    [custom_name] => Example coproducer
+                    [email] => example@coproducer.domain
+                    [value] => 2316
+                )
+
+            [2] => Array
+                (
+                    [id] => e08b53c7-1052-4d39-844a-961b4430ef0b
+                    [type] => affiliate
+                    [affiliate_id] => LOgHzsI
+                    [custom_name] => Example affiliate
+                    [email] => example@affiliate.domain
+                    [value] => 2316
+                )
+
+        )
+
+    [currency] => BRL
+    [my_commission] => 2316
+    [funds_status] => 
+    [estimated_deposit_date] => 
+    [deposit_date] => 
+)
+
+[2025-10-02 13:37:30] [debug] Todas as chaves do payload principal | Dados: Array
+(
+    [chaves] => Array
+        (
+            [0] => order_id
+            [1] => order_ref
+            [2] => order_status
+            [3] => product_type
+            [4] => payment_method
+            [5] => store_id
+            [6] => payment_merchant_id
+            [7] => installments
+            [8] => card_type
+            [9] => card_last4digits
+            [10] => card_rejection_reason
+            [11] => boleto_URL
+            [12] => boleto_barcode
+            [13] => boleto_expiry_date
+            [14] => pix_code
+            [15] => pix_expiration
+            [16] => sale_type
+            [17] => created_at
+            [18] => updated_at
+            [19] => approved_date
+            [20] => refunded_at
+            [21] => webhook_event_type
+            [22] => Product
+            [23] => Customer
+            [24] => Commissions
+            [25] => TrackingParameters
+            [26] => Subscription
+            [27] => subscription_id
+            [28] => access_url
+        )
+
+)
+
+[2025-10-02 13:37:30] [debug] === FIM DEBUG COMPLETO ===
+[2025-10-02 13:37:30] [info] Webhook recebido da Kiwify | Dados: Array
+(
+    [event] => order_approved
+    [order_id] => d3da97fc-4267-4cf2-a7a6-06c1732bf9e5
+)
+
+[2025-10-02 13:37:30] [info] Venda com afiliado detectada | Dados: Array
+(
+    [afiliado] => Example affiliate
+    [email] => example@affiliate.domain
+    [comissao] => 23.16
+    [percentual] => 89.01
+)
+
+[2025-10-02 13:37:30] [info] Processando nova compra | Dados: Array
+(
+    [cliente] => John Doe
+    [email] => johndoe@example.com
+    [valor_bruto] => 26.02
+    [valor_liquido] => 23.16
+    [comissao_afiliado] => 23.16
+    [taxa_kiwify] => 2.86
+    [tem_afiliado] => 1
+)
+
+[2025-10-02 13:37:30] [info] Compra processada com sucesso | Dados: Array
+(
+    [success] => 1
+    [subscription_id] => 44
+    [message] => Assinatura criada com sucesso
+)
+
+[2025-10-02 13:40:07] [debug] === PAYLOAD COMPLETO DA KIWIFY ===
+[2025-10-02 13:40:07] [debug] Raw payload | Dados: Array
+(
+    [raw] => {"order_id":"78af1bcd-44be-4afa-b68b-03fae8a64bc3","order_ref":"djfjSQi","order_status":"paid","product_type":"membership","payment_method":"credit_card","store_id":"dA4ePzhanzBc41n","payment_merchant_id":48499942,"installments":1,"card_type":"mastercard","card_last4digits":"2122","card_rejection_reason":null,"boleto_URL":null,"boleto_barcode":null,"boleto_expiry_date":null,"pix_code":null,"pix_expiration":null,"sale_type":"producer","created_at":"2025-10-02 16:40","updated_at":"2025-10-02 16:40","approved_date":"2025-10-03 16:40","refunded_at":null,"webhook_event_type":"order_approved","Product":{"product_id":"85a5bfa6-ab40-48e4-a989-99fa30315971","product_name":"Example product"},"Customer":{"full_name":"John Doe","first_name":"John","email":"johndoe@example.com","mobile":"+24737455604","cnpj":"93076975486289","ip":"cfd3:e559:e3cb:19c6:78f3:b1cf:c930:57f9","instagram":"@kiwify","street":"Rua 1001","number":"315","complement":"SL 05","neighborhood":"Centro","city":"Balneário Camboriú","state":"SC","zipcode":"88330-756"},"Commissions":{"charge_amount":2089,"product_base_price":2089,"product_base_price_currency":"BRL","kiwify_fee":230,"kiwify_fee_currency":"BRL","settlement_amount":2089,"settlement_amount_currency":"BRL","sale_tax_rate":0,"sale_tax_amount":0,"commissioned_stores":[{"id":"57effef1-b845-4b2e-838f-7c047c4f9810","type":"producer","custom_name":"Example store","email":"example@store.domain","value":"1859"},{"id":"b0f3c7e8-3863-4cd0-99f3-9f239d22f21c","type":"coproducer","custom_name":"Example coproducer","email":"example@coproducer.domain","value":"1859"},{"id":"4c327e80-be88-4cec-9099-d0c85e9aae88","type":"affiliate","affiliate_id":"WDLvzEf","custom_name":"Example affiliate","email":"example@affiliate.domain","value":"1859"}],"currency":"BRL","my_commission":1859,"funds_status":null,"estimated_deposit_date":null,"deposit_date":null},"TrackingParameters":{"src":null,"sck":null,"utm_source":null,"utm_medium":null,"utm_campaign":null,"utm_content":null,"utm_term":null,"s1":null,"s2":null,"s3":null},"Subscription":{"id":"e2d18eb8-3f4e-47e1-ac62-13ecc0f69151","start_date":"2025-09-29T16:40:07.932Z","next_payment":"2025-10-06T16:40:07.932Z","status":"active","plan":{"id":"edf20fbd-efe3-4973-8c16-49bcc0339adb","name":"Example plan","frequency":"weekly","qty_charges":0},"charges":{"completed":[{"order_id":"78af1bcd-44be-4afa-b68b-03fae8a64bc3","amount":1859,"status":"paid","installments":1,"card_type":"mastercard","card_last_digits":"8942","card_first_digits":"899127","created_at":"2025-09-29T16:40:07.932Z"}],"future":[{"charge_date":"2025-10-06T16:40:07.932Z"}]}},"subscription_id":"e2d18eb8-3f4e-47e1-ac62-13ecc0f69151","access_url":null}
+)
+
+[2025-10-02 13:40:07] [debug] Payload completo decodificado | Dados: Array
+(
+    [order_id] => 78af1bcd-44be-4afa-b68b-03fae8a64bc3
+    [order_ref] => djfjSQi
+    [order_status] => paid
+    [product_type] => membership
+    [payment_method] => credit_card
+    [store_id] => dA4ePzhanzBc41n
+    [payment_merchant_id] => 48499942
+    [installments] => 1
+    [card_type] => mastercard
+    [card_last4digits] => 2122
+    [card_rejection_reason] => 
+    [boleto_URL] => 
+    [boleto_barcode] => 
+    [boleto_expiry_date] => 
+    [pix_code] => 
+    [pix_expiration] => 
+    [sale_type] => producer
+    [created_at] => 2025-10-02 16:40
+    [updated_at] => 2025-10-02 16:40
+    [approved_date] => 2025-10-03 16:40
+    [refunded_at] => 
+    [webhook_event_type] => order_approved
+    [Product] => Array
+        (
+            [product_id] => 85a5bfa6-ab40-48e4-a989-99fa30315971
+            [product_name] => Example product
+        )
+
+    [Customer] => Array
+        (
+            [full_name] => John Doe
+            [first_name] => John
+            [email] => johndoe@example.com
+            [mobile] => +24737455604
+            [cnpj] => 93076975486289
+            [ip] => cfd3:e559:e3cb:19c6:78f3:b1cf:c930:57f9
+            [instagram] => @kiwify
+            [street] => Rua 1001
+            [number] => 315
+            [complement] => SL 05
+            [neighborhood] => Centro
+            [city] => Balneário Camboriú
+            [state] => SC
+            [zipcode] => 88330-756
+        )
+
+    [Commissions] => Array
+        (
+            [charge_amount] => 2089
+            [product_base_price] => 2089
+            [product_base_price_currency] => BRL
+            [kiwify_fee] => 230
+            [kiwify_fee_currency] => BRL
+            [settlement_amount] => 2089
+            [settlement_amount_currency] => BRL
+            [sale_tax_rate] => 0
+            [sale_tax_amount] => 0
+            [commissioned_stores] => Array
+                (
+                    [0] => Array
+                        (
+                            [id] => 57effef1-b845-4b2e-838f-7c047c4f9810
+                            [type] => producer
+                            [custom_name] => Example store
+                            [email] => example@store.domain
+                            [value] => 1859
+                        )
+
+                    [1] => Array
+                        (
+                            [id] => b0f3c7e8-3863-4cd0-99f3-9f239d22f21c
+                            [type] => coproducer
+                            [custom_name] => Example coproducer
+                            [email] => example@coproducer.domain
+                            [value] => 1859
+                        )
+
+                    [2] => Array
+                        (
+                            [id] => 4c327e80-be88-4cec-9099-d0c85e9aae88
+                            [type] => affiliate
+                            [affiliate_id] => WDLvzEf
+                            [custom_name] => Example affiliate
+                            [email] => example@affiliate.domain
+                            [value] => 1859
+                        )
+
+                )
+
+            [currency] => BRL
+            [my_commission] => 1859
+            [funds_status] => 
+            [estimated_deposit_date] => 
+            [deposit_date] => 
+        )
+
+    [TrackingParameters] => Array
+        (
+            [src] => 
+            [sck] => 
+            [utm_source] => 
+            [utm_medium] => 
+            [utm_campaign] => 
+            [utm_content] => 
+            [utm_term] => 
+            [s1] => 
+            [s2] => 
+            [s3] => 
+        )
+
+    [Subscription] => Array
+        (
+            [id] => e2d18eb8-3f4e-47e1-ac62-13ecc0f69151
+            [start_date] => 2025-09-29T16:40:07.932Z
+            [next_payment] => 2025-10-06T16:40:07.932Z
+            [status] => active
+            [plan] => Array
+                (
+                    [id] => edf20fbd-efe3-4973-8c16-49bcc0339adb
+                    [name] => Example plan
+                    [frequency] => weekly
+                    [qty_charges] => 0
+                )
+
+            [charges] => Array
+                (
+                    [completed] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [order_id] => 78af1bcd-44be-4afa-b68b-03fae8a64bc3
+                                    [amount] => 1859
+                                    [status] => paid
+                                    [installments] => 1
+                                    [card_type] => mastercard
+                                    [card_last_digits] => 8942
+                                    [card_first_digits] => 899127
+                                    [created_at] => 2025-09-29T16:40:07.932Z
+                                )
+
+                        )
+
+                    [future] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [charge_date] => 2025-10-06T16:40:07.932Z
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [subscription_id] => e2d18eb8-3f4e-47e1-ac62-13ecc0f69151
+    [access_url] => 
+)
+
+[2025-10-02 13:40:07] [debug] Customer data completo | Dados: Array
+(
+    [full_name] => John Doe
+    [first_name] => John
+    [email] => johndoe@example.com
+    [mobile] => +24737455604
+    [cnpj] => 93076975486289
+    [ip] => cfd3:e559:e3cb:19c6:78f3:b1cf:c930:57f9
+    [instagram] => @kiwify
+    [street] => Rua 1001
+    [number] => 315
+    [complement] => SL 05
+    [neighborhood] => Centro
+    [city] => Balneário Camboriú
+    [state] => SC
+    [zipcode] => 88330-756
+)
+
+[2025-10-02 13:40:07] [debug] Product data completo | Dados: Array
+(
+    [product_id] => 85a5bfa6-ab40-48e4-a989-99fa30315971
+    [product_name] => Example product
+)
+
+[2025-10-02 13:40:07] [debug] Subscription data completo | Dados: Array
+(
+    [id] => e2d18eb8-3f4e-47e1-ac62-13ecc0f69151
+    [start_date] => 2025-09-29T16:40:07.932Z
+    [next_payment] => 2025-10-06T16:40:07.932Z
+    [status] => active
+    [plan] => Array
+        (
+            [id] => edf20fbd-efe3-4973-8c16-49bcc0339adb
+            [name] => Example plan
+            [frequency] => weekly
+            [qty_charges] => 0
+        )
+
+    [charges] => Array
+        (
+            [completed] => Array
+                (
+                    [0] => Array
+                        (
+                            [order_id] => 78af1bcd-44be-4afa-b68b-03fae8a64bc3
+                            [amount] => 1859
+                            [status] => paid
+                            [installments] => 1
+                            [card_type] => mastercard
+                            [card_last_digits] => 8942
+                            [card_first_digits] => 899127
+                            [created_at] => 2025-09-29T16:40:07.932Z
+                        )
+
+                )
+
+            [future] => Array
+                (
+                    [0] => Array
+                        (
+                            [charge_date] => 2025-10-06T16:40:07.932Z
+                        )
+
+                )
+
+        )
+
+)
+
+[2025-10-02 13:40:07] [debug] Commissions data completo | Dados: Array
+(
+    [charge_amount] => 2089
+    [product_base_price] => 2089
+    [product_base_price_currency] => BRL
+    [kiwify_fee] => 230
+    [kiwify_fee_currency] => BRL
+    [settlement_amount] => 2089
+    [settlement_amount_currency] => BRL
+    [sale_tax_rate] => 0
+    [sale_tax_amount] => 0
+    [commissioned_stores] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 57effef1-b845-4b2e-838f-7c047c4f9810
+                    [type] => producer
+                    [custom_name] => Example store
+                    [email] => example@store.domain
+                    [value] => 1859
+                )
+
+            [1] => Array
+                (
+                    [id] => b0f3c7e8-3863-4cd0-99f3-9f239d22f21c
+                    [type] => coproducer
+                    [custom_name] => Example coproducer
+                    [email] => example@coproducer.domain
+                    [value] => 1859
+                )
+
+            [2] => Array
+                (
+                    [id] => 4c327e80-be88-4cec-9099-d0c85e9aae88
+                    [type] => affiliate
+                    [affiliate_id] => WDLvzEf
+                    [custom_name] => Example affiliate
+                    [email] => example@affiliate.domain
+                    [value] => 1859
+                )
+
+        )
+
+    [currency] => BRL
+    [my_commission] => 1859
+    [funds_status] => 
+    [estimated_deposit_date] => 
+    [deposit_date] => 
+)
+
+[2025-10-02 13:40:07] [debug] Todas as chaves do payload principal | Dados: Array
+(
+    [chaves] => Array
+        (
+            [0] => order_id
+            [1] => order_ref
+            [2] => order_status
+            [3] => product_type
+            [4] => payment_method
+            [5] => store_id
+            [6] => payment_merchant_id
+            [7] => installments
+            [8] => card_type
+            [9] => card_last4digits
+            [10] => card_rejection_reason
+            [11] => boleto_URL
+            [12] => boleto_barcode
+            [13] => boleto_expiry_date
+            [14] => pix_code
+            [15] => pix_expiration
+            [16] => sale_type
+            [17] => created_at
+            [18] => updated_at
+            [19] => approved_date
+            [20] => refunded_at
+            [21] => webhook_event_type
+            [22] => Product
+            [23] => Customer
+            [24] => Commissions
+            [25] => TrackingParameters
+            [26] => Subscription
+            [27] => subscription_id
+            [28] => access_url
+        )
+
+)
+
+[2025-10-02 13:40:07] [debug] === FIM DEBUG COMPLETO ===
+[2025-10-02 13:40:07] [info] Webhook recebido da Kiwify | Dados: Array
+(
+    [event] => order_approved
+    [order_id] => 78af1bcd-44be-4afa-b68b-03fae8a64bc3
+)
+
+[2025-10-02 13:40:07] [info] Venda com afiliado detectada | Dados: Array
+(
+    [afiliado] => Example affiliate
+    [email] => example@affiliate.domain
+    [comissao] => 18.59
+    [percentual] => 88.99
+)
+
+[2025-10-02 13:40:07] [info] Processando nova compra | Dados: Array
+(
+    [cliente] => John Doe
+    [email] => johndoe@example.com
+    [valor_bruto] => 20.89
+    [valor_liquido] => 18.59
+    [comissao_afiliado] => 18.59
+    [taxa_kiwify] => 2.3
+    [tem_afiliado] => 1
+)
+
+[2025-10-02 13:40:07] [info] Compra processada com sucesso | Dados: Array
+(
+    [success] => 1
+    [subscription_id] => 45
+    [message] => Assinatura criada com sucesso
+)
+
+[2025-10-02 14:01:23] [debug] === PAYLOAD COMPLETO DA KIWIFY ===
+[2025-10-02 14:01:23] [debug] Raw payload | Dados: Array
+(
+    [raw] => {"order_id":"6be45a7f-35cd-48d0-be61-ee3f1f4dc802","order_ref":"uCedtGN","order_status":"paid","product_type":"membership","payment_method":"credit_card","store_id":"dxbo2bcbLQwXdh6","payment_merchant_id":62396032,"installments":1,"card_type":"mastercard","card_last4digits":"9406","card_rejection_reason":null,"boleto_URL":null,"boleto_barcode":null,"boleto_expiry_date":null,"pix_code":null,"pix_expiration":null,"sale_type":"producer","created_at":"2025-10-02 17:01","updated_at":"2025-10-02 17:01","approved_date":"2025-10-03 17:01","refunded_at":null,"webhook_event_type":"order_approved","Product":{"product_id":"18cc02c8-ee02-4a2b-a2e1-7032ea35cfb7","product_name":"Example product"},"Customer":{"full_name":"John Doe","first_name":"John","email":"johndoe@example.com","mobile":"+66132458745","cnpj":"46119832388733","ip":"c73:4517:1ecf:85eb:7576:f59c:205a:204d","instagram":"@kiwify","street":"Rua 1001","number":"315","complement":"SL 05","neighborhood":"Centro","city":"Balneário Camboriú","state":"SC","zipcode":"88330-756"},"Commissions":{"charge_amount":4686,"product_base_price":4686,"product_base_price_currency":"BRL","kiwify_fee":515,"kiwify_fee_currency":"BRL","settlement_amount":4686,"settlement_amount_currency":"BRL","sale_tax_rate":0,"sale_tax_amount":0,"commissioned_stores":[{"id":"20e2252e-d7b1-44be-b1ec-dd29dc15abee","type":"producer","custom_name":"Example store","email":"example@store.domain","value":"4171"},{"id":"7785cd4e-ff0e-4547-8188-f2d4bc296226","type":"coproducer","custom_name":"Example coproducer","email":"example@coproducer.domain","value":"4171"},{"id":"6151b37f-7fa8-4393-9aee-9a92cc6a9d9a","type":"affiliate","affiliate_id":"upoIEBj","custom_name":"Example affiliate","email":"example@affiliate.domain","value":"4171"}],"currency":"BRL","my_commission":4171,"funds_status":null,"estimated_deposit_date":null,"deposit_date":null},"TrackingParameters":{"src":null,"sck":null,"utm_source":null,"utm_medium":null,"utm_campaign":null,"utm_content":null,"utm_term":null,"s1":null,"s2":null,"s3":null},"Subscription":{"id":"2da36dbf-a587-4f98-a35b-58890b4f6b42","start_date":"2025-09-29T17:01:24.488Z","next_payment":"2025-10-06T17:01:24.488Z","status":"active","plan":{"id":"184d88dc-16fb-4e30-acc8-5cb6d4d548a3","name":"Example plan","frequency":"weekly","qty_charges":0},"charges":{"completed":[{"order_id":"6be45a7f-35cd-48d0-be61-ee3f1f4dc802","amount":4171,"status":"paid","installments":1,"card_type":"mastercard","card_last_digits":"2534","card_first_digits":"321473","created_at":"2025-09-29T17:01:24.488Z"}],"future":[{"charge_date":"2025-10-06T17:01:24.488Z"}]}},"subscription_id":"2da36dbf-a587-4f98-a35b-58890b4f6b42","access_url":null}
+)
+
+[2025-10-02 14:01:23] [debug] Payload completo decodificado | Dados: Array
+(
+    [order_id] => 6be45a7f-35cd-48d0-be61-ee3f1f4dc802
+    [order_ref] => uCedtGN
+    [order_status] => paid
+    [product_type] => membership
+    [payment_method] => credit_card
+    [store_id] => dxbo2bcbLQwXdh6
+    [payment_merchant_id] => 62396032
+    [installments] => 1
+    [card_type] => mastercard
+    [card_last4digits] => 9406
+    [card_rejection_reason] => 
+    [boleto_URL] => 
+    [boleto_barcode] => 
+    [boleto_expiry_date] => 
+    [pix_code] => 
+    [pix_expiration] => 
+    [sale_type] => producer
+    [created_at] => 2025-10-02 17:01
+    [updated_at] => 2025-10-02 17:01
+    [approved_date] => 2025-10-03 17:01
+    [refunded_at] => 
+    [webhook_event_type] => order_approved
+    [Product] => Array
+        (
+            [product_id] => 18cc02c8-ee02-4a2b-a2e1-7032ea35cfb7
+            [product_name] => Example product
+        )
+
+    [Customer] => Array
+        (
+            [full_name] => John Doe
+            [first_name] => John
+            [email] => johndoe@example.com
+            [mobile] => +66132458745
+            [cnpj] => 46119832388733
+            [ip] => c73:4517:1ecf:85eb:7576:f59c:205a:204d
+            [instagram] => @kiwify
+            [street] => Rua 1001
+            [number] => 315
+            [complement] => SL 05
+            [neighborhood] => Centro
+            [city] => Balneário Camboriú
+            [state] => SC
+            [zipcode] => 88330-756
+        )
+
+    [Commissions] => Array
+        (
+            [charge_amount] => 4686
+            [product_base_price] => 4686
+            [product_base_price_currency] => BRL
+            [kiwify_fee] => 515
+            [kiwify_fee_currency] => BRL
+            [settlement_amount] => 4686
+            [settlement_amount_currency] => BRL
+            [sale_tax_rate] => 0
+            [sale_tax_amount] => 0
+            [commissioned_stores] => Array
+                (
+                    [0] => Array
+                        (
+                            [id] => 20e2252e-d7b1-44be-b1ec-dd29dc15abee
+                            [type] => producer
+                            [custom_name] => Example store
+                            [email] => example@store.domain
+                            [value] => 4171
+                        )
+
+                    [1] => Array
+                        (
+                            [id] => 7785cd4e-ff0e-4547-8188-f2d4bc296226
+                            [type] => coproducer
+                            [custom_name] => Example coproducer
+                            [email] => example@coproducer.domain
+                            [value] => 4171
+                        )
+
+                    [2] => Array
+                        (
+                            [id] => 6151b37f-7fa8-4393-9aee-9a92cc6a9d9a
+                            [type] => affiliate
+                            [affiliate_id] => upoIEBj
+                            [custom_name] => Example affiliate
+                            [email] => example@affiliate.domain
+                            [value] => 4171
+                        )
+
+                )
+
+            [currency] => BRL
+            [my_commission] => 4171
+            [funds_status] => 
+            [estimated_deposit_date] => 
+            [deposit_date] => 
+        )
+
+    [TrackingParameters] => Array
+        (
+            [src] => 
+            [sck] => 
+            [utm_source] => 
+            [utm_medium] => 
+            [utm_campaign] => 
+            [utm_content] => 
+            [utm_term] => 
+            [s1] => 
+            [s2] => 
+            [s3] => 
+        )
+
+    [Subscription] => Array
+        (
+            [id] => 2da36dbf-a587-4f98-a35b-58890b4f6b42
+            [start_date] => 2025-09-29T17:01:24.488Z
+            [next_payment] => 2025-10-06T17:01:24.488Z
+            [status] => active
+            [plan] => Array
+                (
+                    [id] => 184d88dc-16fb-4e30-acc8-5cb6d4d548a3
+                    [name] => Example plan
+                    [frequency] => weekly
+                    [qty_charges] => 0
+                )
+
+            [charges] => Array
+                (
+                    [completed] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [order_id] => 6be45a7f-35cd-48d0-be61-ee3f1f4dc802
+                                    [amount] => 4171
+                                    [status] => paid
+                                    [installments] => 1
+                                    [card_type] => mastercard
+                                    [card_last_digits] => 2534
+                                    [card_first_digits] => 321473
+                                    [created_at] => 2025-09-29T17:01:24.488Z
+                                )
+
+                        )
+
+                    [future] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [charge_date] => 2025-10-06T17:01:24.488Z
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [subscription_id] => 2da36dbf-a587-4f98-a35b-58890b4f6b42
+    [access_url] => 
+)
+
+[2025-10-02 14:01:23] [debug] Customer data completo | Dados: Array
+(
+    [full_name] => John Doe
+    [first_name] => John
+    [email] => johndoe@example.com
+    [mobile] => +66132458745
+    [cnpj] => 46119832388733
+    [ip] => c73:4517:1ecf:85eb:7576:f59c:205a:204d
+    [instagram] => @kiwify
+    [street] => Rua 1001
+    [number] => 315
+    [complement] => SL 05
+    [neighborhood] => Centro
+    [city] => Balneário Camboriú
+    [state] => SC
+    [zipcode] => 88330-756
+)
+
+[2025-10-02 14:01:23] [debug] Product data completo | Dados: Array
+(
+    [product_id] => 18cc02c8-ee02-4a2b-a2e1-7032ea35cfb7
+    [product_name] => Example product
+)
+
+[2025-10-02 14:01:23] [debug] Subscription data completo | Dados: Array
+(
+    [id] => 2da36dbf-a587-4f98-a35b-58890b4f6b42
+    [start_date] => 2025-09-29T17:01:24.488Z
+    [next_payment] => 2025-10-06T17:01:24.488Z
+    [status] => active
+    [plan] => Array
+        (
+            [id] => 184d88dc-16fb-4e30-acc8-5cb6d4d548a3
+            [name] => Example plan
+            [frequency] => weekly
+            [qty_charges] => 0
+        )
+
+    [charges] => Array
+        (
+            [completed] => Array
+                (
+                    [0] => Array
+                        (
+                            [order_id] => 6be45a7f-35cd-48d0-be61-ee3f1f4dc802
+                            [amount] => 4171
+                            [status] => paid
+                            [installments] => 1
+                            [card_type] => mastercard
+                            [card_last_digits] => 2534
+                            [card_first_digits] => 321473
+                            [created_at] => 2025-09-29T17:01:24.488Z
+                        )
+
+                )
+
+            [future] => Array
+                (
+                    [0] => Array
+                        (
+                            [charge_date] => 2025-10-06T17:01:24.488Z
+                        )
+
+                )
+
+        )
+
+)
+
+[2025-10-02 14:01:23] [debug] Commissions data completo | Dados: Array
+(
+    [charge_amount] => 4686
+    [product_base_price] => 4686
+    [product_base_price_currency] => BRL
+    [kiwify_fee] => 515
+    [kiwify_fee_currency] => BRL
+    [settlement_amount] => 4686
+    [settlement_amount_currency] => BRL
+    [sale_tax_rate] => 0
+    [sale_tax_amount] => 0
+    [commissioned_stores] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 20e2252e-d7b1-44be-b1ec-dd29dc15abee
+                    [type] => producer
+                    [custom_name] => Example store
+                    [email] => example@store.domain
+                    [value] => 4171
+                )
+
+            [1] => Array
+                (
+                    [id] => 7785cd4e-ff0e-4547-8188-f2d4bc296226
+                    [type] => coproducer
+                    [custom_name] => Example coproducer
+                    [email] => example@coproducer.domain
+                    [value] => 4171
+                )
+
+            [2] => Array
+                (
+                    [id] => 6151b37f-7fa8-4393-9aee-9a92cc6a9d9a
+                    [type] => affiliate
+                    [affiliate_id] => upoIEBj
+                    [custom_name] => Example affiliate
+                    [email] => example@affiliate.domain
+                    [value] => 4171
+                )
+
+        )
+
+    [currency] => BRL
+    [my_commission] => 4171
+    [funds_status] => 
+    [estimated_deposit_date] => 
+    [deposit_date] => 
+)
+
+[2025-10-02 14:01:23] [debug] Todas as chaves do payload principal | Dados: Array
+(
+    [chaves] => Array
+        (
+            [0] => order_id
+            [1] => order_ref
+            [2] => order_status
+            [3] => product_type
+            [4] => payment_method
+            [5] => store_id
+            [6] => payment_merchant_id
+            [7] => installments
+            [8] => card_type
+            [9] => card_last4digits
+            [10] => card_rejection_reason
+            [11] => boleto_URL
+            [12] => boleto_barcode
+            [13] => boleto_expiry_date
+            [14] => pix_code
+            [15] => pix_expiration
+            [16] => sale_type
+            [17] => created_at
+            [18] => updated_at
+            [19] => approved_date
+            [20] => refunded_at
+            [21] => webhook_event_type
+            [22] => Product
+            [23] => Customer
+            [24] => Commissions
+            [25] => TrackingParameters
+            [26] => Subscription
+            [27] => subscription_id
+            [28] => access_url
+        )
+
+)
+
+[2025-10-02 14:01:23] [debug] === FIM DEBUG COMPLETO ===
+[2025-10-02 14:01:23] [info] Webhook recebido da Kiwify | Dados: Array
+(
+    [event] => order_approved
+    [order_id] => 6be45a7f-35cd-48d0-be61-ee3f1f4dc802
+)
+
+[2025-10-02 14:01:23] [info] Venda com afiliado detectada | Dados: Array
+(
+    [afiliado] => Example affiliate
+    [email] => example@affiliate.domain
+    [comissao] => 41.71
+    [percentual] => 89.01
+)
+
+[2025-10-02 14:01:23] [info] Processando nova compra | Dados: Array
+(
+    [cliente] => John Doe
+    [email] => johndoe@example.com
+    [valor_bruto] => 46.86
+    [valor_liquido] => 41.71
+    [comissao_afiliado] => 41.71
+    [taxa_kiwify] => 5.15
+    [tem_afiliado] => 1
+)
+
+[2025-10-02 14:01:24] [info] Compra processada com sucesso | Dados: Array
+(
+    [success] => 1
+    [subscription_id] => 46
+    [message] => Assinatura criada com sucesso
+)
+
+[2025-10-02 14:34:00] [debug] === PAYLOAD COMPLETO DA KIWIFY ===
+[2025-10-02 14:34:00] [debug] Raw payload | Dados: Array
+(
+    [raw] => {"order_id":"447bae00-d046-411f-a511-0197d811235d","order_ref":"tYXimZe","order_status":"paid","product_type":"membership","payment_method":"credit_card","store_id":"Xs3SS18pg9kzgnr","payment_merchant_id":94020461,"installments":1,"card_type":"mastercard","card_last4digits":"6669","card_rejection_reason":null,"boleto_URL":null,"boleto_barcode":null,"boleto_expiry_date":null,"pix_code":null,"pix_expiration":null,"sale_type":"producer","created_at":"2025-10-02 17:34","updated_at":"2025-10-02 17:34","approved_date":"2025-10-03 17:34","refunded_at":null,"webhook_event_type":"order_approved","Product":{"product_id":"1f61f7df-19e7-4138-b862-c9d63a181433","product_name":"Example product"},"Customer":{"full_name":"John Doe","first_name":"John","email":"johndoe@example.com","mobile":"+83976269801","CPF":"20260672191","ip":"242.222.28.126","instagram":"@kiwify","street":"Rua 1001","number":"315","complement":"SL 05","neighborhood":"Centro","city":"Balneário Camboriú","state":"SC","zipcode":"88330-756"},"Commissions":{"charge_amount":9053,"product_base_price":9053,"product_base_price_currency":"BRL","kiwify_fee":996,"kiwify_fee_currency":"BRL","settlement_amount":9053,"settlement_amount_currency":"BRL","sale_tax_rate":0,"sale_tax_amount":0,"commissioned_stores":[{"id":"0cc5c975-b0da-45c1-bf6b-5b8203e0e3ca","type":"producer","custom_name":"Example store","email":"example@store.domain","value":"8057"},{"id":"cc479a0c-6ff6-4291-b3b0-5a1a895b8c07","type":"coproducer","custom_name":"Example coproducer","email":"example@coproducer.domain","value":"8057"},{"id":"36a829dc-1761-4b11-89a0-215e8d4f2212","type":"affiliate","affiliate_id":"MlAjhtZ","custom_name":"Example affiliate","email":"example@affiliate.domain","value":"8057"}],"currency":"BRL","my_commission":8057,"funds_status":null,"estimated_deposit_date":null,"deposit_date":null},"TrackingParameters":{"src":null,"sck":null,"utm_source":null,"utm_medium":null,"utm_campaign":null,"utm_content":null,"utm_term":null,"s1":null,"s2":null,"s3":null},"Subscription":{"id":"dff8b797-ba2c-42f5-a7de-0606263ae80c","start_date":"2025-09-29T17:34:01.687Z","next_payment":"2025-10-06T17:34:01.687Z","status":"active","plan":{"id":"2c183409-f9f7-4821-93af-a5e7edc0753c","name":"Example plan","frequency":"weekly","qty_charges":0},"charges":{"completed":[{"order_id":"447bae00-d046-411f-a511-0197d811235d","amount":8057,"status":"paid","installments":1,"card_type":"mastercard","card_last_digits":"9814","card_first_digits":"725030","created_at":"2025-09-29T17:34:01.687Z"}],"future":[{"charge_date":"2025-10-06T17:34:01.687Z"}]}},"subscription_id":"dff8b797-ba2c-42f5-a7de-0606263ae80c","access_url":null}
+)
+
+[2025-10-02 14:34:00] [debug] Payload completo decodificado | Dados: Array
+(
+    [order_id] => 447bae00-d046-411f-a511-0197d811235d
+    [order_ref] => tYXimZe
+    [order_status] => paid
+    [product_type] => membership
+    [payment_method] => credit_card
+    [store_id] => Xs3SS18pg9kzgnr
+    [payment_merchant_id] => 94020461
+    [installments] => 1
+    [card_type] => mastercard
+    [card_last4digits] => 6669
+    [card_rejection_reason] => 
+    [boleto_URL] => 
+    [boleto_barcode] => 
+    [boleto_expiry_date] => 
+    [pix_code] => 
+    [pix_expiration] => 
+    [sale_type] => producer
+    [created_at] => 2025-10-02 17:34
+    [updated_at] => 2025-10-02 17:34
+    [approved_date] => 2025-10-03 17:34
+    [refunded_at] => 
+    [webhook_event_type] => order_approved
+    [Product] => Array
+        (
+            [product_id] => 1f61f7df-19e7-4138-b862-c9d63a181433
+            [product_name] => Example product
+        )
+
+    [Customer] => Array
+        (
+            [full_name] => John Doe
+            [first_name] => John
+            [email] => johndoe@example.com
+            [mobile] => +83976269801
+            [CPF] => 20260672191
+            [ip] => 242.222.28.126
+            [instagram] => @kiwify
+            [street] => Rua 1001
+            [number] => 315
+            [complement] => SL 05
+            [neighborhood] => Centro
+            [city] => Balneário Camboriú
+            [state] => SC
+            [zipcode] => 88330-756
+        )
+
+    [Commissions] => Array
+        (
+            [charge_amount] => 9053
+            [product_base_price] => 9053
+            [product_base_price_currency] => BRL
+            [kiwify_fee] => 996
+            [kiwify_fee_currency] => BRL
+            [settlement_amount] => 9053
+            [settlement_amount_currency] => BRL
+            [sale_tax_rate] => 0
+            [sale_tax_amount] => 0
+            [commissioned_stores] => Array
+                (
+                    [0] => Array
+                        (
+                            [id] => 0cc5c975-b0da-45c1-bf6b-5b8203e0e3ca
+                            [type] => producer
+                            [custom_name] => Example store
+                            [email] => example@store.domain
+                            [value] => 8057
+                        )
+
+                    [1] => Array
+                        (
+                            [id] => cc479a0c-6ff6-4291-b3b0-5a1a895b8c07
+                            [type] => coproducer
+                            [custom_name] => Example coproducer
+                            [email] => example@coproducer.domain
+                            [value] => 8057
+                        )
+
+                    [2] => Array
+                        (
+                            [id] => 36a829dc-1761-4b11-89a0-215e8d4f2212
+                            [type] => affiliate
+                            [affiliate_id] => MlAjhtZ
+                            [custom_name] => Example affiliate
+                            [email] => example@affiliate.domain
+                            [value] => 8057
+                        )
+
+                )
+
+            [currency] => BRL
+            [my_commission] => 8057
+            [funds_status] => 
+            [estimated_deposit_date] => 
+            [deposit_date] => 
+        )
+
+    [TrackingParameters] => Array
+        (
+            [src] => 
+            [sck] => 
+            [utm_source] => 
+            [utm_medium] => 
+            [utm_campaign] => 
+            [utm_content] => 
+            [utm_term] => 
+            [s1] => 
+            [s2] => 
+            [s3] => 
+        )
+
+    [Subscription] => Array
+        (
+            [id] => dff8b797-ba2c-42f5-a7de-0606263ae80c
+            [start_date] => 2025-09-29T17:34:01.687Z
+            [next_payment] => 2025-10-06T17:34:01.687Z
+            [status] => active
+            [plan] => Array
+                (
+                    [id] => 2c183409-f9f7-4821-93af-a5e7edc0753c
+                    [name] => Example plan
+                    [frequency] => weekly
+                    [qty_charges] => 0
+                )
+
+            [charges] => Array
+                (
+                    [completed] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [order_id] => 447bae00-d046-411f-a511-0197d811235d
+                                    [amount] => 8057
+                                    [status] => paid
+                                    [installments] => 1
+                                    [card_type] => mastercard
+                                    [card_last_digits] => 9814
+                                    [card_first_digits] => 725030
+                                    [created_at] => 2025-09-29T17:34:01.687Z
+                                )
+
+                        )
+
+                    [future] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [charge_date] => 2025-10-06T17:34:01.687Z
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [subscription_id] => dff8b797-ba2c-42f5-a7de-0606263ae80c
+    [access_url] => 
+)
+
+[2025-10-02 14:34:00] [debug] Customer data completo | Dados: Array
+(
+    [full_name] => John Doe
+    [first_name] => John
+    [email] => johndoe@example.com
+    [mobile] => +83976269801
+    [CPF] => 20260672191
+    [ip] => 242.222.28.126
+    [instagram] => @kiwify
+    [street] => Rua 1001
+    [number] => 315
+    [complement] => SL 05
+    [neighborhood] => Centro
+    [city] => Balneário Camboriú
+    [state] => SC
+    [zipcode] => 88330-756
+)
+
+[2025-10-02 14:34:00] [debug] Product data completo | Dados: Array
+(
+    [product_id] => 1f61f7df-19e7-4138-b862-c9d63a181433
+    [product_name] => Example product
+)
+
+[2025-10-02 14:34:00] [debug] Subscription data completo | Dados: Array
+(
+    [id] => dff8b797-ba2c-42f5-a7de-0606263ae80c
+    [start_date] => 2025-09-29T17:34:01.687Z
+    [next_payment] => 2025-10-06T17:34:01.687Z
+    [status] => active
+    [plan] => Array
+        (
+            [id] => 2c183409-f9f7-4821-93af-a5e7edc0753c
+            [name] => Example plan
+            [frequency] => weekly
+            [qty_charges] => 0
+        )
+
+    [charges] => Array
+        (
+            [completed] => Array
+                (
+                    [0] => Array
+                        (
+                            [order_id] => 447bae00-d046-411f-a511-0197d811235d
+                            [amount] => 8057
+                            [status] => paid
+                            [installments] => 1
+                            [card_type] => mastercard
+                            [card_last_digits] => 9814
+                            [card_first_digits] => 725030
+                            [created_at] => 2025-09-29T17:34:01.687Z
+                        )
+
+                )
+
+            [future] => Array
+                (
+                    [0] => Array
+                        (
+                            [charge_date] => 2025-10-06T17:34:01.687Z
+                        )
+
+                )
+
+        )
+
+)
+
+[2025-10-02 14:34:00] [debug] Commissions data completo | Dados: Array
+(
+    [charge_amount] => 9053
+    [product_base_price] => 9053
+    [product_base_price_currency] => BRL
+    [kiwify_fee] => 996
+    [kiwify_fee_currency] => BRL
+    [settlement_amount] => 9053
+    [settlement_amount_currency] => BRL
+    [sale_tax_rate] => 0
+    [sale_tax_amount] => 0
+    [commissioned_stores] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 0cc5c975-b0da-45c1-bf6b-5b8203e0e3ca
+                    [type] => producer
+                    [custom_name] => Example store
+                    [email] => example@store.domain
+                    [value] => 8057
+                )
+
+            [1] => Array
+                (
+                    [id] => cc479a0c-6ff6-4291-b3b0-5a1a895b8c07
+                    [type] => coproducer
+                    [custom_name] => Example coproducer
+                    [email] => example@coproducer.domain
+                    [value] => 8057
+                )
+
+            [2] => Array
+                (
+                    [id] => 36a829dc-1761-4b11-89a0-215e8d4f2212
+                    [type] => affiliate
+                    [affiliate_id] => MlAjhtZ
+                    [custom_name] => Example affiliate
+                    [email] => example@affiliate.domain
+                    [value] => 8057
+                )
+
+        )
+
+    [currency] => BRL
+    [my_commission] => 8057
+    [funds_status] => 
+    [estimated_deposit_date] => 
+    [deposit_date] => 
+)
+
+[2025-10-02 14:34:00] [debug] Todas as chaves do payload principal | Dados: Array
+(
+    [chaves] => Array
+        (
+            [0] => order_id
+            [1] => order_ref
+            [2] => order_status
+            [3] => product_type
+            [4] => payment_method
+            [5] => store_id
+            [6] => payment_merchant_id
+            [7] => installments
+            [8] => card_type
+            [9] => card_last4digits
+            [10] => card_rejection_reason
+            [11] => boleto_URL
+            [12] => boleto_barcode
+            [13] => boleto_expiry_date
+            [14] => pix_code
+            [15] => pix_expiration
+            [16] => sale_type
+            [17] => created_at
+            [18] => updated_at
+            [19] => approved_date
+            [20] => refunded_at
+            [21] => webhook_event_type
+            [22] => Product
+            [23] => Customer
+            [24] => Commissions
+            [25] => TrackingParameters
+            [26] => Subscription
+            [27] => subscription_id
+            [28] => access_url
+        )
+
+)
+
+[2025-10-02 14:34:00] [debug] === FIM DEBUG COMPLETO ===
+[2025-10-02 14:34:00] [info] Webhook recebido da Kiwify | Dados: Array
+(
+    [event] => order_approved
+    [order_id] => 447bae00-d046-411f-a511-0197d811235d
+)
+
+[2025-10-02 14:34:00] [info] Venda com afiliado detectada | Dados: Array
+(
+    [afiliado] => Example affiliate
+    [email] => example@affiliate.domain
+    [comissao] => 80.57
+    [percentual] => 89
+)
+
+[2025-10-02 14:34:00] [info] Processando nova compra | Dados: Array
+(
+    [cliente] => John Doe
+    [email] => johndoe@example.com
+    [valor_bruto] => 90.53
+    [valor_liquido] => 80.57
+    [comissao_afiliado] => 80.57
+    [taxa_kiwify] => 9.96
+    [tem_afiliado] => 1
+)
+
+[2025-10-02 14:34:01] [info] Compra processada com sucesso | Dados: Array
+(
+    [success] => 1
+    [subscription_id] => 47
+    [message] => Assinatura criada com sucesso
+)
+
+[2025-10-03 00:42:57] [debug] === PAYLOAD COMPLETO DA KIWIFY ===
+[2025-10-03 00:42:57] [debug] Raw payload | Dados: Array
+(
+    [raw] => {"order_id":"ff1477c3-db3a-4359-9d42-c2e30d9d6f8c","order_ref":"TeoVYbY","order_status":"paid","product_type":"membership","payment_method":"credit_card","store_id":"b9BAU9x1rtHS9qG","payment_merchant_id":86478718,"installments":1,"card_type":"mastercard","card_last4digits":"4866","card_rejection_reason":null,"boleto_URL":null,"boleto_barcode":null,"boleto_expiry_date":null,"pix_code":null,"pix_expiration":null,"sale_type":"producer","created_at":"2025-10-03 03:42","updated_at":"2025-10-03 03:42","approved_date":"2025-10-04 03:42","refunded_at":null,"webhook_event_type":"order_approved","Product":{"product_id":"ace7b42f-2e6a-442b-aa61-7f7dc9f5cf82","product_name":"Example product"},"Customer":{"full_name":"John Doe","first_name":"John","email":"johndoe@example.com","mobile":"+27309063124","CPF":"77808190764","ip":"4c10:afcb:f202:53f8:653f:77bf:1352:7ba9","instagram":"@kiwify","street":"Rua 1001","number":"315","complement":"SL 05","neighborhood":"Centro","city":"Balneário Camboriú","state":"SC","zipcode":"88330-756"},"Commissions":{"charge_amount":5058,"product_base_price":5058,"product_base_price_currency":"BRL","kiwify_fee":556,"kiwify_fee_currency":"BRL","settlement_amount":5058,"settlement_amount_currency":"BRL","sale_tax_rate":0,"sale_tax_amount":0,"commissioned_stores":[{"id":"9ccccf0f-53f4-4142-a273-fa7c28da7a29","type":"producer","custom_name":"Example store","email":"example@store.domain","value":"4502"},{"id":"f2c23a14-e9d5-4d4e-8faf-5654b22a26b9","type":"coproducer","custom_name":"Example coproducer","email":"example@coproducer.domain","value":"4502"},{"id":"2ed508b8-7e29-415d-8538-f0de6409561b","type":"affiliate","affiliate_id":"yRemclY","custom_name":"Example affiliate","email":"example@affiliate.domain","value":"4502"}],"currency":"BRL","my_commission":4502,"funds_status":null,"estimated_deposit_date":null,"deposit_date":null},"TrackingParameters":{"src":null,"sck":null,"utm_source":null,"utm_medium":null,"utm_campaign":null,"utm_content":null,"utm_term":null,"s1":null,"s2":null,"s3":null},"Subscription":{"id":"0204b131-28a0-4319-85d6-2f98ffde5dd6","start_date":"2025-09-30T03:42:58.005Z","next_payment":"2025-10-07T03:42:58.005Z","status":"active","plan":{"id":"411269c5-fffa-4f47-a9a1-d6b1bceece00","name":"Example plan","frequency":"weekly","qty_charges":0},"charges":{"completed":[{"order_id":"ff1477c3-db3a-4359-9d42-c2e30d9d6f8c","amount":4502,"status":"paid","installments":1,"card_type":"mastercard","card_last_digits":"6976","card_first_digits":"333732","created_at":"2025-09-30T03:42:58.005Z"}],"future":[{"charge_date":"2025-10-07T03:42:58.005Z"}]}},"subscription_id":"0204b131-28a0-4319-85d6-2f98ffde5dd6","access_url":null}
+)
+
+[2025-10-03 00:42:57] [debug] Payload completo decodificado | Dados: Array
+(
+    [order_id] => ff1477c3-db3a-4359-9d42-c2e30d9d6f8c
+    [order_ref] => TeoVYbY
+    [order_status] => paid
+    [product_type] => membership
+    [payment_method] => credit_card
+    [store_id] => b9BAU9x1rtHS9qG
+    [payment_merchant_id] => 86478718
+    [installments] => 1
+    [card_type] => mastercard
+    [card_last4digits] => 4866
+    [card_rejection_reason] => 
+    [boleto_URL] => 
+    [boleto_barcode] => 
+    [boleto_expiry_date] => 
+    [pix_code] => 
+    [pix_expiration] => 
+    [sale_type] => producer
+    [created_at] => 2025-10-03 03:42
+    [updated_at] => 2025-10-03 03:42
+    [approved_date] => 2025-10-04 03:42
+    [refunded_at] => 
+    [webhook_event_type] => order_approved
+    [Product] => Array
+        (
+            [product_id] => ace7b42f-2e6a-442b-aa61-7f7dc9f5cf82
+            [product_name] => Example product
+        )
+
+    [Customer] => Array
+        (
+            [full_name] => John Doe
+            [first_name] => John
+            [email] => johndoe@example.com
+            [mobile] => +27309063124
+            [CPF] => 77808190764
+            [ip] => 4c10:afcb:f202:53f8:653f:77bf:1352:7ba9
+            [instagram] => @kiwify
+            [street] => Rua 1001
+            [number] => 315
+            [complement] => SL 05
+            [neighborhood] => Centro
+            [city] => Balneário Camboriú
+            [state] => SC
+            [zipcode] => 88330-756
+        )
+
+    [Commissions] => Array
+        (
+            [charge_amount] => 5058
+            [product_base_price] => 5058
+            [product_base_price_currency] => BRL
+            [kiwify_fee] => 556
+            [kiwify_fee_currency] => BRL
+            [settlement_amount] => 5058
+            [settlement_amount_currency] => BRL
+            [sale_tax_rate] => 0
+            [sale_tax_amount] => 0
+            [commissioned_stores] => Array
+                (
+                    [0] => Array
+                        (
+                            [id] => 9ccccf0f-53f4-4142-a273-fa7c28da7a29
+                            [type] => producer
+                            [custom_name] => Example store
+                            [email] => example@store.domain
+                            [value] => 4502
+                        )
+
+                    [1] => Array
+                        (
+                            [id] => f2c23a14-e9d5-4d4e-8faf-5654b22a26b9
+                            [type] => coproducer
+                            [custom_name] => Example coproducer
+                            [email] => example@coproducer.domain
+                            [value] => 4502
+                        )
+
+                    [2] => Array
+                        (
+                            [id] => 2ed508b8-7e29-415d-8538-f0de6409561b
+                            [type] => affiliate
+                            [affiliate_id] => yRemclY
+                            [custom_name] => Example affiliate
+                            [email] => example@affiliate.domain
+                            [value] => 4502
+                        )
+
+                )
+
+            [currency] => BRL
+            [my_commission] => 4502
+            [funds_status] => 
+            [estimated_deposit_date] => 
+            [deposit_date] => 
+        )
+
+    [TrackingParameters] => Array
+        (
+            [src] => 
+            [sck] => 
+            [utm_source] => 
+            [utm_medium] => 
+            [utm_campaign] => 
+            [utm_content] => 
+            [utm_term] => 
+            [s1] => 
+            [s2] => 
+            [s3] => 
+        )
+
+    [Subscription] => Array
+        (
+            [id] => 0204b131-28a0-4319-85d6-2f98ffde5dd6
+            [start_date] => 2025-09-30T03:42:58.005Z
+            [next_payment] => 2025-10-07T03:42:58.005Z
+            [status] => active
+            [plan] => Array
+                (
+                    [id] => 411269c5-fffa-4f47-a9a1-d6b1bceece00
+                    [name] => Example plan
+                    [frequency] => weekly
+                    [qty_charges] => 0
+                )
+
+            [charges] => Array
+                (
+                    [completed] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [order_id] => ff1477c3-db3a-4359-9d42-c2e30d9d6f8c
+                                    [amount] => 4502
+                                    [status] => paid
+                                    [installments] => 1
+                                    [card_type] => mastercard
+                                    [card_last_digits] => 6976
+                                    [card_first_digits] => 333732
+                                    [created_at] => 2025-09-30T03:42:58.005Z
+                                )
+
+                        )
+
+                    [future] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [charge_date] => 2025-10-07T03:42:58.005Z
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [subscription_id] => 0204b131-28a0-4319-85d6-2f98ffde5dd6
+    [access_url] => 
+)
+
+[2025-10-03 00:42:57] [debug] Customer data completo | Dados: Array
+(
+    [full_name] => John Doe
+    [first_name] => John
+    [email] => johndoe@example.com
+    [mobile] => +27309063124
+    [CPF] => 77808190764
+    [ip] => 4c10:afcb:f202:53f8:653f:77bf:1352:7ba9
+    [instagram] => @kiwify
+    [street] => Rua 1001
+    [number] => 315
+    [complement] => SL 05
+    [neighborhood] => Centro
+    [city] => Balneário Camboriú
+    [state] => SC
+    [zipcode] => 88330-756
+)
+
+[2025-10-03 00:42:57] [debug] Product data completo | Dados: Array
+(
+    [product_id] => ace7b42f-2e6a-442b-aa61-7f7dc9f5cf82
+    [product_name] => Example product
+)
+
+[2025-10-03 00:42:57] [debug] Subscription data completo | Dados: Array
+(
+    [id] => 0204b131-28a0-4319-85d6-2f98ffde5dd6
+    [start_date] => 2025-09-30T03:42:58.005Z
+    [next_payment] => 2025-10-07T03:42:58.005Z
+    [status] => active
+    [plan] => Array
+        (
+            [id] => 411269c5-fffa-4f47-a9a1-d6b1bceece00
+            [name] => Example plan
+            [frequency] => weekly
+            [qty_charges] => 0
+        )
+
+    [charges] => Array
+        (
+            [completed] => Array
+                (
+                    [0] => Array
+                        (
+                            [order_id] => ff1477c3-db3a-4359-9d42-c2e30d9d6f8c
+                            [amount] => 4502
+                            [status] => paid
+                            [installments] => 1
+                            [card_type] => mastercard
+                            [card_last_digits] => 6976
+                            [card_first_digits] => 333732
+                            [created_at] => 2025-09-30T03:42:58.005Z
+                        )
+
+                )
+
+            [future] => Array
+                (
+                    [0] => Array
+                        (
+                            [charge_date] => 2025-10-07T03:42:58.005Z
+                        )
+
+                )
+
+        )
+
+)
+
+[2025-10-03 00:42:57] [debug] Commissions data completo | Dados: Array
+(
+    [charge_amount] => 5058
+    [product_base_price] => 5058
+    [product_base_price_currency] => BRL
+    [kiwify_fee] => 556
+    [kiwify_fee_currency] => BRL
+    [settlement_amount] => 5058
+    [settlement_amount_currency] => BRL
+    [sale_tax_rate] => 0
+    [sale_tax_amount] => 0
+    [commissioned_stores] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 9ccccf0f-53f4-4142-a273-fa7c28da7a29
+                    [type] => producer
+                    [custom_name] => Example store
+                    [email] => example@store.domain
+                    [value] => 4502
+                )
+
+            [1] => Array
+                (
+                    [id] => f2c23a14-e9d5-4d4e-8faf-5654b22a26b9
+                    [type] => coproducer
+                    [custom_name] => Example coproducer
+                    [email] => example@coproducer.domain
+                    [value] => 4502
+                )
+
+            [2] => Array
+                (
+                    [id] => 2ed508b8-7e29-415d-8538-f0de6409561b
+                    [type] => affiliate
+                    [affiliate_id] => yRemclY
+                    [custom_name] => Example affiliate
+                    [email] => example@affiliate.domain
+                    [value] => 4502
+                )
+
+        )
+
+    [currency] => BRL
+    [my_commission] => 4502
+    [funds_status] => 
+    [estimated_deposit_date] => 
+    [deposit_date] => 
+)
+
+[2025-10-03 00:42:57] [debug] Todas as chaves do payload principal | Dados: Array
+(
+    [chaves] => Array
+        (
+            [0] => order_id
+            [1] => order_ref
+            [2] => order_status
+            [3] => product_type
+            [4] => payment_method
+            [5] => store_id
+            [6] => payment_merchant_id
+            [7] => installments
+            [8] => card_type
+            [9] => card_last4digits
+            [10] => card_rejection_reason
+            [11] => boleto_URL
+            [12] => boleto_barcode
+            [13] => boleto_expiry_date
+            [14] => pix_code
+            [15] => pix_expiration
+            [16] => sale_type
+            [17] => created_at
+            [18] => updated_at
+            [19] => approved_date
+            [20] => refunded_at
+            [21] => webhook_event_type
+            [22] => Product
+            [23] => Customer
+            [24] => Commissions
+            [25] => TrackingParameters
+            [26] => Subscription
+            [27] => subscription_id
+            [28] => access_url
+        )
+
+)
+
+[2025-10-03 00:42:57] [debug] === FIM DEBUG COMPLETO ===
+[2025-10-03 00:42:57] [info] Webhook recebido da Kiwify | Dados: Array
+(
+    [event] => order_approved
+    [order_id] => ff1477c3-db3a-4359-9d42-c2e30d9d6f8c
+)
+
+[2025-10-03 00:42:57] [info] Venda com afiliado detectada | Dados: Array
+(
+    [afiliado] => Example affiliate
+    [email] => example@affiliate.domain
+    [comissao] => 45.02
+    [percentual] => 89.01
+)
+
+[2025-10-03 00:42:57] [info] Processando nova compra | Dados: Array
+(
+    [cliente] => John Doe
+    [email] => johndoe@example.com
+    [valor_bruto] => 50.58
+    [valor_liquido] => 45.02
+    [comissao_afiliado] => 45.02
+    [taxa_kiwify] => 5.56
+    [tem_afiliado] => 1
+)
+
+[2025-10-03 00:42:57] [info] Compra processada com sucesso | Dados: Array
+(
+    [success] => 1
+    [subscription_id] => 48
+    [message] => Assinatura criada com sucesso
+)
+
+[2025-10-03 01:28:27] [debug] === PAYLOAD COMPLETO DA KIWIFY ===
+[2025-10-03 01:28:27] [debug] Raw payload | Dados: Array
+(
+    [raw] => {"order_id":"e257965a-2652-421f-8ebb-6d861ced0672","order_ref":"nkAHRkA","order_status":"paid","product_type":"membership","payment_method":"credit_card","store_id":"Zd4wQXEIGfgdv0X","payment_merchant_id":37143354,"installments":1,"card_type":"mastercard","card_last4digits":"4800","card_rejection_reason":null,"boleto_URL":null,"boleto_barcode":null,"boleto_expiry_date":null,"pix_code":null,"pix_expiration":null,"sale_type":"producer","created_at":"2025-10-03 04:28","updated_at":"2025-10-03 04:28","approved_date":"2025-10-04 04:28","refunded_at":null,"webhook_event_type":"order_approved","Product":{"product_id":"94633841-8f44-45ba-9425-992a5d988a9c","product_name":"Example product"},"Customer":{"full_name":"John Doe","first_name":"John","email":"johndoe@example.com","mobile":"+94166551580","CPF":"28369905976","ip":"220.112.18.86","instagram":"@kiwify","street":"Rua 1001","number":"315","complement":"SL 05","neighborhood":"Centro","city":"Balneário Camboriú","state":"SC","zipcode":"88330-756"},"Commissions":{"charge_amount":1310,"product_base_price":1310,"product_base_price_currency":"BRL","kiwify_fee":144,"kiwify_fee_currency":"BRL","settlement_amount":1310,"settlement_amount_currency":"BRL","sale_tax_rate":0,"sale_tax_amount":0,"commissioned_stores":[{"id":"8239b898-3d75-44ea-8875-ba51b6da245b","type":"producer","custom_name":"Example store","email":"example@store.domain","value":"1166"},{"id":"decf812e-44c6-435a-940f-de61bb15a835","type":"coproducer","custom_name":"Example coproducer","email":"example@coproducer.domain","value":"1166"},{"id":"7236baa7-1ace-4f16-9924-784273f4b52c","type":"affiliate","affiliate_id":"EjJIsin","custom_name":"Example affiliate","email":"example@affiliate.domain","value":"1166"}],"currency":"BRL","my_commission":1166,"funds_status":null,"estimated_deposit_date":null,"deposit_date":null},"TrackingParameters":{"src":null,"sck":null,"utm_source":null,"utm_medium":null,"utm_campaign":null,"utm_content":null,"utm_term":null,"s1":null,"s2":null,"s3":null},"Subscription":{"id":"e7d025fc-46ad-4f75-8307-17e9f96938d1","start_date":"2025-09-30T04:28:28.610Z","next_payment":"2025-10-07T04:28:28.610Z","status":"active","plan":{"id":"b44b90ab-7f88-47d5-b86e-f51ff4497939","name":"Example plan","frequency":"weekly","qty_charges":0},"charges":{"completed":[{"order_id":"e257965a-2652-421f-8ebb-6d861ced0672","amount":1166,"status":"paid","installments":1,"card_type":"mastercard","card_last_digits":"8311","card_first_digits":"763627","created_at":"2025-09-30T04:28:28.610Z"}],"future":[{"charge_date":"2025-10-07T04:28:28.610Z"}]}},"subscription_id":"e7d025fc-46ad-4f75-8307-17e9f96938d1","access_url":null}
+)
+
+[2025-10-03 01:28:27] [debug] Payload completo decodificado | Dados: Array
+(
+    [order_id] => e257965a-2652-421f-8ebb-6d861ced0672
+    [order_ref] => nkAHRkA
+    [order_status] => paid
+    [product_type] => membership
+    [payment_method] => credit_card
+    [store_id] => Zd4wQXEIGfgdv0X
+    [payment_merchant_id] => 37143354
+    [installments] => 1
+    [card_type] => mastercard
+    [card_last4digits] => 4800
+    [card_rejection_reason] => 
+    [boleto_URL] => 
+    [boleto_barcode] => 
+    [boleto_expiry_date] => 
+    [pix_code] => 
+    [pix_expiration] => 
+    [sale_type] => producer
+    [created_at] => 2025-10-03 04:28
+    [updated_at] => 2025-10-03 04:28
+    [approved_date] => 2025-10-04 04:28
+    [refunded_at] => 
+    [webhook_event_type] => order_approved
+    [Product] => Array
+        (
+            [product_id] => 94633841-8f44-45ba-9425-992a5d988a9c
+            [product_name] => Example product
+        )
+
+    [Customer] => Array
+        (
+            [full_name] => John Doe
+            [first_name] => John
+            [email] => johndoe@example.com
+            [mobile] => +94166551580
+            [CPF] => 28369905976
+            [ip] => 220.112.18.86
+            [instagram] => @kiwify
+            [street] => Rua 1001
+            [number] => 315
+            [complement] => SL 05
+            [neighborhood] => Centro
+            [city] => Balneário Camboriú
+            [state] => SC
+            [zipcode] => 88330-756
+        )
+
+    [Commissions] => Array
+        (
+            [charge_amount] => 1310
+            [product_base_price] => 1310
+            [product_base_price_currency] => BRL
+            [kiwify_fee] => 144
+            [kiwify_fee_currency] => BRL
+            [settlement_amount] => 1310
+            [settlement_amount_currency] => BRL
+            [sale_tax_rate] => 0
+            [sale_tax_amount] => 0
+            [commissioned_stores] => Array
+                (
+                    [0] => Array
+                        (
+                            [id] => 8239b898-3d75-44ea-8875-ba51b6da245b
+                            [type] => producer
+                            [custom_name] => Example store
+                            [email] => example@store.domain
+                            [value] => 1166
+                        )
+
+                    [1] => Array
+                        (
+                            [id] => decf812e-44c6-435a-940f-de61bb15a835
+                            [type] => coproducer
+                            [custom_name] => Example coproducer
+                            [email] => example@coproducer.domain
+                            [value] => 1166
+                        )
+
+                    [2] => Array
+                        (
+                            [id] => 7236baa7-1ace-4f16-9924-784273f4b52c
+                            [type] => affiliate
+                            [affiliate_id] => EjJIsin
+                            [custom_name] => Example affiliate
+                            [email] => example@affiliate.domain
+                            [value] => 1166
+                        )
+
+                )
+
+            [currency] => BRL
+            [my_commission] => 1166
+            [funds_status] => 
+            [estimated_deposit_date] => 
+            [deposit_date] => 
+        )
+
+    [TrackingParameters] => Array
+        (
+            [src] => 
+            [sck] => 
+            [utm_source] => 
+            [utm_medium] => 
+            [utm_campaign] => 
+            [utm_content] => 
+            [utm_term] => 
+            [s1] => 
+            [s2] => 
+            [s3] => 
+        )
+
+    [Subscription] => Array
+        (
+            [id] => e7d025fc-46ad-4f75-8307-17e9f96938d1
+            [start_date] => 2025-09-30T04:28:28.610Z
+            [next_payment] => 2025-10-07T04:28:28.610Z
+            [status] => active
+            [plan] => Array
+                (
+                    [id] => b44b90ab-7f88-47d5-b86e-f51ff4497939
+                    [name] => Example plan
+                    [frequency] => weekly
+                    [qty_charges] => 0
+                )
+
+            [charges] => Array
+                (
+                    [completed] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [order_id] => e257965a-2652-421f-8ebb-6d861ced0672
+                                    [amount] => 1166
+                                    [status] => paid
+                                    [installments] => 1
+                                    [card_type] => mastercard
+                                    [card_last_digits] => 8311
+                                    [card_first_digits] => 763627
+                                    [created_at] => 2025-09-30T04:28:28.610Z
+                                )
+
+                        )
+
+                    [future] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [charge_date] => 2025-10-07T04:28:28.610Z
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [subscription_id] => e7d025fc-46ad-4f75-8307-17e9f96938d1
+    [access_url] => 
+)
+
+[2025-10-03 01:28:27] [debug] Customer data completo | Dados: Array
+(
+    [full_name] => John Doe
+    [first_name] => John
+    [email] => johndoe@example.com
+    [mobile] => +94166551580
+    [CPF] => 28369905976
+    [ip] => 220.112.18.86
+    [instagram] => @kiwify
+    [street] => Rua 1001
+    [number] => 315
+    [complement] => SL 05
+    [neighborhood] => Centro
+    [city] => Balneário Camboriú
+    [state] => SC
+    [zipcode] => 88330-756
+)
+
+[2025-10-03 01:28:27] [debug] Product data completo | Dados: Array
+(
+    [product_id] => 94633841-8f44-45ba-9425-992a5d988a9c
+    [product_name] => Example product
+)
+
+[2025-10-03 01:28:27] [debug] Subscription data completo | Dados: Array
+(
+    [id] => e7d025fc-46ad-4f75-8307-17e9f96938d1
+    [start_date] => 2025-09-30T04:28:28.610Z
+    [next_payment] => 2025-10-07T04:28:28.610Z
+    [status] => active
+    [plan] => Array
+        (
+            [id] => b44b90ab-7f88-47d5-b86e-f51ff4497939
+            [name] => Example plan
+            [frequency] => weekly
+            [qty_charges] => 0
+        )
+
+    [charges] => Array
+        (
+            [completed] => Array
+                (
+                    [0] => Array
+                        (
+                            [order_id] => e257965a-2652-421f-8ebb-6d861ced0672
+                            [amount] => 1166
+                            [status] => paid
+                            [installments] => 1
+                            [card_type] => mastercard
+                            [card_last_digits] => 8311
+                            [card_first_digits] => 763627
+                            [created_at] => 2025-09-30T04:28:28.610Z
+                        )
+
+                )
+
+            [future] => Array
+                (
+                    [0] => Array
+                        (
+                            [charge_date] => 2025-10-07T04:28:28.610Z
+                        )
+
+                )
+
+        )
+
+)
+
+[2025-10-03 01:28:27] [debug] Commissions data completo | Dados: Array
+(
+    [charge_amount] => 1310
+    [product_base_price] => 1310
+    [product_base_price_currency] => BRL
+    [kiwify_fee] => 144
+    [kiwify_fee_currency] => BRL
+    [settlement_amount] => 1310
+    [settlement_amount_currency] => BRL
+    [sale_tax_rate] => 0
+    [sale_tax_amount] => 0
+    [commissioned_stores] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 8239b898-3d75-44ea-8875-ba51b6da245b
+                    [type] => producer
+                    [custom_name] => Example store
+                    [email] => example@store.domain
+                    [value] => 1166
+                )
+
+            [1] => Array
+                (
+                    [id] => decf812e-44c6-435a-940f-de61bb15a835
+                    [type] => coproducer
+                    [custom_name] => Example coproducer
+                    [email] => example@coproducer.domain
+                    [value] => 1166
+                )
+
+            [2] => Array
+                (
+                    [id] => 7236baa7-1ace-4f16-9924-784273f4b52c
+                    [type] => affiliate
+                    [affiliate_id] => EjJIsin
+                    [custom_name] => Example affiliate
+                    [email] => example@affiliate.domain
+                    [value] => 1166
+                )
+
+        )
+
+    [currency] => BRL
+    [my_commission] => 1166
+    [funds_status] => 
+    [estimated_deposit_date] => 
+    [deposit_date] => 
+)
+
+[2025-10-03 01:28:27] [debug] Todas as chaves do payload principal | Dados: Array
+(
+    [chaves] => Array
+        (
+            [0] => order_id
+            [1] => order_ref
+            [2] => order_status
+            [3] => product_type
+            [4] => payment_method
+            [5] => store_id
+            [6] => payment_merchant_id
+            [7] => installments
+            [8] => card_type
+            [9] => card_last4digits
+            [10] => card_rejection_reason
+            [11] => boleto_URL
+            [12] => boleto_barcode
+            [13] => boleto_expiry_date
+            [14] => pix_code
+            [15] => pix_expiration
+            [16] => sale_type
+            [17] => created_at
+            [18] => updated_at
+            [19] => approved_date
+            [20] => refunded_at
+            [21] => webhook_event_type
+            [22] => Product
+            [23] => Customer
+            [24] => Commissions
+            [25] => TrackingParameters
+            [26] => Subscription
+            [27] => subscription_id
+            [28] => access_url
+        )
+
+)
+
+[2025-10-03 01:28:27] [debug] === FIM DEBUG COMPLETO ===
+[2025-10-03 01:28:27] [info] Webhook recebido da Kiwify | Dados: Array
+(
+    [event] => order_approved
+    [order_id] => e257965a-2652-421f-8ebb-6d861ced0672
+)
+
+[2025-10-03 01:28:27] [info] Venda com afiliado detectada | Dados: Array
+(
+    [afiliado] => Example affiliate
+    [email] => example@affiliate.domain
+    [comissao] => 11.66
+    [percentual] => 89.01
+)
+
+[2025-10-03 01:28:27] [info] Processando nova compra | Dados: Array
+(
+    [cliente] => John Doe
+    [email] => johndoe@example.com
+    [valor_bruto] => 13.1
+    [valor_liquido] => 11.66
+    [comissao_afiliado] => 11.66
+    [taxa_kiwify] => 1.44
+    [tem_afiliado] => 1
+)
+
+[2025-10-03 01:28:27] [info] Compra processada com sucesso | Dados: Array
+(
+    [success] => 1
+    [subscription_id] => 49
+    [message] => Assinatura criada com sucesso
+)
+
+[2025-10-03 01:28:29] [debug] === PAYLOAD COMPLETO DA KIWIFY ===
+[2025-10-03 01:28:29] [debug] Raw payload | Dados: Array
+(
+    [raw] => {"order_id":"de6dc7c7-3c89-49b9-b2a0-95e9cd251f3d","order_ref":"XyzlqdY","order_status":"paid","product_type":"membership","payment_method":"credit_card","store_id":"4xPs88ZSg28dthH","payment_merchant_id":94797436,"installments":1,"card_type":"mastercard","card_last4digits":"7399","card_rejection_reason":null,"boleto_URL":null,"boleto_barcode":null,"boleto_expiry_date":null,"pix_code":null,"pix_expiration":null,"sale_type":"producer","created_at":"2025-10-03 04:28","updated_at":"2025-10-03 04:28","approved_date":"2025-10-04 04:28","refunded_at":null,"webhook_event_type":"order_approved","Product":{"product_id":"adb05d4c-93b2-41e7-b56e-22450a6c587e","product_name":"Example product"},"Customer":{"full_name":"John Doe","first_name":"John","email":"johndoe@example.com","mobile":"+43040325289","cnpj":"84605306569191","ip":"51.252.12.166","instagram":"@kiwify","street":"Rua 1001","number":"315","complement":"SL 05","neighborhood":"Centro","city":"Balneário Camboriú","state":"SC","zipcode":"88330-756"},"Commissions":{"charge_amount":1646,"product_base_price":1646,"product_base_price_currency":"BRL","kiwify_fee":181,"kiwify_fee_currency":"BRL","settlement_amount":1646,"settlement_amount_currency":"BRL","sale_tax_rate":0,"sale_tax_amount":0,"commissioned_stores":[{"id":"faab81b4-d11c-4eb7-809a-629066332b6d","type":"producer","custom_name":"Example store","email":"example@store.domain","value":"1465"},{"id":"77f8c8b8-ef50-47c2-87aa-c628fcd31567","type":"coproducer","custom_name":"Example coproducer","email":"example@coproducer.domain","value":"1465"},{"id":"16dfe8af-9985-414a-b700-9c841b27e35d","type":"affiliate","affiliate_id":"bGsuJkF","custom_name":"Example affiliate","email":"example@affiliate.domain","value":"1465"}],"currency":"BRL","my_commission":1465,"funds_status":null,"estimated_deposit_date":null,"deposit_date":null},"TrackingParameters":{"src":null,"sck":null,"utm_source":null,"utm_medium":null,"utm_campaign":null,"utm_content":null,"utm_term":null,"s1":null,"s2":null,"s3":null},"Subscription":{"id":"4666e2b5-b9bc-4c6f-b693-68fa8b2517fd","start_date":"2025-09-30T04:28:30.346Z","next_payment":"2025-10-07T04:28:30.346Z","status":"active","plan":{"id":"b8b7e687-4e8f-4ab8-a6b4-09e242048a2d","name":"Example plan","frequency":"weekly","qty_charges":0},"charges":{"completed":[{"order_id":"de6dc7c7-3c89-49b9-b2a0-95e9cd251f3d","amount":1465,"status":"paid","installments":1,"card_type":"mastercard","card_last_digits":"2030","card_first_digits":"821435","created_at":"2025-09-30T04:28:30.346Z"}],"future":[{"charge_date":"2025-10-07T04:28:30.346Z"}]}},"subscription_id":"4666e2b5-b9bc-4c6f-b693-68fa8b2517fd","access_url":null}
+)
+
+[2025-10-03 01:28:29] [debug] Payload completo decodificado | Dados: Array
+(
+    [order_id] => de6dc7c7-3c89-49b9-b2a0-95e9cd251f3d
+    [order_ref] => XyzlqdY
+    [order_status] => paid
+    [product_type] => membership
+    [payment_method] => credit_card
+    [store_id] => 4xPs88ZSg28dthH
+    [payment_merchant_id] => 94797436
+    [installments] => 1
+    [card_type] => mastercard
+    [card_last4digits] => 7399
+    [card_rejection_reason] => 
+    [boleto_URL] => 
+    [boleto_barcode] => 
+    [boleto_expiry_date] => 
+    [pix_code] => 
+    [pix_expiration] => 
+    [sale_type] => producer
+    [created_at] => 2025-10-03 04:28
+    [updated_at] => 2025-10-03 04:28
+    [approved_date] => 2025-10-04 04:28
+    [refunded_at] => 
+    [webhook_event_type] => order_approved
+    [Product] => Array
+        (
+            [product_id] => adb05d4c-93b2-41e7-b56e-22450a6c587e
+            [product_name] => Example product
+        )
+
+    [Customer] => Array
+        (
+            [full_name] => John Doe
+            [first_name] => John
+            [email] => johndoe@example.com
+            [mobile] => +43040325289
+            [cnpj] => 84605306569191
+            [ip] => 51.252.12.166
+            [instagram] => @kiwify
+            [street] => Rua 1001
+            [number] => 315
+            [complement] => SL 05
+            [neighborhood] => Centro
+            [city] => Balneário Camboriú
+            [state] => SC
+            [zipcode] => 88330-756
+        )
+
+    [Commissions] => Array
+        (
+            [charge_amount] => 1646
+            [product_base_price] => 1646
+            [product_base_price_currency] => BRL
+            [kiwify_fee] => 181
+            [kiwify_fee_currency] => BRL
+            [settlement_amount] => 1646
+            [settlement_amount_currency] => BRL
+            [sale_tax_rate] => 0
+            [sale_tax_amount] => 0
+            [commissioned_stores] => Array
+                (
+                    [0] => Array
+                        (
+                            [id] => faab81b4-d11c-4eb7-809a-629066332b6d
+                            [type] => producer
+                            [custom_name] => Example store
+                            [email] => example@store.domain
+                            [value] => 1465
+                        )
+
+                    [1] => Array
+                        (
+                            [id] => 77f8c8b8-ef50-47c2-87aa-c628fcd31567
+                            [type] => coproducer
+                            [custom_name] => Example coproducer
+                            [email] => example@coproducer.domain
+                            [value] => 1465
+                        )
+
+                    [2] => Array
+                        (
+                            [id] => 16dfe8af-9985-414a-b700-9c841b27e35d
+                            [type] => affiliate
+                            [affiliate_id] => bGsuJkF
+                            [custom_name] => Example affiliate
+                            [email] => example@affiliate.domain
+                            [value] => 1465
+                        )
+
+                )
+
+            [currency] => BRL
+            [my_commission] => 1465
+            [funds_status] => 
+            [estimated_deposit_date] => 
+            [deposit_date] => 
+        )
+
+    [TrackingParameters] => Array
+        (
+            [src] => 
+            [sck] => 
+            [utm_source] => 
+            [utm_medium] => 
+            [utm_campaign] => 
+            [utm_content] => 
+            [utm_term] => 
+            [s1] => 
+            [s2] => 
+            [s3] => 
+        )
+
+    [Subscription] => Array
+        (
+            [id] => 4666e2b5-b9bc-4c6f-b693-68fa8b2517fd
+            [start_date] => 2025-09-30T04:28:30.346Z
+            [next_payment] => 2025-10-07T04:28:30.346Z
+            [status] => active
+            [plan] => Array
+                (
+                    [id] => b8b7e687-4e8f-4ab8-a6b4-09e242048a2d
+                    [name] => Example plan
+                    [frequency] => weekly
+                    [qty_charges] => 0
+                )
+
+            [charges] => Array
+                (
+                    [completed] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [order_id] => de6dc7c7-3c89-49b9-b2a0-95e9cd251f3d
+                                    [amount] => 1465
+                                    [status] => paid
+                                    [installments] => 1
+                                    [card_type] => mastercard
+                                    [card_last_digits] => 2030
+                                    [card_first_digits] => 821435
+                                    [created_at] => 2025-09-30T04:28:30.346Z
+                                )
+
+                        )
+
+                    [future] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [charge_date] => 2025-10-07T04:28:30.346Z
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [subscription_id] => 4666e2b5-b9bc-4c6f-b693-68fa8b2517fd
+    [access_url] => 
+)
+
+[2025-10-03 01:28:29] [debug] Customer data completo | Dados: Array
+(
+    [full_name] => John Doe
+    [first_name] => John
+    [email] => johndoe@example.com
+    [mobile] => +43040325289
+    [cnpj] => 84605306569191
+    [ip] => 51.252.12.166
+    [instagram] => @kiwify
+    [street] => Rua 1001
+    [number] => 315
+    [complement] => SL 05
+    [neighborhood] => Centro
+    [city] => Balneário Camboriú
+    [state] => SC
+    [zipcode] => 88330-756
+)
+
+[2025-10-03 01:28:29] [debug] Product data completo | Dados: Array
+(
+    [product_id] => adb05d4c-93b2-41e7-b56e-22450a6c587e
+    [product_name] => Example product
+)
+
+[2025-10-03 01:28:29] [debug] Subscription data completo | Dados: Array
+(
+    [id] => 4666e2b5-b9bc-4c6f-b693-68fa8b2517fd
+    [start_date] => 2025-09-30T04:28:30.346Z
+    [next_payment] => 2025-10-07T04:28:30.346Z
+    [status] => active
+    [plan] => Array
+        (
+            [id] => b8b7e687-4e8f-4ab8-a6b4-09e242048a2d
+            [name] => Example plan
+            [frequency] => weekly
+            [qty_charges] => 0
+        )
+
+    [charges] => Array
+        (
+            [completed] => Array
+                (
+                    [0] => Array
+                        (
+                            [order_id] => de6dc7c7-3c89-49b9-b2a0-95e9cd251f3d
+                            [amount] => 1465
+                            [status] => paid
+                            [installments] => 1
+                            [card_type] => mastercard
+                            [card_last_digits] => 2030
+                            [card_first_digits] => 821435
+                            [created_at] => 2025-09-30T04:28:30.346Z
+                        )
+
+                )
+
+            [future] => Array
+                (
+                    [0] => Array
+                        (
+                            [charge_date] => 2025-10-07T04:28:30.346Z
+                        )
+
+                )
+
+        )
+
+)
+
+[2025-10-03 01:28:29] [debug] Commissions data completo | Dados: Array
+(
+    [charge_amount] => 1646
+    [product_base_price] => 1646
+    [product_base_price_currency] => BRL
+    [kiwify_fee] => 181
+    [kiwify_fee_currency] => BRL
+    [settlement_amount] => 1646
+    [settlement_amount_currency] => BRL
+    [sale_tax_rate] => 0
+    [sale_tax_amount] => 0
+    [commissioned_stores] => Array
+        (
+            [0] => Array
+                (
+                    [id] => faab81b4-d11c-4eb7-809a-629066332b6d
+                    [type] => producer
+                    [custom_name] => Example store
+                    [email] => example@store.domain
+                    [value] => 1465
+                )
+
+            [1] => Array
+                (
+                    [id] => 77f8c8b8-ef50-47c2-87aa-c628fcd31567
+                    [type] => coproducer
+                    [custom_name] => Example coproducer
+                    [email] => example@coproducer.domain
+                    [value] => 1465
+                )
+
+            [2] => Array
+                (
+                    [id] => 16dfe8af-9985-414a-b700-9c841b27e35d
+                    [type] => affiliate
+                    [affiliate_id] => bGsuJkF
+                    [custom_name] => Example affiliate
+                    [email] => example@affiliate.domain
+                    [value] => 1465
+                )
+
+        )
+
+    [currency] => BRL
+    [my_commission] => 1465
+    [funds_status] => 
+    [estimated_deposit_date] => 
+    [deposit_date] => 
+)
+
+[2025-10-03 01:28:29] [debug] Todas as chaves do payload principal | Dados: Array
+(
+    [chaves] => Array
+        (
+            [0] => order_id
+            [1] => order_ref
+            [2] => order_status
+            [3] => product_type
+            [4] => payment_method
+            [5] => store_id
+            [6] => payment_merchant_id
+            [7] => installments
+            [8] => card_type
+            [9] => card_last4digits
+            [10] => card_rejection_reason
+            [11] => boleto_URL
+            [12] => boleto_barcode
+            [13] => boleto_expiry_date
+            [14] => pix_code
+            [15] => pix_expiration
+            [16] => sale_type
+            [17] => created_at
+            [18] => updated_at
+            [19] => approved_date
+            [20] => refunded_at
+            [21] => webhook_event_type
+            [22] => Product
+            [23] => Customer
+            [24] => Commissions
+            [25] => TrackingParameters
+            [26] => Subscription
+            [27] => subscription_id
+            [28] => access_url
+        )
+
+)
+
+[2025-10-03 01:28:29] [debug] === FIM DEBUG COMPLETO ===
+[2025-10-03 01:28:29] [info] Webhook recebido da Kiwify | Dados: Array
+(
+    [event] => order_approved
+    [order_id] => de6dc7c7-3c89-49b9-b2a0-95e9cd251f3d
+)
+
+[2025-10-03 01:28:29] [info] Venda com afiliado detectada | Dados: Array
+(
+    [afiliado] => Example affiliate
+    [email] => example@affiliate.domain
+    [comissao] => 14.65
+    [percentual] => 89
+)
+
+[2025-10-03 01:28:29] [info] Processando nova compra | Dados: Array
+(
+    [cliente] => John Doe
+    [email] => johndoe@example.com
+    [valor_bruto] => 16.46
+    [valor_liquido] => 14.65
+    [comissao_afiliado] => 14.65
+    [taxa_kiwify] => 1.81
+    [tem_afiliado] => 1
+)
+
+[2025-10-03 01:28:29] [info] Compra processada com sucesso | Dados: Array
+(
+    [success] => 1
+    [subscription_id] => 50
+    [message] => Assinatura criada com sucesso
+)
+
+[2025-10-03 12:03:11] [debug] === PAYLOAD COMPLETO DA KIWIFY ===
+[2025-10-03 12:03:11] [debug] Raw payload | Dados: Array
+(
+    [raw] => {"order_id":"a1bca93a-3c83-4485-b9ad-898cd34cf965","order_ref":"k2iwraN","order_status":"paid","product_type":"payment","payment_method":"credit_card","store_id":"hzZ2A3eRu2Wd4IL","payment_merchant_id":"10142510031157427566","installments":1,"card_type":"mastercard","card_last4digits":"5837","boleto_barcode":null,"boleto_expiry_date":null,"pix_code":null,"pix_expiration":null,"sale_type":"producer","created_at":"2025-10-03 12:03","updated_at":"2025-10-03 12:03","approved_date":"2025-10-03 12:03","refunded_at":null,"webhook_event_type":"order_approved","Product":{"product_id":"17e8fef0-92ef-11f0-89e7-458a6baf4af1","product_name":"Site por assinatura"},"Customer":{"full_name":"Cibele Godoi","first_name":"Cibele","email":"mozcibele@gmail.com","mobile":"+5511948648193","cnpj":"24681822000143","ip":"2804:3d90:829c:2a0:44e4:5137:2e0a:54eb","street":"Avenida Doutor Gastão Vidigal","number":"1132","neighborhood":"Vila Leopoldina","city":"São Paulo","state":"SP","zipcode":"05314-000","country":"br"},"Commissions":{"charge_amount":16900,"product_base_price":16900,"product_base_price_currency":"BRL","kiwify_fee":1768,"kiwify_fee_currency":"BRL","commissioned_stores":[{"id":"69176c1f-db55-4273-a9ea-d758996335b5","type":"producer","custom_name":"Pachella Consultoria e Treinamentos Ltda.","email":"grupopachella@gmail.com","value":"15132"}],"currency":"BRL","my_commission":15132,"funds_status":"waiting","estimated_deposit_date":"2025-10-20T03:00:00.000Z","deposit_date":null},"TrackingParameters":{"src":null,"sck":null,"utm_source":null,"utm_medium":null,"utm_campaign":null,"utm_content":null,"utm_term":null,"s1":null,"s2":null,"s3":null},"checkout_link":"oCvYBpg","Subscription":{"start_date":"2025-10-03T15:03:06.271Z","next_payment":"2025-11-03T15:03:11.608Z","status":"active","customer_access":{"has_access":true,"active_period":true,"access_until":"2025-11-03T15:03:11.608Z"},"plan":{"id":"a3b1516f-ceb2-4fa3-8948-7f7781b91a6f","name":"Supersite Starter - Promo","frequency":"monthly","qty_charges":0},"charges":{"completed":[{"order_id":"a1bca93a-3c83-4485-b9ad-898cd34cf965","amount":15132,"status":"paid","installments":1,"card_type":"mastercard","card_last_digits":"5837","card_first_digits":"230744","created_at":"2025-10-03T15:03:06.300Z"}],"future":[{"charge_date":"2025-11-03T15:03:11.608Z"},{"charge_date":"2025-12-03T15:03:11.608Z"},{"charge_date":"2026-01-03T15:03:11.608Z"},{"charge_date":"2026-02-03T15:03:11.608Z"},{"charge_date":"2026-03-03T15:03:11.608Z"},{"charge_date":"2026-04-03T15:03:11.608Z"},{"charge_date":"2026-05-03T15:03:11.608Z"},{"charge_date":"2026-06-03T15:03:11.608Z"},{"charge_date":"2026-07-03T15:03:11.608Z"},{"charge_date":"2026-08-03T15:03:11.608Z"},{"charge_date":"2026-09-03T15:03:11.608Z"}]}},"subscription_id":"b929e17d-637b-4901-9db8-d18e50850476","access_url":null}
+)
+
+[2025-10-03 12:03:11] [debug] Payload completo decodificado | Dados: Array
+(
+    [order_id] => a1bca93a-3c83-4485-b9ad-898cd34cf965
+    [order_ref] => k2iwraN
+    [order_status] => paid
+    [product_type] => payment
+    [payment_method] => credit_card
+    [store_id] => hzZ2A3eRu2Wd4IL
+    [payment_merchant_id] => 10142510031157427566
+    [installments] => 1
+    [card_type] => mastercard
+    [card_last4digits] => 5837
+    [boleto_barcode] => 
+    [boleto_expiry_date] => 
+    [pix_code] => 
+    [pix_expiration] => 
+    [sale_type] => producer
+    [created_at] => 2025-10-03 12:03
+    [updated_at] => 2025-10-03 12:03
+    [approved_date] => 2025-10-03 12:03
+    [refunded_at] => 
+    [webhook_event_type] => order_approved
+    [Product] => Array
+        (
+            [product_id] => 17e8fef0-92ef-11f0-89e7-458a6baf4af1
+            [product_name] => Site por assinatura
+        )
+
+    [Customer] => Array
+        (
+            [full_name] => Cibele Godoi
+            [first_name] => Cibele
+            [email] => mozcibele@gmail.com
+            [mobile] => +5511948648193
+            [cnpj] => 24681822000143
+            [ip] => 2804:3d90:829c:2a0:44e4:5137:2e0a:54eb
+            [street] => Avenida Doutor Gastão Vidigal
+            [number] => 1132
+            [neighborhood] => Vila Leopoldina
+            [city] => São Paulo
+            [state] => SP
+            [zipcode] => 05314-000
+            [country] => br
+        )
+
+    [Commissions] => Array
+        (
+            [charge_amount] => 16900
+            [product_base_price] => 16900
+            [product_base_price_currency] => BRL
+            [kiwify_fee] => 1768
+            [kiwify_fee_currency] => BRL
+            [commissioned_stores] => Array
+                (
+                    [0] => Array
+                        (
+                            [id] => 69176c1f-db55-4273-a9ea-d758996335b5
+                            [type] => producer
+                            [custom_name] => Pachella Consultoria e Treinamentos Ltda.
+                            [email] => grupopachella@gmail.com
+                            [value] => 15132
+                        )
+
+                )
+
+            [currency] => BRL
+            [my_commission] => 15132
+            [funds_status] => waiting
+            [estimated_deposit_date] => 2025-10-20T03:00:00.000Z
+            [deposit_date] => 
+        )
+
+    [TrackingParameters] => Array
+        (
+            [src] => 
+            [sck] => 
+            [utm_source] => 
+            [utm_medium] => 
+            [utm_campaign] => 
+            [utm_content] => 
+            [utm_term] => 
+            [s1] => 
+            [s2] => 
+            [s3] => 
+        )
+
+    [checkout_link] => oCvYBpg
+    [Subscription] => Array
+        (
+            [start_date] => 2025-10-03T15:03:06.271Z
+            [next_payment] => 2025-11-03T15:03:11.608Z
+            [status] => active
+            [customer_access] => Array
+                (
+                    [has_access] => 1
+                    [active_period] => 1
+                    [access_until] => 2025-11-03T15:03:11.608Z
+                )
+
+            [plan] => Array
+                (
+                    [id] => a3b1516f-ceb2-4fa3-8948-7f7781b91a6f
+                    [name] => Supersite Starter - Promo
+                    [frequency] => monthly
+                    [qty_charges] => 0
+                )
+
+            [charges] => Array
+                (
+                    [completed] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [order_id] => a1bca93a-3c83-4485-b9ad-898cd34cf965
+                                    [amount] => 15132
+                                    [status] => paid
+                                    [installments] => 1
+                                    [card_type] => mastercard
+                                    [card_last_digits] => 5837
+                                    [card_first_digits] => 230744
+                                    [created_at] => 2025-10-03T15:03:06.300Z
+                                )
+
+                        )
+
+                    [future] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [charge_date] => 2025-11-03T15:03:11.608Z
+                                )
+
+                            [1] => Array
+                                (
+                                    [charge_date] => 2025-12-03T15:03:11.608Z
+                                )
+
+                            [2] => Array
+                                (
+                                    [charge_date] => 2026-01-03T15:03:11.608Z
+                                )
+
+                            [3] => Array
+                                (
+                                    [charge_date] => 2026-02-03T15:03:11.608Z
+                                )
+
+                            [4] => Array
+                                (
+                                    [charge_date] => 2026-03-03T15:03:11.608Z
+                                )
+
+                            [5] => Array
+                                (
+                                    [charge_date] => 2026-04-03T15:03:11.608Z
+                                )
+
+                            [6] => Array
+                                (
+                                    [charge_date] => 2026-05-03T15:03:11.608Z
+                                )
+
+                            [7] => Array
+                                (
+                                    [charge_date] => 2026-06-03T15:03:11.608Z
+                                )
+
+                            [8] => Array
+                                (
+                                    [charge_date] => 2026-07-03T15:03:11.608Z
+                                )
+
+                            [9] => Array
+                                (
+                                    [charge_date] => 2026-08-03T15:03:11.608Z
+                                )
+
+                            [10] => Array
+                                (
+                                    [charge_date] => 2026-09-03T15:03:11.608Z
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [subscription_id] => b929e17d-637b-4901-9db8-d18e50850476
+    [access_url] => 
+)
+
+[2025-10-03 12:03:11] [debug] Customer data completo | Dados: Array
+(
+    [full_name] => Cibele Godoi
+    [first_name] => Cibele
+    [email] => mozcibele@gmail.com
+    [mobile] => +5511948648193
+    [cnpj] => 24681822000143
+    [ip] => 2804:3d90:829c:2a0:44e4:5137:2e0a:54eb
+    [street] => Avenida Doutor Gastão Vidigal
+    [number] => 1132
+    [neighborhood] => Vila Leopoldina
+    [city] => São Paulo
+    [state] => SP
+    [zipcode] => 05314-000
+    [country] => br
+)
+
+[2025-10-03 12:03:11] [debug] Product data completo | Dados: Array
+(
+    [product_id] => 17e8fef0-92ef-11f0-89e7-458a6baf4af1
+    [product_name] => Site por assinatura
+)
+
+[2025-10-03 12:03:11] [debug] Subscription data completo | Dados: Array
+(
+    [start_date] => 2025-10-03T15:03:06.271Z
+    [next_payment] => 2025-11-03T15:03:11.608Z
+    [status] => active
+    [customer_access] => Array
+        (
+            [has_access] => 1
+            [active_period] => 1
+            [access_until] => 2025-11-03T15:03:11.608Z
+        )
+
+    [plan] => Array
+        (
+            [id] => a3b1516f-ceb2-4fa3-8948-7f7781b91a6f
+            [name] => Supersite Starter - Promo
+            [frequency] => monthly
+            [qty_charges] => 0
+        )
+
+    [charges] => Array
+        (
+            [completed] => Array
+                (
+                    [0] => Array
+                        (
+                            [order_id] => a1bca93a-3c83-4485-b9ad-898cd34cf965
+                            [amount] => 15132
+                            [status] => paid
+                            [installments] => 1
+                            [card_type] => mastercard
+                            [card_last_digits] => 5837
+                            [card_first_digits] => 230744
+                            [created_at] => 2025-10-03T15:03:06.300Z
+                        )
+
+                )
+
+            [future] => Array
+                (
+                    [0] => Array
+                        (
+                            [charge_date] => 2025-11-03T15:03:11.608Z
+                        )
+
+                    [1] => Array
+                        (
+                            [charge_date] => 2025-12-03T15:03:11.608Z
+                        )
+
+                    [2] => Array
+                        (
+                            [charge_date] => 2026-01-03T15:03:11.608Z
+                        )
+
+                    [3] => Array
+                        (
+                            [charge_date] => 2026-02-03T15:03:11.608Z
+                        )
+
+                    [4] => Array
+                        (
+                            [charge_date] => 2026-03-03T15:03:11.608Z
+                        )
+
+                    [5] => Array
+                        (
+                            [charge_date] => 2026-04-03T15:03:11.608Z
+                        )
+
+                    [6] => Array
+                        (
+                            [charge_date] => 2026-05-03T15:03:11.608Z
+                        )
+
+                    [7] => Array
+                        (
+                            [charge_date] => 2026-06-03T15:03:11.608Z
+                        )
+
+                    [8] => Array
+                        (
+                            [charge_date] => 2026-07-03T15:03:11.608Z
+                        )
+
+                    [9] => Array
+                        (
+                            [charge_date] => 2026-08-03T15:03:11.608Z
+                        )
+
+                    [10] => Array
+                        (
+                            [charge_date] => 2026-09-03T15:03:11.608Z
+                        )
+
+                )
+
+        )
+
+)
+
+[2025-10-03 12:03:11] [debug] Commissions data completo | Dados: Array
+(
+    [charge_amount] => 16900
+    [product_base_price] => 16900
+    [product_base_price_currency] => BRL
+    [kiwify_fee] => 1768
+    [kiwify_fee_currency] => BRL
+    [commissioned_stores] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 69176c1f-db55-4273-a9ea-d758996335b5
+                    [type] => producer
+                    [custom_name] => Pachella Consultoria e Treinamentos Ltda.
+                    [email] => grupopachella@gmail.com
+                    [value] => 15132
+                )
+
+        )
+
+    [currency] => BRL
+    [my_commission] => 15132
+    [funds_status] => waiting
+    [estimated_deposit_date] => 2025-10-20T03:00:00.000Z
+    [deposit_date] => 
+)
+
+[2025-10-03 12:03:11] [debug] Todas as chaves do payload principal | Dados: Array
+(
+    [chaves] => Array
+        (
+            [0] => order_id
+            [1] => order_ref
+            [2] => order_status
+            [3] => product_type
+            [4] => payment_method
+            [5] => store_id
+            [6] => payment_merchant_id
+            [7] => installments
+            [8] => card_type
+            [9] => card_last4digits
+            [10] => boleto_barcode
+            [11] => boleto_expiry_date
+            [12] => pix_code
+            [13] => pix_expiration
+            [14] => sale_type
+            [15] => created_at
+            [16] => updated_at
+            [17] => approved_date
+            [18] => refunded_at
+            [19] => webhook_event_type
+            [20] => Product
+            [21] => Customer
+            [22] => Commissions
+            [23] => TrackingParameters
+            [24] => checkout_link
+            [25] => Subscription
+            [26] => subscription_id
+            [27] => access_url
+        )
+
+)
+
+[2025-10-03 12:03:11] [debug] === FIM DEBUG COMPLETO ===
+[2025-10-03 12:03:11] [info] Webhook recebido da Kiwify | Dados: Array
+(
+    [event] => order_approved
+    [order_id] => a1bca93a-3c83-4485-b9ad-898cd34cf965
+)
+
+[2025-10-03 12:03:11] [info] Processando nova compra | Dados: Array
+(
+    [cliente] => Cibele Godoi
+    [email] => mozcibele@gmail.com
+    [valor_bruto] => 169
+    [valor_liquido] => 151.32
+    [comissao_afiliado] => 0
+    [taxa_kiwify] => 17.68
+    [tem_afiliado] => 
+)
+
+[2025-10-03 12:03:38] [info] Compra processada com sucesso | Dados: Array
+(
+    [success] => 1
+    [subscription_id] => 51
+    [message] => Assinatura criada com sucesso
+)
+
+[2025-10-03 13:52:43] [debug] === PAYLOAD COMPLETO DA KIWIFY ===
+[2025-10-03 13:52:43] [debug] Raw payload | Dados: Array
+(
+    [raw] => {"order_id":"2a6d7a1a-8d49-46b7-b50a-8663ab31afbf","order_ref":"SJiptW5","order_status":"paid","product_type":"payment","payment_method":"credit_card","store_id":"hzZ2A3eRu2Wd4IL","payment_merchant_id":"10142510031348252133","installments":1,"card_type":"mastercard","card_last4digits":"9558","boleto_barcode":null,"boleto_expiry_date":null,"pix_code":null,"pix_expiration":null,"sale_type":"producer","created_at":"2025-10-03 13:52","updated_at":"2025-10-03 13:52","approved_date":"2025-10-03 13:52","refunded_at":null,"webhook_event_type":"order_approved","Product":{"product_id":"17e8fef0-92ef-11f0-89e7-458a6baf4af1","product_name":"Site por assinatura"},"Customer":{"full_name":"Mariana","first_name":"Mariana","email":"maricavalcanti20@gmail.com","mobile":"+5521989106188","cnpj":"41948575000118","ip":"2a09:bac2:ace:297d::422:2c","street":"Rua São Salvador","number":"44","complement":"202","neighborhood":"Flamengo","city":"Rio de Janeiro","state":"RJ","zipcode":"22231-130","country":"br"},"Commissions":{"charge_amount":26900,"product_base_price":26900,"product_base_price_currency":"BRL","kiwify_fee":2667,"kiwify_fee_currency":"BRL","commissioned_stores":[{"id":"139ef59b-d384-4ac1-a9e7-893d4d468380","type":"affiliate","affiliate_id":"vpUrVsmQ","custom_name":"Luiz Paulo Braga Pachella","email":"luiz@pachella.com.br","value":"6058"},{"id":"d4c073da-c5e2-4ff7-9c2f-db1a90c68c9c","type":"producer","custom_name":"Pachella Consultoria e Treinamentos Ltda.","email":"grupopachella@gmail.com","value":"18175"}],"currency":"BRL","my_commission":18175,"funds_status":"waiting","estimated_deposit_date":"2025-10-20T03:00:00.000Z","deposit_date":null},"TrackingParameters":{"src":null,"sck":null,"utm_source":null,"utm_medium":null,"utm_campaign":null,"utm_content":null,"utm_term":null,"s1":null,"s2":null,"s3":null},"checkout_link":"SOukoix","Subscription":{"start_date":"2025-10-03T16:52:39.780Z","next_payment":"2025-11-03T16:52:43.950Z","status":"active","customer_access":{"has_access":true,"active_period":true,"access_until":"2025-11-03T16:52:43.950Z"},"plan":{"id":"661917c3-f858-4830-870e-1a760e6b1382","name":"Supersite PRO","frequency":"monthly","qty_charges":0},"charges":{"completed":[{"order_id":"2a6d7a1a-8d49-46b7-b50a-8663ab31afbf","amount":24233,"status":"paid","installments":1,"card_type":"mastercard","card_last_digits":"9558","card_first_digits":"521433","created_at":"2025-10-03T16:52:39.818Z"}],"future":[{"charge_date":"2025-11-03T16:52:43.950Z"},{"charge_date":"2025-12-03T16:52:43.950Z"},{"charge_date":"2026-01-03T16:52:43.950Z"},{"charge_date":"2026-02-03T16:52:43.950Z"},{"charge_date":"2026-03-03T16:52:43.950Z"},{"charge_date":"2026-04-03T16:52:43.950Z"},{"charge_date":"2026-05-03T16:52:43.950Z"},{"charge_date":"2026-06-03T16:52:43.950Z"},{"charge_date":"2026-07-03T16:52:43.950Z"},{"charge_date":"2026-08-03T16:52:43.950Z"},{"charge_date":"2026-09-03T16:52:43.950Z"}]}},"subscription_id":"6583f948-b994-4b3b-afa9-0a71618aac38","access_url":null}
+)
+
+[2025-10-03 13:52:43] [debug] Payload completo decodificado | Dados: Array
+(
+    [order_id] => 2a6d7a1a-8d49-46b7-b50a-8663ab31afbf
+    [order_ref] => SJiptW5
+    [order_status] => paid
+    [product_type] => payment
+    [payment_method] => credit_card
+    [store_id] => hzZ2A3eRu2Wd4IL
+    [payment_merchant_id] => 10142510031348252133
+    [installments] => 1
+    [card_type] => mastercard
+    [card_last4digits] => 9558
+    [boleto_barcode] => 
+    [boleto_expiry_date] => 
+    [pix_code] => 
+    [pix_expiration] => 
+    [sale_type] => producer
+    [created_at] => 2025-10-03 13:52
+    [updated_at] => 2025-10-03 13:52
+    [approved_date] => 2025-10-03 13:52
+    [refunded_at] => 
+    [webhook_event_type] => order_approved
+    [Product] => Array
+        (
+            [product_id] => 17e8fef0-92ef-11f0-89e7-458a6baf4af1
+            [product_name] => Site por assinatura
+        )
+
+    [Customer] => Array
+        (
+            [full_name] => Mariana
+            [first_name] => Mariana
+            [email] => maricavalcanti20@gmail.com
+            [mobile] => +5521989106188
+            [cnpj] => 41948575000118
+            [ip] => 2a09:bac2:ace:297d::422:2c
+            [street] => Rua São Salvador
+            [number] => 44
+            [complement] => 202
+            [neighborhood] => Flamengo
+            [city] => Rio de Janeiro
+            [state] => RJ
+            [zipcode] => 22231-130
+            [country] => br
+        )
+
+    [Commissions] => Array
+        (
+            [charge_amount] => 26900
+            [product_base_price] => 26900
+            [product_base_price_currency] => BRL
+            [kiwify_fee] => 2667
+            [kiwify_fee_currency] => BRL
+            [commissioned_stores] => Array
+                (
+                    [0] => Array
+                        (
+                            [id] => 139ef59b-d384-4ac1-a9e7-893d4d468380
+                            [type] => affiliate
+                            [affiliate_id] => vpUrVsmQ
+                            [custom_name] => Luiz Paulo Braga Pachella
+                            [email] => luiz@pachella.com.br
+                            [value] => 6058
+                        )
+
+                    [1] => Array
+                        (
+                            [id] => d4c073da-c5e2-4ff7-9c2f-db1a90c68c9c
+                            [type] => producer
+                            [custom_name] => Pachella Consultoria e Treinamentos Ltda.
+                            [email] => grupopachella@gmail.com
+                            [value] => 18175
+                        )
+
+                )
+
+            [currency] => BRL
+            [my_commission] => 18175
+            [funds_status] => waiting
+            [estimated_deposit_date] => 2025-10-20T03:00:00.000Z
+            [deposit_date] => 
+        )
+
+    [TrackingParameters] => Array
+        (
+            [src] => 
+            [sck] => 
+            [utm_source] => 
+            [utm_medium] => 
+            [utm_campaign] => 
+            [utm_content] => 
+            [utm_term] => 
+            [s1] => 
+            [s2] => 
+            [s3] => 
+        )
+
+    [checkout_link] => SOukoix
+    [Subscription] => Array
+        (
+            [start_date] => 2025-10-03T16:52:39.780Z
+            [next_payment] => 2025-11-03T16:52:43.950Z
+            [status] => active
+            [customer_access] => Array
+                (
+                    [has_access] => 1
+                    [active_period] => 1
+                    [access_until] => 2025-11-03T16:52:43.950Z
+                )
+
+            [plan] => Array
+                (
+                    [id] => 661917c3-f858-4830-870e-1a760e6b1382
+                    [name] => Supersite PRO
+                    [frequency] => monthly
+                    [qty_charges] => 0
+                )
+
+            [charges] => Array
+                (
+                    [completed] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [order_id] => 2a6d7a1a-8d49-46b7-b50a-8663ab31afbf
+                                    [amount] => 24233
+                                    [status] => paid
+                                    [installments] => 1
+                                    [card_type] => mastercard
+                                    [card_last_digits] => 9558
+                                    [card_first_digits] => 521433
+                                    [created_at] => 2025-10-03T16:52:39.818Z
+                                )
+
+                        )
+
+                    [future] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [charge_date] => 2025-11-03T16:52:43.950Z
+                                )
+
+                            [1] => Array
+                                (
+                                    [charge_date] => 2025-12-03T16:52:43.950Z
+                                )
+
+                            [2] => Array
+                                (
+                                    [charge_date] => 2026-01-03T16:52:43.950Z
+                                )
+
+                            [3] => Array
+                                (
+                                    [charge_date] => 2026-02-03T16:52:43.950Z
+                                )
+
+                            [4] => Array
+                                (
+                                    [charge_date] => 2026-03-03T16:52:43.950Z
+                                )
+
+                            [5] => Array
+                                (
+                                    [charge_date] => 2026-04-03T16:52:43.950Z
+                                )
+
+                            [6] => Array
+                                (
+                                    [charge_date] => 2026-05-03T16:52:43.950Z
+                                )
+
+                            [7] => Array
+                                (
+                                    [charge_date] => 2026-06-03T16:52:43.950Z
+                                )
+
+                            [8] => Array
+                                (
+                                    [charge_date] => 2026-07-03T16:52:43.950Z
+                                )
+
+                            [9] => Array
+                                (
+                                    [charge_date] => 2026-08-03T16:52:43.950Z
+                                )
+
+                            [10] => Array
+                                (
+                                    [charge_date] => 2026-09-03T16:52:43.950Z
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [subscription_id] => 6583f948-b994-4b3b-afa9-0a71618aac38
+    [access_url] => 
+)
+
+[2025-10-03 13:52:43] [debug] Customer data completo | Dados: Array
+(
+    [full_name] => Mariana
+    [first_name] => Mariana
+    [email] => maricavalcanti20@gmail.com
+    [mobile] => +5521989106188
+    [cnpj] => 41948575000118
+    [ip] => 2a09:bac2:ace:297d::422:2c
+    [street] => Rua São Salvador
+    [number] => 44
+    [complement] => 202
+    [neighborhood] => Flamengo
+    [city] => Rio de Janeiro
+    [state] => RJ
+    [zipcode] => 22231-130
+    [country] => br
+)
+
+[2025-10-03 13:52:43] [debug] Product data completo | Dados: Array
+(
+    [product_id] => 17e8fef0-92ef-11f0-89e7-458a6baf4af1
+    [product_name] => Site por assinatura
+)
+
+[2025-10-03 13:52:43] [debug] Subscription data completo | Dados: Array
+(
+    [start_date] => 2025-10-03T16:52:39.780Z
+    [next_payment] => 2025-11-03T16:52:43.950Z
+    [status] => active
+    [customer_access] => Array
+        (
+            [has_access] => 1
+            [active_period] => 1
+            [access_until] => 2025-11-03T16:52:43.950Z
+        )
+
+    [plan] => Array
+        (
+            [id] => 661917c3-f858-4830-870e-1a760e6b1382
+            [name] => Supersite PRO
+            [frequency] => monthly
+            [qty_charges] => 0
+        )
+
+    [charges] => Array
+        (
+            [completed] => Array
+                (
+                    [0] => Array
+                        (
+                            [order_id] => 2a6d7a1a-8d49-46b7-b50a-8663ab31afbf
+                            [amount] => 24233
+                            [status] => paid
+                            [installments] => 1
+                            [card_type] => mastercard
+                            [card_last_digits] => 9558
+                            [card_first_digits] => 521433
+                            [created_at] => 2025-10-03T16:52:39.818Z
+                        )
+
+                )
+
+            [future] => Array
+                (
+                    [0] => Array
+                        (
+                            [charge_date] => 2025-11-03T16:52:43.950Z
+                        )
+
+                    [1] => Array
+                        (
+                            [charge_date] => 2025-12-03T16:52:43.950Z
+                        )
+
+                    [2] => Array
+                        (
+                            [charge_date] => 2026-01-03T16:52:43.950Z
+                        )
+
+                    [3] => Array
+                        (
+                            [charge_date] => 2026-02-03T16:52:43.950Z
+                        )
+
+                    [4] => Array
+                        (
+                            [charge_date] => 2026-03-03T16:52:43.950Z
+                        )
+
+                    [5] => Array
+                        (
+                            [charge_date] => 2026-04-03T16:52:43.950Z
+                        )
+
+                    [6] => Array
+                        (
+                            [charge_date] => 2026-05-03T16:52:43.950Z
+                        )
+
+                    [7] => Array
+                        (
+                            [charge_date] => 2026-06-03T16:52:43.950Z
+                        )
+
+                    [8] => Array
+                        (
+                            [charge_date] => 2026-07-03T16:52:43.950Z
+                        )
+
+                    [9] => Array
+                        (
+                            [charge_date] => 2026-08-03T16:52:43.950Z
+                        )
+
+                    [10] => Array
+                        (
+                            [charge_date] => 2026-09-03T16:52:43.950Z
+                        )
+
+                )
+
+        )
+
+)
+
+[2025-10-03 13:52:43] [debug] Commissions data completo | Dados: Array
+(
+    [charge_amount] => 26900
+    [product_base_price] => 26900
+    [product_base_price_currency] => BRL
+    [kiwify_fee] => 2667
+    [kiwify_fee_currency] => BRL
+    [commissioned_stores] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 139ef59b-d384-4ac1-a9e7-893d4d468380
+                    [type] => affiliate
+                    [affiliate_id] => vpUrVsmQ
+                    [custom_name] => Luiz Paulo Braga Pachella
+                    [email] => luiz@pachella.com.br
+                    [value] => 6058
+                )
+
+            [1] => Array
+                (
+                    [id] => d4c073da-c5e2-4ff7-9c2f-db1a90c68c9c
+                    [type] => producer
+                    [custom_name] => Pachella Consultoria e Treinamentos Ltda.
+                    [email] => grupopachella@gmail.com
+                    [value] => 18175
+                )
+
+        )
+
+    [currency] => BRL
+    [my_commission] => 18175
+    [funds_status] => waiting
+    [estimated_deposit_date] => 2025-10-20T03:00:00.000Z
+    [deposit_date] => 
+)
+
+[2025-10-03 13:52:43] [debug] Todas as chaves do payload principal | Dados: Array
+(
+    [chaves] => Array
+        (
+            [0] => order_id
+            [1] => order_ref
+            [2] => order_status
+            [3] => product_type
+            [4] => payment_method
+            [5] => store_id
+            [6] => payment_merchant_id
+            [7] => installments
+            [8] => card_type
+            [9] => card_last4digits
+            [10] => boleto_barcode
+            [11] => boleto_expiry_date
+            [12] => pix_code
+            [13] => pix_expiration
+            [14] => sale_type
+            [15] => created_at
+            [16] => updated_at
+            [17] => approved_date
+            [18] => refunded_at
+            [19] => webhook_event_type
+            [20] => Product
+            [21] => Customer
+            [22] => Commissions
+            [23] => TrackingParameters
+            [24] => checkout_link
+            [25] => Subscription
+            [26] => subscription_id
+            [27] => access_url
+        )
+
+)
+
+[2025-10-03 13:52:43] [debug] === FIM DEBUG COMPLETO ===
+[2025-10-03 13:52:43] [info] Webhook recebido da Kiwify | Dados: Array
+(
+    [event] => order_approved
+    [order_id] => 2a6d7a1a-8d49-46b7-b50a-8663ab31afbf
+)
+
+[2025-10-03 13:52:43] [info] Venda com afiliado detectada | Dados: Array
+(
+    [afiliado] => Luiz Paulo Braga Pachella
+    [email] => luiz@pachella.com.br
+    [comissao] => 60.58
+    [percentual] => 22.52
+)
+
+[2025-10-03 13:52:43] [info] Processando nova compra | Dados: Array
+(
+    [cliente] => Mariana
+    [email] => maricavalcanti20@gmail.com
+    [valor_bruto] => 269
+    [valor_liquido] => 181.75
+    [comissao_afiliado] => 60.58
+    [taxa_kiwify] => 26.67
+    [tem_afiliado] => 1
+)
+
+[2025-10-03 13:52:43] [info] Compra processada com sucesso | Dados: Array
+(
+    [success] => 1
+    [subscription_id] => 52
+    [message] => Assinatura criada com sucesso
+)
+
+[2025-10-03 14:03:00] [debug] === PAYLOAD COMPLETO DA KIWIFY ===
+[2025-10-03 14:03:00] [debug] Raw payload | Dados: Array
+(
+    [raw] => {"order_id":"1462f614-12ef-4e59-8f27-45d4c91fec92","order_ref":"0WJKlRf","order_status":"paid","product_type":"payment","payment_method":"credit_card","store_id":"hzZ2A3eRu2Wd4IL","payment_merchant_id":"11132510031342279940","installments":1,"card_type":"mastercard","card_last4digits":"4250","boleto_barcode":null,"boleto_expiry_date":null,"pix_code":null,"pix_expiration":null,"sale_type":"producer","created_at":"2025-10-03 14:02","updated_at":"2025-10-03 14:02","approved_date":"2025-10-03 14:02","refunded_at":null,"webhook_event_type":"order_approved","Product":{"product_id":"17e8fef0-92ef-11f0-89e7-458a6baf4af1","product_name":"Site por assinatura"},"Customer":{"full_name":"Cibele Godoi","first_name":"Cibele","email":"moradda.adm@gmail.com","mobile":"+5511948648193","cnpj":"24681822000143","ip":"2804:3d90:829c:2a0:ccaf:199:775a:1542","street":"Avenida Doutor Gastão Vidigal","number":"1132","neighborhood":"Vila Leopoldina","city":"São Paulo","state":"SP","zipcode":"05314-000","country":"br"},"Commissions":{"charge_amount":26900,"product_base_price":26900,"product_base_price_currency":"BRL","kiwify_fee":2667,"kiwify_fee_currency":"BRL","commissioned_stores":[{"id":"9e392fa1-3975-4180-8377-2dc7a9d2ece8","type":"affiliate","affiliate_id":"vpUrVsmQ","custom_name":"Luiz Paulo Braga Pachella","email":"luiz@pachella.com.br","value":"6058"},{"id":"b1e516bd-4a83-45f2-974d-babcdfaf43b5","type":"producer","custom_name":"Pachella Consultoria e Treinamentos Ltda.","email":"grupopachella@gmail.com","value":"18175"}],"currency":"BRL","my_commission":18175,"funds_status":"waiting","estimated_deposit_date":"2025-10-20T03:00:00.000Z","deposit_date":null},"TrackingParameters":{"src":null,"sck":null,"utm_source":null,"utm_medium":null,"utm_campaign":null,"utm_content":null,"utm_term":null,"s1":null,"s2":null,"s3":null},"checkout_link":"SOukoix","Subscription":{"start_date":"2025-10-03T17:02:56.458Z","next_payment":"2025-11-03T17:02:59.721Z","status":"active","customer_access":{"has_access":true,"active_period":true,"access_until":"2025-11-03T17:02:59.721Z"},"plan":{"id":"661917c3-f858-4830-870e-1a760e6b1382","name":"Supersite PRO","frequency":"monthly","qty_charges":0},"charges":{"completed":[{"order_id":"1462f614-12ef-4e59-8f27-45d4c91fec92","amount":24233,"status":"paid","installments":1,"card_type":"mastercard","card_last_digits":"4250","card_first_digits":"512215","created_at":"2025-10-03T17:02:56.485Z"}],"future":[{"charge_date":"2025-11-03T17:02:59.721Z"},{"charge_date":"2025-12-03T17:02:59.721Z"},{"charge_date":"2026-01-03T17:02:59.721Z"},{"charge_date":"2026-02-03T17:02:59.721Z"},{"charge_date":"2026-03-03T17:02:59.721Z"},{"charge_date":"2026-04-03T17:02:59.721Z"},{"charge_date":"2026-05-03T17:02:59.721Z"},{"charge_date":"2026-06-03T17:02:59.721Z"},{"charge_date":"2026-07-03T17:02:59.721Z"},{"charge_date":"2026-08-03T17:02:59.721Z"},{"charge_date":"2026-09-03T17:02:59.721Z"}]}},"subscription_id":"d0ac7746-3647-4baa-9990-495c6930eeb5","access_url":null}
+)
+
+[2025-10-03 14:03:00] [debug] Payload completo decodificado | Dados: Array
+(
+    [order_id] => 1462f614-12ef-4e59-8f27-45d4c91fec92
+    [order_ref] => 0WJKlRf
+    [order_status] => paid
+    [product_type] => payment
+    [payment_method] => credit_card
+    [store_id] => hzZ2A3eRu2Wd4IL
+    [payment_merchant_id] => 11132510031342279940
+    [installments] => 1
+    [card_type] => mastercard
+    [card_last4digits] => 4250
+    [boleto_barcode] => 
+    [boleto_expiry_date] => 
+    [pix_code] => 
+    [pix_expiration] => 
+    [sale_type] => producer
+    [created_at] => 2025-10-03 14:02
+    [updated_at] => 2025-10-03 14:02
+    [approved_date] => 2025-10-03 14:02
+    [refunded_at] => 
+    [webhook_event_type] => order_approved
+    [Product] => Array
+        (
+            [product_id] => 17e8fef0-92ef-11f0-89e7-458a6baf4af1
+            [product_name] => Site por assinatura
+        )
+
+    [Customer] => Array
+        (
+            [full_name] => Cibele Godoi
+            [first_name] => Cibele
+            [email] => moradda.adm@gmail.com
+            [mobile] => +5511948648193
+            [cnpj] => 24681822000143
+            [ip] => 2804:3d90:829c:2a0:ccaf:199:775a:1542
+            [street] => Avenida Doutor Gastão Vidigal
+            [number] => 1132
+            [neighborhood] => Vila Leopoldina
+            [city] => São Paulo
+            [state] => SP
+            [zipcode] => 05314-000
+            [country] => br
+        )
+
+    [Commissions] => Array
+        (
+            [charge_amount] => 26900
+            [product_base_price] => 26900
+            [product_base_price_currency] => BRL
+            [kiwify_fee] => 2667
+            [kiwify_fee_currency] => BRL
+            [commissioned_stores] => Array
+                (
+                    [0] => Array
+                        (
+                            [id] => 9e392fa1-3975-4180-8377-2dc7a9d2ece8
+                            [type] => affiliate
+                            [affiliate_id] => vpUrVsmQ
+                            [custom_name] => Luiz Paulo Braga Pachella
+                            [email] => luiz@pachella.com.br
+                            [value] => 6058
+                        )
+
+                    [1] => Array
+                        (
+                            [id] => b1e516bd-4a83-45f2-974d-babcdfaf43b5
+                            [type] => producer
+                            [custom_name] => Pachella Consultoria e Treinamentos Ltda.
+                            [email] => grupopachella@gmail.com
+                            [value] => 18175
+                        )
+
+                )
+
+            [currency] => BRL
+            [my_commission] => 18175
+            [funds_status] => waiting
+            [estimated_deposit_date] => 2025-10-20T03:00:00.000Z
+            [deposit_date] => 
+        )
+
+    [TrackingParameters] => Array
+        (
+            [src] => 
+            [sck] => 
+            [utm_source] => 
+            [utm_medium] => 
+            [utm_campaign] => 
+            [utm_content] => 
+            [utm_term] => 
+            [s1] => 
+            [s2] => 
+            [s3] => 
+        )
+
+    [checkout_link] => SOukoix
+    [Subscription] => Array
+        (
+            [start_date] => 2025-10-03T17:02:56.458Z
+            [next_payment] => 2025-11-03T17:02:59.721Z
+            [status] => active
+            [customer_access] => Array
+                (
+                    [has_access] => 1
+                    [active_period] => 1
+                    [access_until] => 2025-11-03T17:02:59.721Z
+                )
+
+            [plan] => Array
+                (
+                    [id] => 661917c3-f858-4830-870e-1a760e6b1382
+                    [name] => Supersite PRO
+                    [frequency] => monthly
+                    [qty_charges] => 0
+                )
+
+            [charges] => Array
+                (
+                    [completed] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [order_id] => 1462f614-12ef-4e59-8f27-45d4c91fec92
+                                    [amount] => 24233
+                                    [status] => paid
+                                    [installments] => 1
+                                    [card_type] => mastercard
+                                    [card_last_digits] => 4250
+                                    [card_first_digits] => 512215
+                                    [created_at] => 2025-10-03T17:02:56.485Z
+                                )
+
+                        )
+
+                    [future] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [charge_date] => 2025-11-03T17:02:59.721Z
+                                )
+
+                            [1] => Array
+                                (
+                                    [charge_date] => 2025-12-03T17:02:59.721Z
+                                )
+
+                            [2] => Array
+                                (
+                                    [charge_date] => 2026-01-03T17:02:59.721Z
+                                )
+
+                            [3] => Array
+                                (
+                                    [charge_date] => 2026-02-03T17:02:59.721Z
+                                )
+
+                            [4] => Array
+                                (
+                                    [charge_date] => 2026-03-03T17:02:59.721Z
+                                )
+
+                            [5] => Array
+                                (
+                                    [charge_date] => 2026-04-03T17:02:59.721Z
+                                )
+
+                            [6] => Array
+                                (
+                                    [charge_date] => 2026-05-03T17:02:59.721Z
+                                )
+
+                            [7] => Array
+                                (
+                                    [charge_date] => 2026-06-03T17:02:59.721Z
+                                )
+
+                            [8] => Array
+                                (
+                                    [charge_date] => 2026-07-03T17:02:59.721Z
+                                )
+
+                            [9] => Array
+                                (
+                                    [charge_date] => 2026-08-03T17:02:59.721Z
+                                )
+
+                            [10] => Array
+                                (
+                                    [charge_date] => 2026-09-03T17:02:59.721Z
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [subscription_id] => d0ac7746-3647-4baa-9990-495c6930eeb5
+    [access_url] => 
+)
+
+[2025-10-03 14:03:00] [debug] Customer data completo | Dados: Array
+(
+    [full_name] => Cibele Godoi
+    [first_name] => Cibele
+    [email] => moradda.adm@gmail.com
+    [mobile] => +5511948648193
+    [cnpj] => 24681822000143
+    [ip] => 2804:3d90:829c:2a0:ccaf:199:775a:1542
+    [street] => Avenida Doutor Gastão Vidigal
+    [number] => 1132
+    [neighborhood] => Vila Leopoldina
+    [city] => São Paulo
+    [state] => SP
+    [zipcode] => 05314-000
+    [country] => br
+)
+
+[2025-10-03 14:03:00] [debug] Product data completo | Dados: Array
+(
+    [product_id] => 17e8fef0-92ef-11f0-89e7-458a6baf4af1
+    [product_name] => Site por assinatura
+)
+
+[2025-10-03 14:03:00] [debug] Subscription data completo | Dados: Array
+(
+    [start_date] => 2025-10-03T17:02:56.458Z
+    [next_payment] => 2025-11-03T17:02:59.721Z
+    [status] => active
+    [customer_access] => Array
+        (
+            [has_access] => 1
+            [active_period] => 1
+            [access_until] => 2025-11-03T17:02:59.721Z
+        )
+
+    [plan] => Array
+        (
+            [id] => 661917c3-f858-4830-870e-1a760e6b1382
+            [name] => Supersite PRO
+            [frequency] => monthly
+            [qty_charges] => 0
+        )
+
+    [charges] => Array
+        (
+            [completed] => Array
+                (
+                    [0] => Array
+                        (
+                            [order_id] => 1462f614-12ef-4e59-8f27-45d4c91fec92
+                            [amount] => 24233
+                            [status] => paid
+                            [installments] => 1
+                            [card_type] => mastercard
+                            [card_last_digits] => 4250
+                            [card_first_digits] => 512215
+                            [created_at] => 2025-10-03T17:02:56.485Z
+                        )
+
+                )
+
+            [future] => Array
+                (
+                    [0] => Array
+                        (
+                            [charge_date] => 2025-11-03T17:02:59.721Z
+                        )
+
+                    [1] => Array
+                        (
+                            [charge_date] => 2025-12-03T17:02:59.721Z
+                        )
+
+                    [2] => Array
+                        (
+                            [charge_date] => 2026-01-03T17:02:59.721Z
+                        )
+
+                    [3] => Array
+                        (
+                            [charge_date] => 2026-02-03T17:02:59.721Z
+                        )
+
+                    [4] => Array
+                        (
+                            [charge_date] => 2026-03-03T17:02:59.721Z
+                        )
+
+                    [5] => Array
+                        (
+                            [charge_date] => 2026-04-03T17:02:59.721Z
+                        )
+
+                    [6] => Array
+                        (
+                            [charge_date] => 2026-05-03T17:02:59.721Z
+                        )
+
+                    [7] => Array
+                        (
+                            [charge_date] => 2026-06-03T17:02:59.721Z
+                        )
+
+                    [8] => Array
+                        (
+                            [charge_date] => 2026-07-03T17:02:59.721Z
+                        )
+
+                    [9] => Array
+                        (
+                            [charge_date] => 2026-08-03T17:02:59.721Z
+                        )
+
+                    [10] => Array
+                        (
+                            [charge_date] => 2026-09-03T17:02:59.721Z
+                        )
+
+                )
+
+        )
+
+)
+
+[2025-10-03 14:03:00] [debug] Commissions data completo | Dados: Array
+(
+    [charge_amount] => 26900
+    [product_base_price] => 26900
+    [product_base_price_currency] => BRL
+    [kiwify_fee] => 2667
+    [kiwify_fee_currency] => BRL
+    [commissioned_stores] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 9e392fa1-3975-4180-8377-2dc7a9d2ece8
+                    [type] => affiliate
+                    [affiliate_id] => vpUrVsmQ
+                    [custom_name] => Luiz Paulo Braga Pachella
+                    [email] => luiz@pachella.com.br
+                    [value] => 6058
+                )
+
+            [1] => Array
+                (
+                    [id] => b1e516bd-4a83-45f2-974d-babcdfaf43b5
+                    [type] => producer
+                    [custom_name] => Pachella Consultoria e Treinamentos Ltda.
+                    [email] => grupopachella@gmail.com
+                    [value] => 18175
+                )
+
+        )
+
+    [currency] => BRL
+    [my_commission] => 18175
+    [funds_status] => waiting
+    [estimated_deposit_date] => 2025-10-20T03:00:00.000Z
+    [deposit_date] => 
+)
+
+[2025-10-03 14:03:00] [debug] Todas as chaves do payload principal | Dados: Array
+(
+    [chaves] => Array
+        (
+            [0] => order_id
+            [1] => order_ref
+            [2] => order_status
+            [3] => product_type
+            [4] => payment_method
+            [5] => store_id
+            [6] => payment_merchant_id
+            [7] => installments
+            [8] => card_type
+            [9] => card_last4digits
+            [10] => boleto_barcode
+            [11] => boleto_expiry_date
+            [12] => pix_code
+            [13] => pix_expiration
+            [14] => sale_type
+            [15] => created_at
+            [16] => updated_at
+            [17] => approved_date
+            [18] => refunded_at
+            [19] => webhook_event_type
+            [20] => Product
+            [21] => Customer
+            [22] => Commissions
+            [23] => TrackingParameters
+            [24] => checkout_link
+            [25] => Subscription
+            [26] => subscription_id
+            [27] => access_url
+        )
+
+)
+
+[2025-10-03 14:03:00] [debug] === FIM DEBUG COMPLETO ===
+[2025-10-03 14:03:00] [info] Webhook recebido da Kiwify | Dados: Array
+(
+    [event] => order_approved
+    [order_id] => 1462f614-12ef-4e59-8f27-45d4c91fec92
+)
+
+[2025-10-03 14:03:00] [info] Venda com afiliado detectada | Dados: Array
+(
+    [afiliado] => Luiz Paulo Braga Pachella
+    [email] => luiz@pachella.com.br
+    [comissao] => 60.58
+    [percentual] => 22.52
+)
+
+[2025-10-03 14:03:00] [info] Processando nova compra | Dados: Array
+(
+    [cliente] => Cibele Godoi
+    [email] => moradda.adm@gmail.com
+    [valor_bruto] => 269
+    [valor_liquido] => 181.75
+    [comissao_afiliado] => 60.58
+    [taxa_kiwify] => 26.67
+    [tem_afiliado] => 1
+)
+
+[2025-10-03 14:03:00] [info] Compra processada com sucesso | Dados: Array
+(
+    [success] => 1
+    [subscription_id] => 53
+    [message] => Assinatura criada com sucesso
+)
+
+[2025-10-06 14:38:06] [debug] === PAYLOAD COMPLETO DA KIWIFY ===
+[2025-10-06 14:38:06] [debug] Raw payload | Dados: Array
+(
+    [raw] => {"order_id":"4b91dcc7-bea0-40a9-a771-0278ec05566a","order_ref":"kERxjrf","order_status":"paid","product_type":"payment","payment_method":"credit_card","store_id":"hzZ2A3eRu2Wd4IL","payment_merchant_id":"11172510061432566194","installments":1,"card_type":"mastercard","card_last4digits":"8054","boleto_barcode":null,"boleto_expiry_date":null,"pix_code":null,"pix_expiration":null,"sale_type":"producer","created_at":"2025-10-06 14:38","updated_at":"2025-10-06 14:38","approved_date":"2025-10-06 14:38","refunded_at":null,"webhook_event_type":"order_approved","Product":{"product_id":"17e8fef0-92ef-11f0-89e7-458a6baf4af1","product_name":"Site por assinatura"},"Customer":{"full_name":"Fabio Zambroni Neves","first_name":"Fabio","email":"contato@zambronihub.com","mobile":"+5521986224050","cnpj":"57179273000162","ip":"2804:14d:5cd5:82c0:54a5:cceb:a415:5220","street":"Rua do Russel","number":"476","complement":"801","neighborhood":"Glória","city":"Rio de Janeiro","state":"RJ","zipcode":"22210-010","country":"br"},"Commissions":{"charge_amount":26900,"product_base_price":26900,"product_base_price_currency":"BRL","kiwify_fee":2667,"kiwify_fee_currency":"BRL","commissioned_stores":[{"id":"44640602-9ecc-4f7a-88fe-1b6be5170056","type":"affiliate","affiliate_id":"vpUrVsmQ","custom_name":"Luiz Paulo Braga Pachella","email":"luiz@pachella.com.br","value":"4847"},{"id":"1d6872ab-daa4-4a00-8a94-a223f9799547","type":"producer","custom_name":"Pachella Consultoria e Treinamentos Ltda.","email":"grupopachella@gmail.com","value":"19386"}],"currency":"BRL","my_commission":19386,"funds_status":"waiting","estimated_deposit_date":"2025-10-21T03:00:00.000Z","deposit_date":null},"TrackingParameters":{"src":null,"sck":null,"utm_source":null,"utm_medium":null,"utm_campaign":null,"utm_content":null,"utm_term":null,"s1":null,"s2":null,"s3":null},"checkout_link":"SOukoix","Subscription":{"start_date":"2025-10-06T17:38:02.682Z","next_payment":"2025-11-06T17:38:05.717Z","status":"active","customer_access":{"has_access":true,"active_period":true,"access_until":"2025-11-06T17:38:05.717Z"},"plan":{"id":"661917c3-f858-4830-870e-1a760e6b1382","name":"Supersite PRO","frequency":"monthly","qty_charges":0},"charges":{"completed":[{"order_id":"4b91dcc7-bea0-40a9-a771-0278ec05566a","amount":24233,"status":"paid","installments":1,"card_type":"mastercard","card_last_digits":"8054","card_first_digits":"555507","created_at":"2025-10-06T17:38:02.711Z"}],"future":[{"charge_date":"2025-11-06T17:38:05.717Z"},{"charge_date":"2025-12-06T17:38:05.717Z"},{"charge_date":"2026-01-06T17:38:05.717Z"},{"charge_date":"2026-02-06T17:38:05.717Z"},{"charge_date":"2026-03-06T17:38:05.717Z"},{"charge_date":"2026-04-06T17:38:05.717Z"},{"charge_date":"2026-05-06T17:38:05.717Z"},{"charge_date":"2026-06-06T17:38:05.717Z"},{"charge_date":"2026-07-06T17:38:05.717Z"},{"charge_date":"2026-08-06T17:38:05.717Z"},{"charge_date":"2026-09-06T17:38:05.717Z"}]}},"subscription_id":"7fd614b9-46ea-4790-8139-dc88f7d23694","access_url":null}
+)
+
+[2025-10-06 14:38:06] [debug] Payload completo decodificado | Dados: Array
+(
+    [order_id] => 4b91dcc7-bea0-40a9-a771-0278ec05566a
+    [order_ref] => kERxjrf
+    [order_status] => paid
+    [product_type] => payment
+    [payment_method] => credit_card
+    [store_id] => hzZ2A3eRu2Wd4IL
+    [payment_merchant_id] => 11172510061432566194
+    [installments] => 1
+    [card_type] => mastercard
+    [card_last4digits] => 8054
+    [boleto_barcode] => 
+    [boleto_expiry_date] => 
+    [pix_code] => 
+    [pix_expiration] => 
+    [sale_type] => producer
+    [created_at] => 2025-10-06 14:38
+    [updated_at] => 2025-10-06 14:38
+    [approved_date] => 2025-10-06 14:38
+    [refunded_at] => 
+    [webhook_event_type] => order_approved
+    [Product] => Array
+        (
+            [product_id] => 17e8fef0-92ef-11f0-89e7-458a6baf4af1
+            [product_name] => Site por assinatura
+        )
+
+    [Customer] => Array
+        (
+            [full_name] => Fabio Zambroni Neves
+            [first_name] => Fabio
+            [email] => contato@zambronihub.com
+            [mobile] => +5521986224050
+            [cnpj] => 57179273000162
+            [ip] => 2804:14d:5cd5:82c0:54a5:cceb:a415:5220
+            [street] => Rua do Russel
+            [number] => 476
+            [complement] => 801
+            [neighborhood] => Glória
+            [city] => Rio de Janeiro
+            [state] => RJ
+            [zipcode] => 22210-010
+            [country] => br
+        )
+
+    [Commissions] => Array
+        (
+            [charge_amount] => 26900
+            [product_base_price] => 26900
+            [product_base_price_currency] => BRL
+            [kiwify_fee] => 2667
+            [kiwify_fee_currency] => BRL
+            [commissioned_stores] => Array
+                (
+                    [0] => Array
+                        (
+                            [id] => 44640602-9ecc-4f7a-88fe-1b6be5170056
+                            [type] => affiliate
+                            [affiliate_id] => vpUrVsmQ
+                            [custom_name] => Luiz Paulo Braga Pachella
+                            [email] => luiz@pachella.com.br
+                            [value] => 4847
+                        )
+
+                    [1] => Array
+                        (
+                            [id] => 1d6872ab-daa4-4a00-8a94-a223f9799547
+                            [type] => producer
+                            [custom_name] => Pachella Consultoria e Treinamentos Ltda.
+                            [email] => grupopachella@gmail.com
+                            [value] => 19386
+                        )
+
+                )
+
+            [currency] => BRL
+            [my_commission] => 19386
+            [funds_status] => waiting
+            [estimated_deposit_date] => 2025-10-21T03:00:00.000Z
+            [deposit_date] => 
+        )
+
+    [TrackingParameters] => Array
+        (
+            [src] => 
+            [sck] => 
+            [utm_source] => 
+            [utm_medium] => 
+            [utm_campaign] => 
+            [utm_content] => 
+            [utm_term] => 
+            [s1] => 
+            [s2] => 
+            [s3] => 
+        )
+
+    [checkout_link] => SOukoix
+    [Subscription] => Array
+        (
+            [start_date] => 2025-10-06T17:38:02.682Z
+            [next_payment] => 2025-11-06T17:38:05.717Z
+            [status] => active
+            [customer_access] => Array
+                (
+                    [has_access] => 1
+                    [active_period] => 1
+                    [access_until] => 2025-11-06T17:38:05.717Z
+                )
+
+            [plan] => Array
+                (
+                    [id] => 661917c3-f858-4830-870e-1a760e6b1382
+                    [name] => Supersite PRO
+                    [frequency] => monthly
+                    [qty_charges] => 0
+                )
+
+            [charges] => Array
+                (
+                    [completed] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [order_id] => 4b91dcc7-bea0-40a9-a771-0278ec05566a
+                                    [amount] => 24233
+                                    [status] => paid
+                                    [installments] => 1
+                                    [card_type] => mastercard
+                                    [card_last_digits] => 8054
+                                    [card_first_digits] => 555507
+                                    [created_at] => 2025-10-06T17:38:02.711Z
+                                )
+
+                        )
+
+                    [future] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [charge_date] => 2025-11-06T17:38:05.717Z
+                                )
+
+                            [1] => Array
+                                (
+                                    [charge_date] => 2025-12-06T17:38:05.717Z
+                                )
+
+                            [2] => Array
+                                (
+                                    [charge_date] => 2026-01-06T17:38:05.717Z
+                                )
+
+                            [3] => Array
+                                (
+                                    [charge_date] => 2026-02-06T17:38:05.717Z
+                                )
+
+                            [4] => Array
+                                (
+                                    [charge_date] => 2026-03-06T17:38:05.717Z
+                                )
+
+                            [5] => Array
+                                (
+                                    [charge_date] => 2026-04-06T17:38:05.717Z
+                                )
+
+                            [6] => Array
+                                (
+                                    [charge_date] => 2026-05-06T17:38:05.717Z
+                                )
+
+                            [7] => Array
+                                (
+                                    [charge_date] => 2026-06-06T17:38:05.717Z
+                                )
+
+                            [8] => Array
+                                (
+                                    [charge_date] => 2026-07-06T17:38:05.717Z
+                                )
+
+                            [9] => Array
+                                (
+                                    [charge_date] => 2026-08-06T17:38:05.717Z
+                                )
+
+                            [10] => Array
+                                (
+                                    [charge_date] => 2026-09-06T17:38:05.717Z
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [subscription_id] => 7fd614b9-46ea-4790-8139-dc88f7d23694
+    [access_url] => 
+)
+
+[2025-10-06 14:38:06] [debug] Customer data completo | Dados: Array
+(
+    [full_name] => Fabio Zambroni Neves
+    [first_name] => Fabio
+    [email] => contato@zambronihub.com
+    [mobile] => +5521986224050
+    [cnpj] => 57179273000162
+    [ip] => 2804:14d:5cd5:82c0:54a5:cceb:a415:5220
+    [street] => Rua do Russel
+    [number] => 476
+    [complement] => 801
+    [neighborhood] => Glória
+    [city] => Rio de Janeiro
+    [state] => RJ
+    [zipcode] => 22210-010
+    [country] => br
+)
+
+[2025-10-06 14:38:06] [debug] Product data completo | Dados: Array
+(
+    [product_id] => 17e8fef0-92ef-11f0-89e7-458a6baf4af1
+    [product_name] => Site por assinatura
+)
+
+[2025-10-06 14:38:06] [debug] Subscription data completo | Dados: Array
+(
+    [start_date] => 2025-10-06T17:38:02.682Z
+    [next_payment] => 2025-11-06T17:38:05.717Z
+    [status] => active
+    [customer_access] => Array
+        (
+            [has_access] => 1
+            [active_period] => 1
+            [access_until] => 2025-11-06T17:38:05.717Z
+        )
+
+    [plan] => Array
+        (
+            [id] => 661917c3-f858-4830-870e-1a760e6b1382
+            [name] => Supersite PRO
+            [frequency] => monthly
+            [qty_charges] => 0
+        )
+
+    [charges] => Array
+        (
+            [completed] => Array
+                (
+                    [0] => Array
+                        (
+                            [order_id] => 4b91dcc7-bea0-40a9-a771-0278ec05566a
+                            [amount] => 24233
+                            [status] => paid
+                            [installments] => 1
+                            [card_type] => mastercard
+                            [card_last_digits] => 8054
+                            [card_first_digits] => 555507
+                            [created_at] => 2025-10-06T17:38:02.711Z
+                        )
+
+                )
+
+            [future] => Array
+                (
+                    [0] => Array
+                        (
+                            [charge_date] => 2025-11-06T17:38:05.717Z
+                        )
+
+                    [1] => Array
+                        (
+                            [charge_date] => 2025-12-06T17:38:05.717Z
+                        )
+
+                    [2] => Array
+                        (
+                            [charge_date] => 2026-01-06T17:38:05.717Z
+                        )
+
+                    [3] => Array
+                        (
+                            [charge_date] => 2026-02-06T17:38:05.717Z
+                        )
+
+                    [4] => Array
+                        (
+                            [charge_date] => 2026-03-06T17:38:05.717Z
+                        )
+
+                    [5] => Array
+                        (
+                            [charge_date] => 2026-04-06T17:38:05.717Z
+                        )
+
+                    [6] => Array
+                        (
+                            [charge_date] => 2026-05-06T17:38:05.717Z
+                        )
+
+                    [7] => Array
+                        (
+                            [charge_date] => 2026-06-06T17:38:05.717Z
+                        )
+
+                    [8] => Array
+                        (
+                            [charge_date] => 2026-07-06T17:38:05.717Z
+                        )
+
+                    [9] => Array
+                        (
+                            [charge_date] => 2026-08-06T17:38:05.717Z
+                        )
+
+                    [10] => Array
+                        (
+                            [charge_date] => 2026-09-06T17:38:05.717Z
+                        )
+
+                )
+
+        )
+
+)
+
+[2025-10-06 14:38:06] [debug] Commissions data completo | Dados: Array
+(
+    [charge_amount] => 26900
+    [product_base_price] => 26900
+    [product_base_price_currency] => BRL
+    [kiwify_fee] => 2667
+    [kiwify_fee_currency] => BRL
+    [commissioned_stores] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 44640602-9ecc-4f7a-88fe-1b6be5170056
+                    [type] => affiliate
+                    [affiliate_id] => vpUrVsmQ
+                    [custom_name] => Luiz Paulo Braga Pachella
+                    [email] => luiz@pachella.com.br
+                    [value] => 4847
+                )
+
+            [1] => Array
+                (
+                    [id] => 1d6872ab-daa4-4a00-8a94-a223f9799547
+                    [type] => producer
+                    [custom_name] => Pachella Consultoria e Treinamentos Ltda.
+                    [email] => grupopachella@gmail.com
+                    [value] => 19386
+                )
+
+        )
+
+    [currency] => BRL
+    [my_commission] => 19386
+    [funds_status] => waiting
+    [estimated_deposit_date] => 2025-10-21T03:00:00.000Z
+    [deposit_date] => 
+)
+
+[2025-10-06 14:38:06] [debug] Todas as chaves do payload principal | Dados: Array
+(
+    [chaves] => Array
+        (
+            [0] => order_id
+            [1] => order_ref
+            [2] => order_status
+            [3] => product_type
+            [4] => payment_method
+            [5] => store_id
+            [6] => payment_merchant_id
+            [7] => installments
+            [8] => card_type
+            [9] => card_last4digits
+            [10] => boleto_barcode
+            [11] => boleto_expiry_date
+            [12] => pix_code
+            [13] => pix_expiration
+            [14] => sale_type
+            [15] => created_at
+            [16] => updated_at
+            [17] => approved_date
+            [18] => refunded_at
+            [19] => webhook_event_type
+            [20] => Product
+            [21] => Customer
+            [22] => Commissions
+            [23] => TrackingParameters
+            [24] => checkout_link
+            [25] => Subscription
+            [26] => subscription_id
+            [27] => access_url
+        )
+
+)
+
+[2025-10-06 14:38:06] [debug] IDs extraídos | Dados: Array
+(
+    [subscription_id] => 7fd614b9-46ea-4790-8139-dc88f7d23694
+    [product_id] => 17e8fef0-92ef-11f0-89e7-458a6baf4af1
+    [fonte_subscription] => subscription_id (raiz)
+    [fonte_product] => Product.product_id
+)
+
+[2025-10-06 14:38:06] [debug] === FIM DEBUG COMPLETO ===
+[2025-10-06 14:38:06] [info] Webhook recebido da Kiwify | Dados: Array
+(
+    [event] => order_approved
+    [order_id] => 4b91dcc7-bea0-40a9-a771-0278ec05566a
+)
+
+[2025-10-06 14:38:06] [info] Venda com afiliado detectada | Dados: Array
+(
+    [afiliado] => Luiz Paulo Braga Pachella
+    [email] => luiz@pachella.com.br
+    [comissao] => 48.47
+    [percentual] => 18.02
+)
+
+[2025-10-06 14:38:06] [info] Processando nova compra | Dados: Array
+(
+    [cliente] => Fabio Zambroni Neves
+    [email] => contato@zambronihub.com
+    [subscription_id] => 7fd614b9-46ea-4790-8139-dc88f7d23694
+    [product_id] => 17e8fef0-92ef-11f0-89e7-458a6baf4af1
+    [valor_bruto] => 269
+    [valor_liquido] => 193.86
+    [comissao_afiliado] => 48.47
+    [taxa_kiwify] => 26.67
+    [tem_afiliado] => 1
+)
+
+[2025-10-06 14:38:06] [info] Compra processada com sucesso | Dados: Array
+(
+    [success] => 1
+    [subscription_id] => 54
+    [message] => Assinatura criada com sucesso
+)
+
+[2025-10-07 03:29:25] [info] ========== NOVO WEBHOOK RECEBIDO DA KIWIFY ==========
+[2025-10-07 03:29:25] [debug] Raw payload | Dados: Array
+(
+    [raw] => {"order_id":"40eca3b9-b644-4a6a-9601-6873b43511f8","order_ref":"FyrEYpc","order_status":"paid","product_type":"membership","payment_method":"credit_card","store_id":"2Z2T86eG13Bp93Y","payment_merchant_id":87696214,"installments":1,"card_type":"mastercard","card_last4digits":"4585","card_rejection_reason":null,"boleto_URL":null,"boleto_barcode":null,"boleto_expiry_date":null,"pix_code":null,"pix_expiration":null,"sale_type":"producer","created_at":"2025-10-07 06:29","updated_at":"2025-10-07 06:29","approved_date":"2025-10-08 06:29","refunded_at":null,"webhook_event_type":"order_approved","Product":{"product_id":"735fe14d-3013-4b23-88ac-ce158978aa1c","product_name":"Example product"},"Customer":{"full_name":"John Doe","first_name":"John","email":"johndoe@example.com","mobile":"+76810958697","cnpj":"54457228488112","ip":"219.201.25.144","instagram":"@kiwify","street":"Rua 1001","number":"315","complement":"SL 05","neighborhood":"Centro","city":"Balneário Camboriú","state":"SC","zipcode":"88330-756"},"Commissions":{"charge_amount":4904,"product_base_price":4904,"product_base_price_currency":"BRL","kiwify_fee":539,"kiwify_fee_currency":"BRL","settlement_amount":4904,"settlement_amount_currency":"BRL","sale_tax_rate":0,"sale_tax_amount":0,"commissioned_stores":[{"id":"44ad270a-d210-4264-b044-36b1ce0fdf38","type":"producer","custom_name":"Example store","email":"example@store.domain","value":"4365"},{"id":"9bac29f0-0a33-4248-8b05-767197748774","type":"coproducer","custom_name":"Example coproducer","email":"example@coproducer.domain","value":"4365"},{"id":"3f48bca5-bd5f-4c2b-b1dd-381a4031485a","type":"affiliate","affiliate_id":"RdshZLo","custom_name":"Example affiliate","email":"example@affiliate.domain","value":"4365"}],"currency":"BRL","my_commission":4365,"funds_status":null,"estimated_deposit_date":null,"deposit_date":null},"TrackingParameters":{"src":null,"sck":null,"utm_source":null,"utm_medium":null,"utm_campaign":null,"utm_content":null,"utm_term":null,"s1":null,"s2":null,"s3":null},"Subscription":{"id":"db8d62d1-f5c0-4879-828d-ed4864820c20","start_date":"2025-10-04T06:29:26.344Z","next_payment":"2025-10-11T06:29:26.344Z","status":"active","plan":{"id":"aea0e03f-dd39-4628-9871-7367ba1100f7","name":"Example plan","frequency":"weekly","qty_charges":0},"charges":{"completed":[{"order_id":"40eca3b9-b644-4a6a-9601-6873b43511f8","amount":4365,"status":"paid","installments":1,"card_type":"mastercard","card_last_digits":"4708","card_first_digits":"559369","created_at":"2025-10-04T06:29:26.344Z"}],"future":[{"charge_date":"2025-10-11T06:29:26.344Z"}]}},"subscription_id":"db8d62d1-f5c0-4879-828d-ed4864820c20","access_url":null}
+)
+
+[2025-10-07 03:29:25] [debug] Payload decodificado | Dados: Array
+(
+    [order_id] => 40eca3b9-b644-4a6a-9601-6873b43511f8
+    [order_ref] => FyrEYpc
+    [order_status] => paid
+    [product_type] => membership
+    [payment_method] => credit_card
+    [store_id] => 2Z2T86eG13Bp93Y
+    [payment_merchant_id] => 87696214
+    [installments] => 1
+    [card_type] => mastercard
+    [card_last4digits] => 4585
+    [card_rejection_reason] => 
+    [boleto_URL] => 
+    [boleto_barcode] => 
+    [boleto_expiry_date] => 
+    [pix_code] => 
+    [pix_expiration] => 
+    [sale_type] => producer
+    [created_at] => 2025-10-07 06:29
+    [updated_at] => 2025-10-07 06:29
+    [approved_date] => 2025-10-08 06:29
+    [refunded_at] => 
+    [webhook_event_type] => order_approved
+    [Product] => Array
+        (
+            [product_id] => 735fe14d-3013-4b23-88ac-ce158978aa1c
+            [product_name] => Example product
+        )
+
+    [Customer] => Array
+        (
+            [full_name] => John Doe
+            [first_name] => John
+            [email] => johndoe@example.com
+            [mobile] => +76810958697
+            [cnpj] => 54457228488112
+            [ip] => 219.201.25.144
+            [instagram] => @kiwify
+            [street] => Rua 1001
+            [number] => 315
+            [complement] => SL 05
+            [neighborhood] => Centro
+            [city] => Balneário Camboriú
+            [state] => SC
+            [zipcode] => 88330-756
+        )
+
+    [Commissions] => Array
+        (
+            [charge_amount] => 4904
+            [product_base_price] => 4904
+            [product_base_price_currency] => BRL
+            [kiwify_fee] => 539
+            [kiwify_fee_currency] => BRL
+            [settlement_amount] => 4904
+            [settlement_amount_currency] => BRL
+            [sale_tax_rate] => 0
+            [sale_tax_amount] => 0
+            [commissioned_stores] => Array
+                (
+                    [0] => Array
+                        (
+                            [id] => 44ad270a-d210-4264-b044-36b1ce0fdf38
+                            [type] => producer
+                            [custom_name] => Example store
+                            [email] => example@store.domain
+                            [value] => 4365
+                        )
+
+                    [1] => Array
+                        (
+                            [id] => 9bac29f0-0a33-4248-8b05-767197748774
+                            [type] => coproducer
+                            [custom_name] => Example coproducer
+                            [email] => example@coproducer.domain
+                            [value] => 4365
+                        )
+
+                    [2] => Array
+                        (
+                            [id] => 3f48bca5-bd5f-4c2b-b1dd-381a4031485a
+                            [type] => affiliate
+                            [affiliate_id] => RdshZLo
+                            [custom_name] => Example affiliate
+                            [email] => example@affiliate.domain
+                            [value] => 4365
+                        )
+
+                )
+
+            [currency] => BRL
+            [my_commission] => 4365
+            [funds_status] => 
+            [estimated_deposit_date] => 
+            [deposit_date] => 
+        )
+
+    [TrackingParameters] => Array
+        (
+            [src] => 
+            [sck] => 
+            [utm_source] => 
+            [utm_medium] => 
+            [utm_campaign] => 
+            [utm_content] => 
+            [utm_term] => 
+            [s1] => 
+            [s2] => 
+            [s3] => 
+        )
+
+    [Subscription] => Array
+        (
+            [id] => db8d62d1-f5c0-4879-828d-ed4864820c20
+            [start_date] => 2025-10-04T06:29:26.344Z
+            [next_payment] => 2025-10-11T06:29:26.344Z
+            [status] => active
+            [plan] => Array
+                (
+                    [id] => aea0e03f-dd39-4628-9871-7367ba1100f7
+                    [name] => Example plan
+                    [frequency] => weekly
+                    [qty_charges] => 0
+                )
+
+            [charges] => Array
+                (
+                    [completed] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [order_id] => 40eca3b9-b644-4a6a-9601-6873b43511f8
+                                    [amount] => 4365
+                                    [status] => paid
+                                    [installments] => 1
+                                    [card_type] => mastercard
+                                    [card_last_digits] => 4708
+                                    [card_first_digits] => 559369
+                                    [created_at] => 2025-10-04T06:29:26.344Z
+                                )
+
+                        )
+
+                    [future] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [charge_date] => 2025-10-11T06:29:26.344Z
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [subscription_id] => db8d62d1-f5c0-4879-828d-ed4864820c20
+    [access_url] => 
+)
+
+[2025-10-07 03:29:25] [debug] Customer data | Dados: Array
+(
+    [full_name] => John Doe
+    [first_name] => John
+    [email] => johndoe@example.com
+    [mobile] => +76810958697
+    [cnpj] => 54457228488112
+    [ip] => 219.201.25.144
+    [instagram] => @kiwify
+    [street] => Rua 1001
+    [number] => 315
+    [complement] => SL 05
+    [neighborhood] => Centro
+    [city] => Balneário Camboriú
+    [state] => SC
+    [zipcode] => 88330-756
+)
+
+[2025-10-07 03:29:25] [debug] Product data | Dados: Array
+(
+    [product_id] => 735fe14d-3013-4b23-88ac-ce158978aa1c
+    [product_name] => Example product
+)
+
+[2025-10-07 03:29:25] [debug] Subscription data | Dados: Array
+(
+    [id] => db8d62d1-f5c0-4879-828d-ed4864820c20
+    [start_date] => 2025-10-04T06:29:26.344Z
+    [next_payment] => 2025-10-11T06:29:26.344Z
+    [status] => active
+    [plan] => Array
+        (
+            [id] => aea0e03f-dd39-4628-9871-7367ba1100f7
+            [name] => Example plan
+            [frequency] => weekly
+            [qty_charges] => 0
+        )
+
+    [charges] => Array
+        (
+            [completed] => Array
+                (
+                    [0] => Array
+                        (
+                            [order_id] => 40eca3b9-b644-4a6a-9601-6873b43511f8
+                            [amount] => 4365
+                            [status] => paid
+                            [installments] => 1
+                            [card_type] => mastercard
+                            [card_last_digits] => 4708
+                            [card_first_digits] => 559369
+                            [created_at] => 2025-10-04T06:29:26.344Z
+                        )
+
+                )
+
+            [future] => Array
+                (
+                    [0] => Array
+                        (
+                            [charge_date] => 2025-10-11T06:29:26.344Z
+                        )
+
+                )
+
+        )
+
+)
+
+[2025-10-07 03:29:25] [debug] Commissions data | Dados: Array
+(
+    [charge_amount] => 4904
+    [product_base_price] => 4904
+    [product_base_price_currency] => BRL
+    [kiwify_fee] => 539
+    [kiwify_fee_currency] => BRL
+    [settlement_amount] => 4904
+    [settlement_amount_currency] => BRL
+    [sale_tax_rate] => 0
+    [sale_tax_amount] => 0
+    [commissioned_stores] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 44ad270a-d210-4264-b044-36b1ce0fdf38
+                    [type] => producer
+                    [custom_name] => Example store
+                    [email] => example@store.domain
+                    [value] => 4365
+                )
+
+            [1] => Array
+                (
+                    [id] => 9bac29f0-0a33-4248-8b05-767197748774
+                    [type] => coproducer
+                    [custom_name] => Example coproducer
+                    [email] => example@coproducer.domain
+                    [value] => 4365
+                )
+
+            [2] => Array
+                (
+                    [id] => 3f48bca5-bd5f-4c2b-b1dd-381a4031485a
+                    [type] => affiliate
+                    [affiliate_id] => RdshZLo
+                    [custom_name] => Example affiliate
+                    [email] => example@affiliate.domain
+                    [value] => 4365
+                )
+
+        )
+
+    [currency] => BRL
+    [my_commission] => 4365
+    [funds_status] => 
+    [estimated_deposit_date] => 
+    [deposit_date] => 
+)
+
+[2025-10-07 03:29:25] [debug] ========== FIM LOG DEBUG ==========
+[2025-10-07 03:29:25] [info] Webhook recebido | Dados: Array
+(
+    [event] => order_approved
+    [order_id] => 40eca3b9-b644-4a6a-9601-6873b43511f8
+)
+
+[2025-10-07 03:29:25] [info] Webhook processado com sucesso | Dados: Array
+(
+    [success] => 1
+    [message] => Compra processada com sucesso
+    [subscription_id] => 58
+    [action] => created
+)
+
