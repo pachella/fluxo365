@@ -12,9 +12,6 @@ if (!isset($pdo)) {
 
 // Carregar cache helper
 require_once(__DIR__ . "/../../core/cache_helper.php");
-
-// Carregar serviço de planos
-require_once(__DIR__ . "/../../core/PlanService.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -51,12 +48,6 @@ require_once(__DIR__ . "/../../core/PlanService.php");
     window.userName = "<?= htmlspecialchars($_SESSION['user_name'] ?? '', ENT_QUOTES) ?>";
     window.userEmail = "<?= htmlspecialchars($_SESSION['user_email'] ?? '', ENT_QUOTES) ?>";
   </script>
-
-  <!-- Script de recursos PRO (ANTES dos específicos) -->
-  <script src="<?= assetUrl('/assets/js/pro-features.js') ?>"></script>
-
-  <!-- Script de formulários (DEPOIS dos globais) -->
-  <script src="<?= assetUrl('/modules/forms/assets/admin.js') ?>"></script>
   
   <style>
     /* Remover TODAS as transições do tema dark (instantâneo) */
