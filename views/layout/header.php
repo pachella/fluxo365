@@ -177,17 +177,8 @@ require_once(__DIR__ . "/../../core/cache_helper.php");
           
           <!-- Usuário (oculta texto no mobile) -->
           <span class="hidden sm:inline text-gray-700 dark:text-gray-300">
-            <?= htmlspecialchars($_SESSION["user_name"]) ?> 
+            <?= htmlspecialchars($_SESSION["user_name"]) ?>
             <span class="text-sm text-gray-500 dark:text-gray-400">(<?= htmlspecialchars($_SESSION["user_role"]) ?>)</span>
-            
-            <!-- Badge PRO para usuários FREE -->
-            <?php if (PlanService::isFree()): ?>
-              <a href="https://checkout.ticto.app/OEDEF53ED?name=<?= urlencode($_SESSION['user_name'] ?? '') ?>&email=<?= urlencode($_SESSION['user_email'] ?? '') ?>"
-                 target="_blank"
-                 class="ml-2 px-2 py-0.5 text-xs font-semibold rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:from-purple-600 hover:to-pink-600 transition-all">
-                ✨ Testar PRO por 30 dias
-              </a>
-            <?php endif; ?>
           </span>
           
           <!-- Botão Sair -->
