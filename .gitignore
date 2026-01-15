@@ -1,1 +1,46 @@
-modules/ai-builder/config.local.php
+# ==========================================
+# Sistema Base - Fluxo365
+# ==========================================
+
+# Configurações do banco de dados
+core/db.php
+
+# Arquivo de instalação concluída
+.installed
+
+# Uploads de usuários
+uploads/*
+!uploads/system/
+!uploads/.gitkeep
+
+# Logs
+*.log
+error_log
+
+# Cache
+cache/
+*.cache
+
+# Arquivos temporários
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-*
+
+# Composer
+vendor/
+composer.lock
+
+# NPM
+node_modules/
+package-lock.json
+
+# Configurações locais
+*.local.php
+.env
+.env.local

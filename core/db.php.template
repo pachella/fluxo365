@@ -1,0 +1,17 @@
+<?php
+/**
+ * Configurações do Banco de Dados
+ * Este arquivo é gerado automaticamente durante a instalação
+ */
+
+$host = "___DB_HOST___";
+$db   = "___DB_NAME___";
+$user = "___DB_USER___";
+$pass = "___DB_PASS___";
+
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8mb4", $user, $pass);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Database connection failed: " . $e->getMessage());
+}

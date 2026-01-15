@@ -112,12 +112,48 @@ return [
 - **Frontend**: JavaScript vanilla + CSS moderno
 - **Servidor**: Apache com mod_rewrite
 
-## 🔧 Configuração
+## 🔧 Instalação
 
-1. Configure o banco de dados em `/core/db.php`
-2. Ajuste as configurações globais em `/core/config.php`
-3. Configure o servidor web para apontar para a raiz do projeto
-4. Certifique-se de que o mod_rewrite está ativado no Apache
+### Instalação Automática (Recomendado)
+
+1. **Clone o repositório ou faça upload dos arquivos**
+   ```bash
+   git clone https://github.com/seu-usuario/fluxo365.git
+   cd fluxo365
+   ```
+
+2. **Configure o servidor web** para apontar para a raiz do projeto
+   - Certifique-se de que o mod_rewrite está ativado no Apache
+   - PHP 8.0+ deve estar instalado
+
+3. **Acesse o instalador**
+   - Abra o navegador e acesse: `http://seu-dominio.com/`
+   - Você será redirecionado automaticamente para `/install.php`
+
+4. **Siga o wizard de instalação**
+   - **Passo 1:** Configure as credenciais do MySQL
+   - **Passo 2:** Crie a conta de administrador
+   - **Passo 3:** Instalação concluída!
+
+5. **Faça login**
+   - Use as credenciais criadas durante a instalação
+   - Acesse: `http://seu-dominio.com/auth/login.php`
+
+### Configuração Manual (Avançado)
+
+Se preferir configurar manualmente:
+
+1. Importe o SQL: `/install/schema.sql` no seu banco de dados
+2. Configure as credenciais em `/core/db.php`
+3. Crie um usuário admin manualmente no banco
+4. Acesse o sistema pelo navegador
+
+### Após a Instalação
+
+Por segurança, recomendamos:
+- ✅ Remover o arquivo `install.php`
+- ✅ Verificar as permissões da pasta `/uploads`
+- ✅ Configurar backup automático do banco de dados
 
 ## 📦 Banco de Dados
 
