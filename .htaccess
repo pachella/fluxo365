@@ -1,81 +1,69 @@
+# ==========================================
+# Sistema Base - Fluxo365
+# Configuração Apache / mod_rewrite
+# ==========================================
+
 # Ativar reescrita
 RewriteEngine On
 RewriteBase /
 
-# Forçar HTTPS (SSL)
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# ==========================================
+# SEGURANÇA
+# ==========================================
 
 # Desabilitar listagem de diretórios
 Options -Indexes
 
-# Bloquear acesso direto a diretórios sensíveis
-RewriteCond %{REQUEST_URI} ^/(core|views)/
-RewriteRule .* - [F,L]
+# Bloquear acesso a arquivos sensíveis
+<FilesMatch "\.(sql|log|md|env|git|gitignore|htaccess)$">
+    Require all denied
+</FilesMatch>
 
-# Permitir serve_image.php explicitamente
-RewriteCond %{REQUEST_URI} ^/serve_image\.php
+# Proteger arquivo de configuração
+<Files "db.php">
+    Require all denied
+</Files>
+
+# Permitir acesso apenas via PHP (não diretamente)
+<FilesMatch "^(db|config|auth_check|PermissionManager|EmailService|ImageProcessor|cache_helper|version)\.php$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+</FilesMatch>
+
+# ==========================================
+# FORÇAR HTTPS (OPCIONAL - DESCOMENTE SE TIVER SSL)
+# ==========================================
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ==========================================
+# PERMISSÕES PARA ARQUIVOS ESTÁTICOS
+# ==========================================
+
+# Permitir acesso a arquivos estáticos (CSS, JS, imagens)
+RewriteCond %{REQUEST_URI} \.(css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot|webp|pdf)$ [NC]
 RewriteRule . - [L]
 
-# Evitar reescrita de arquivos do sistema e recursos estáticos
-RewriteCond %{REQUEST_URI} ^/modules/.*\.(css|js|png|jpg|gif|ico|svg|woff|woff2|ttf|pdf|doc|docx)$ [OR]
-RewriteCond %{REQUEST_URI} ^/webhooks/ [OR]
-RewriteCond %{REQUEST_URI} \.(css|js|png|jpg|gif|ico|svg|woff|woff2|ttf)$
-RewriteRule . - [L]
+# ==========================================
+# ROTAS DO SISTEMA
+# ==========================================
 
-# ===================================================================
-# ROTAS AMIGÁVEIS
-# ===================================================================
-
-# Formulário público: /f/ID
-RewriteRule ^f/([0-9]+)$ /modules/forms/public/view.php?id=$1 [L,QSA]
-
-# Respostas de formulário: /forms/ID/responses
-RewriteRule ^forms/([0-9]+)/responses/?$ /modules/forms/responses/list.php?id=$1 [L,QSA]
-
-# Visualizar resposta: /forms/ID/responses/ID
-RewriteRule ^forms/([0-9]+)/responses/([0-9]+)$ /modules/forms/responses/view.php?id=$2 [L,QSA]
-
-# Exportar respostas: /forms/ID/responses/export
-RewriteRule ^forms/([0-9]+)/responses/export$ /modules/forms/responses/export.php?id=$1 [L,QSA]
-
-# Construtor de formulário: /forms/builder/ID
-RewriteRule ^forms/builder/([0-9]+)$ /modules/forms/builder/index.php?id=$1 [L,QSA]
-
-# Editor de formulário: /forms/ID/edit (se precisar)
-RewriteRule ^forms/([0-9]+)/edit$ /modules/forms/edit.php?id=$1 [L,QSA]
-
-# Duplicar formulário: /forms/ID/duplicate
-RewriteRule ^forms/([0-9]+)/duplicate$ /modules/forms/duplicate.php?id=$1 [L,QSA]
-
-# Deletar formulário: /forms/ID/delete
-RewriteRule ^forms/([0-9]+)/delete$ /modules/forms/delete.php?id=$1 [L,QSA]
-
-# Lista de formulários: /forms/list
-RewriteRule ^forms/list$ /modules/forms/list.php [L,QSA]
-
-# Permitir acesso direto a endpoints de API (POST/AJAX)
-RewriteCond %{REQUEST_METHOD} POST [OR]
-RewriteCond %{HTTP_X_REQUESTED_WITH} XMLHttpRequest
-RewriteCond %{REQUEST_URI} ^/modules/
-RewriteRule . - [L]
-
-# Remover .php das URLs (redirecionar para versão sem extensão)
-RewriteCond %{THE_REQUEST} \s/+(.+)\.php[\s?] [NC]
-RewriteCond %1 !^(modules|webhooks|core)
-RewriteRule ^ /%1? [R=301,L]
-
-# Permitir acesso sem .php (reescrita interna)
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_URI} !^/(modules|webhooks|core)
-RewriteCond %{DOCUMENT_ROOT}/$1.php -f
-RewriteRule ^([^/]+(?:/[^/]+)*)/?$ $1.php [L]
-
-# Alias dashboard
+# Dashboard principal
 RewriteRule ^dashboard/?$ modules/dashboard.php?page=dashboard/home [L,QSA]
 
-# Roteamento do dashboard
+# Roteamento geral do sistema
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} ^/([^/]+)/?(.*)$
 RewriteRule ^([^/]+)/?(.*)$ modules/dashboard.php?page=$1/$2 [L,QSA]
+
+# ==========================================
+# PHP SETTINGS (OPCIONAL)
+# ==========================================
+
+# Aumentar limite de upload (se permitido pelo servidor)
+# php_value upload_max_filesize 10M
+# php_value post_max_size 10M
+# php_value max_execution_time 300
+# php_value max_input_time 300

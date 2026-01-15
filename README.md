@@ -152,8 +152,72 @@ Se preferir configurar manualmente:
 
 Por segurança, recomendamos:
 - ✅ Remover o arquivo `install.php`
+- ✅ Remover o arquivo `fix-permissions.php` (se usado)
 - ✅ Verificar as permissões da pasta `/uploads`
 - ✅ Configurar backup automático do banco de dados
+
+## 🐛 Resolução de Problemas
+
+### Erro 403 Forbidden
+
+Se você receber o erro **403 Forbidden** ao acessar o sistema, o problema geralmente está nas permissões dos arquivos.
+
+**Solução Rápida:**
+
+1. **Via navegador** (mais fácil):
+   ```
+   Acesse: http://seu-dominio.com/fix-permissions.php
+   → Clique em "Corrigir Permissões Agora"
+   → Aguarde a conclusão
+   → Teste o acesso novamente
+   ```
+
+2. **Via terminal SSH** (se tiver acesso):
+   ```bash
+   # Navegar até o diretório
+   cd /caminho/para/fluxo365
+
+   # Corrigir permissões de diretórios
+   find . -type d -exec chmod 755 {} \;
+
+   # Corrigir permissões de arquivos
+   find . -type f -exec chmod 644 {} \;
+
+   # Tornar uploads gravável
+   chmod -R 775 uploads/
+   ```
+
+**Permissões Recomendadas:**
+- Diretórios: `755` (rwxr-xr-x)
+- Arquivos: `644` (rw-r--r--)
+- Pasta uploads: `775` (rwxrwxr-x)
+
+### Erro de Conexão com Banco de Dados
+
+Se aparecer erro de conexão durante a instalação:
+
+1. Verifique se o MySQL está rodando
+2. Confirme usuário e senha do MySQL
+3. Verifique se o usuário tem permissão para criar bancos
+4. Tente: `host: 127.0.0.1` ao invés de `localhost`
+
+### Problema com HTTPS
+
+Se o sistema ficar em loop ou não carregar:
+
+1. Edite o arquivo `.htaccess`
+2. Comente as linhas de HTTPS forçado (linhas 37-38):
+   ```apache
+   # RewriteCond %{HTTPS} off
+   # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+   ```
+
+### Outros Problemas
+
+- **Página em branco**: Verifique os logs do PHP (`/var/log/apache2/error.log` ou `/var/log/httpd/error_log`)
+- **CSS não carrega**: Verifique se o `mod_rewrite` está ativado no Apache
+- **Upload não funciona**: Verifique permissões da pasta `/uploads/`
+- **Erro 500**: Geralmente é erro de sintaxe no PHP ou permissões incorretas
 
 ## 📦 Banco de Dados
 
