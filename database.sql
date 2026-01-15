@@ -1,7 +1,7 @@
 -- ============================================
 -- Sistema Base - Fluxo365
 -- Versão: 1.0.0
--- Estrutura SQL Base
+-- Estrutura SQL Completa
 -- ============================================
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -27,15 +27,26 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`),
   KEY `role` (`role`),
-  KEY `status` (`status`)
+  KEY `status` (`status`),
+  KEY `idx_email_status` (`email`, `status`),
+  KEY `idx_role_status` (`role`, `status`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ============================================
--- Índices e otimizações
+-- Dados Iniciais
 -- ============================================
 
--- Índice para busca por email (login)
-ALTER TABLE `users` ADD INDEX `idx_email_status` (`email`, `status`);
+-- Usuário Administrador Padrão
+-- Email: admin@fluxo365.com
+-- Senha: admin123
+-- IMPORTANTE: Altere a senha após o primeiro login!
 
--- Índice para busca por role
-ALTER TABLE `users` ADD INDEX `idx_role_status` (`role`, `status`);
+INSERT INTO `users` (`name`, `email`, `password`, `role`, `plan`, `status`, `created_at`) VALUES
+('Administrador', 'admin@fluxo365.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin', 'FULL', 'active', NOW());
+
+-- ============================================
+-- Configurações Finais
+-- ============================================
+
+-- Commit das alterações
+COMMIT;

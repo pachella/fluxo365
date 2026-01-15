@@ -1,0 +1,21 @@
+<?php
+/**
+ * Configurações do Banco de Dados
+ *
+ * INSTRUÇÕES:
+ * 1. Renomeie este arquivo para: db.php
+ * 2. Configure os valores abaixo com suas credenciais
+ * 3. Salve o arquivo
+ */
+
+$host = "localhost";              // Host do MySQL (geralmente "localhost" ou "127.0.0.1")
+$db   = "fluxo365";               // Nome do banco de dados
+$user = "root";                   // Usuário do MySQL
+$pass = "";                       // Senha do MySQL (deixe vazio se não houver)
+
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8mb4", $user, $pass);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Erro na conexão com o banco de dados: " . $e->getMessage());
+}
