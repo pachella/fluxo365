@@ -23,9 +23,14 @@ require_once(__DIR__ . "/../../core/cache_helper.php");
   <link rel="icon" type="image/webp" href="https://formtalk.app/wp-content/uploads/2025/11/cropped-favicon-20251107044740-32x32.webp">
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI via CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css" rel="stylesheet" type="text/css" />
   <script>
     tailwind.config = {
       darkMode: 'class',
+      daisyui: {
+        themes: ["light", "dark"],
+      }
     }
   </script>
   <!-- Feather icons -->
@@ -133,13 +138,14 @@ require_once(__DIR__ . "/../../core/cache_helper.php");
     // Aplicar tema antes da página carregar (evita flash)
     (function() {
       const theme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', theme);
       if (theme === 'dark') {
         document.documentElement.classList.add('dark');
       }
     })();
   </script>
 </head>
-<body class="bg-gray-100 dark:bg-zinc-900 text-gray-800 dark:text-gray-200 flex h-screen overflow-hidden">
+<body class="bg-base-100 flex h-screen overflow-hidden">
 
   <!-- Script do Toggle Dark Mode -->
   <script>
@@ -150,9 +156,11 @@ require_once(__DIR__ . "/../../core/cache_helper.php");
       themeToggle.addEventListener('click', () => {
         if (html.classList.contains('dark')) {
           html.classList.remove('dark');
+          html.setAttribute('data-theme', 'light');
           localStorage.setItem('theme', 'light');
         } else {
           html.classList.add('dark');
+          html.setAttribute('data-theme', 'dark');
           localStorage.setItem('theme', 'dark');
         }
       });

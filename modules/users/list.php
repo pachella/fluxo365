@@ -8,7 +8,7 @@ if (!isset($_SESSION["user_id"])) {
 }
 ?>
 
-<h1 class="text-xl md:text-2xl font-bold mb-4 md:mb-6 dark:text-zinc-100">Usuários</h1>
+<h1 class="text-xl md:text-2xl font-bold mb-4 md:mb-6">Usuários</h1>
 
 <div id="messageContainer" class="mb-4 hidden">
     <div id="messageContent" class="px-4 py-3 rounded-lg"></div>
@@ -16,14 +16,15 @@ if (!isset($_SESSION["user_id"])) {
 
 <!-- Header responsivo -->
 <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 mb-4">
-    <button id="btnNewUser" class="bg-indigo-600 hover:bg-indigo-700 dark:bg-zinc-600 dark:hover:bg-zinc-500 text-white px-4 py-2 rounded-lg transition-colors text-sm md:text-base w-full sm:w-auto">
-        + Novo Usuário
+    <button id="btnNewUser" class="btn btn-primary w-full sm:w-auto">
+        <i data-feather="plus" class="w-4 h-4"></i>
+        Novo Usuário
     </button>
     <div class="relative w-full sm:w-64">
         <input type="text" id="searchUser" placeholder="Buscar usuário..."
-               class="border rounded-lg px-3 py-2 text-sm w-full focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-zinc-800 dark:border-zinc-700 dark:text-zinc-100 dark:placeholder-zinc-400 dark:focus:ring-zinc-500">
+               class="input input-bordered w-full input-sm">
         <div id="searchLoading" class="hidden absolute right-3 top-2.5">
-            <div class="animate-spin h-4 w-4 border-2 border-gray-300 border-t-indigo-600 dark:border-zinc-600 dark:border-t-zinc-400 rounded-full"></div>
+            <span class="loading loading-spinner loading-xs"></span>
         </div>
     </div>
 </div>
