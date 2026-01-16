@@ -150,18 +150,53 @@ require_once(__DIR__ . "/../../core/cache_helper.php");
       background-color: white !important;
     }
 
-    /* ===== TEMA ESCURO (DaisyUI Dark) ===== */
-    /* Sidebar, cards, boxes e colunas Kanban - todos mesma cor */
+    /* ===== TEMA ESCURO ===== */
+    /* Background do main - mais escuro */
+    .dark main {
+      background-color: #18181b !important; /* zinc-900 */
+    }
+
+    /* Sidebar, cards, boxes e colunas - cinza mais claro para contraste */
     .dark aside#sidebar,
     .dark .card,
     .dark .kanban-column,
     .dark .kanban-cards {
-      background-color: hsl(var(--b2)) !important;
+      background-color: #27272a !important; /* zinc-800 */
     }
 
-    /* Background do main no tema escuro */
-    .dark main {
-      background-color: hsl(var(--b1)) !important;
+    /* Inputs no tema escuro - limpar aparência */
+    .dark .input,
+    .dark .textarea,
+    .dark .select {
+      background-color: #3f3f46 !important; /* zinc-700 */
+      border-color: #52525b !important; /* zinc-600 */
+      color: #fafafa !important; /* zinc-50 */
+    }
+
+    .dark .input:focus,
+    .dark .textarea:focus,
+    .dark .select:focus {
+      background-color: #3f3f46 !important;
+      border-color: #6366f1 !important; /* indigo-500 */
+      outline: none !important;
+    }
+
+    /* Placeholder no tema escuro */
+    .dark .input::placeholder,
+    .dark .textarea::placeholder {
+      color: #a1a1aa !important; /* zinc-400 */
+      opacity: 0.6;
+    }
+
+    /* SweetAlert no tema escuro */
+    .dark .swal2-popup {
+      background-color: #27272a !important; /* zinc-800 */
+      color: #fafafa !important;
+    }
+
+    .dark .swal2-title,
+    .dark .swal2-html-container {
+      color: #fafafa !important;
     }
   </style>
   <!-- Feather icons -->
