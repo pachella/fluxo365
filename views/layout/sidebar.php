@@ -78,6 +78,9 @@ if ($permissionManager->isAdmin()) {
   <nav class="flex-1 p-4 overflow-y-auto">
     <ul class="menu menu-vertical w-full" style="gap: 5px;">
       <?php foreach ($moduleStructure as $config): ?>
+        <?php if (isset($config['divider_before']) && $config['divider_before']): ?>
+          <div class="divider my-2"></div>
+        <?php endif; ?>
         <li>
           <a href="<?= $config['url'] ?>" class="<?= isActive($config['name'], $currentPage) ?>">
             <i data-feather="<?= $config['icon'] ?>" class="w-5 h-5"></i>

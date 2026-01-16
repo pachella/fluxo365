@@ -12,13 +12,17 @@ if (!isset($pdo)) {
 
 // Carregar cache helper
 require_once(__DIR__ . "/../../core/cache_helper.php");
+
+// Carregar settings helper
+require_once(__DIR__ . "/../../core/settings_helper.php");
+$systemSettings = getSystemSettings($pdo);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard | Fluxo365</title>
+  <title>Dashboard | <?= htmlspecialchars($systemSettings['company_name']) ?></title>
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- DaisyUI via CDN -->
@@ -196,6 +200,9 @@ require_once(__DIR__ . "/../../core/cache_helper.php");
     .dark .swal2-html-container {
       color: #fafafa !important;
     }
+
+    /* ===== CORES DINÂMICAS DO SISTEMA ===== */
+    <?= getButtonStyles($pdo) ?>
   </style>
   <!-- Feather icons -->
   <script src="https://unpkg.com/feather-icons"></script>
