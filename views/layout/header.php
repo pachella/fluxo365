@@ -36,32 +36,106 @@ require_once(__DIR__ . "/../../core/cache_helper.php");
 
   <!-- Customizações DaisyUI -->
   <style>
-    /* Badges com mais padding e menos arredondamento */
+    /* Badges com mais padding e cores que se adaptam ao dark mode */
     .badge {
-      border-radius: 0.375rem !important; /* rounded-md */
-      padding: 0.375rem 0.75rem !important; /* px-3 py-1.5 */
+      border-radius: 4px !important;
+      padding: 0.5rem 0.875rem !important; /* py-2 px-3.5 */
+      font-weight: 500;
     }
     .badge-sm {
-      padding: 0.25rem 0.5rem !important; /* px-2 py-1 */
+      padding: 0.375rem 0.625rem !important; /* py-1.5 px-2.5 */
     }
     .badge-xs {
-      padding: 0.125rem 0.375rem !important; /* px-1.5 py-0.5 */
+      padding: 0.25rem 0.5rem !important;
     }
 
-    /* Botões menos arredondados */
+    /* Badges - cores adaptadas ao dark mode */
+    .dark .badge-success {
+      background-color: rgba(34, 197, 94, 0.2);
+      color: rgb(134, 239, 172);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+    }
+    .dark .badge-error {
+      background-color: rgba(239, 68, 68, 0.2);
+      color: rgb(252, 165, 165);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+    .dark .badge-info {
+      background-color: rgba(59, 130, 246, 0.2);
+      color: rgb(147, 197, 253);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+    .dark .badge-warning {
+      background-color: rgba(245, 158, 11, 0.2);
+      color: rgb(253, 224, 71);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+    .dark .badge-secondary {
+      background-color: rgba(168, 85, 247, 0.2);
+      color: rgb(216, 180, 254);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+    }
+    .dark .badge-accent {
+      background-color: rgba(236, 72, 153, 0.2);
+      color: rgb(244, 114, 182);
+      border: 1px solid rgba(236, 72, 153, 0.3);
+    }
+
+    /* Botões com border radius quadrado */
     .btn {
-      border-radius: 0.5rem !important; /* rounded-lg */
+      border-radius: 4px !important;
     }
     .btn-sm {
-      border-radius: 0.375rem !important; /* rounded-md */
+      border-radius: 4px !important;
     }
     .btn-xs {
-      border-radius: 0.25rem !important; /* rounded */
+      border-radius: 4px !important;
     }
 
-    /* Cards menos arredondados */
+    /* Cards e inputs com border radius quadrado */
     .card {
-      border-radius: 0.5rem !important; /* rounded-lg */
+      border-radius: 4px !important;
+    }
+    .input {
+      border-radius: 4px !important;
+    }
+    .alert {
+      border-radius: 4px !important;
+    }
+
+    /* Tabelas com separação visual entre linhas */
+    .table tbody tr {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    .dark .table tbody tr {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .table tbody tr:hover {
+      background-color: rgba(0, 0, 0, 0.02);
+    }
+    .dark .table tbody tr:hover {
+      background-color: rgba(255, 255, 255, 0.02);
+    }
+
+    /* Logo branco no tema escuro */
+    .dark .logo-fluxo {
+      filter: brightness(0) invert(1);
+    }
+
+    /* Botões de ação discretos */
+    .btn-action {
+      background-color: transparent !important;
+      border: none !important;
+      padding: 0.25rem !important;
+      opacity: 0.4;
+      transition: opacity 0.2s;
+    }
+    .btn-action:hover {
+      opacity: 1;
+      background-color: rgba(0, 0, 0, 0.05) !important;
+    }
+    .dark .btn-action:hover {
+      background-color: rgba(255, 255, 255, 0.05) !important;
     }
   </style>
   <!-- Feather icons -->

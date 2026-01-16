@@ -84,13 +84,16 @@ try {
                                 <span class="badge <?= $statusBadge ?> badge-sm"><?= ucfirst($user['status']) ?></span>
                             </td>
                             <td class="text-right">
-                                <div class="flex justify-end gap-2">
-                                    <button onclick="editUser(<?= $user['id'] ?>)" class="btn btn-info btn-xs">
-                                        <i data-feather="edit-2" class="w-3 h-3"></i>
+                                <div class="flex justify-end gap-1">
+                                    <button onclick="editUser(<?= $user['id'] ?>)"
+                                            class="btn btn-action btn-xs"
+                                            title="Editar">
+                                        <i data-feather="edit-2" class="w-4 h-4"></i>
                                     </button>
                                     <button onclick="deleteUser(<?= $user['id'] ?>, '<?= htmlspecialchars($user['name']) ?>')"
-                                            class="btn btn-error btn-xs">
-                                        <i data-feather="trash-2" class="w-3 h-3"></i>
+                                            class="btn btn-action btn-xs"
+                                            title="Excluir">
+                                        <i data-feather="trash-2" class="w-4 h-4"></i>
                                     </button>
                                 </div>
                             </td>
@@ -169,15 +172,16 @@ try {
                     </div>
 
                     <!-- Ações -->
-                    <div class="card-actions">
-                        <button onclick="editUser(<?= $user['id'] ?>)" class="btn btn-info btn-sm flex-1">
-                            <i data-feather="edit-2" class="w-3 h-3"></i>
-                            Editar
+                    <div class="flex justify-end gap-1 mt-2">
+                        <button onclick="editUser(<?= $user['id'] ?>)"
+                                class="btn btn-action btn-sm"
+                                title="Editar">
+                            <i data-feather="edit-2" class="w-4 h-4"></i>
                         </button>
                         <button onclick="deleteUser(<?= $user['id'] ?>, '<?= htmlspecialchars($user['name']) ?>')"
-                                class="btn btn-error btn-sm flex-1">
-                            <i data-feather="trash-2" class="w-3 h-3"></i>
-                            Excluir
+                                class="btn btn-action btn-sm"
+                                title="Excluir">
+                            <i data-feather="trash-2" class="w-4 h-4"></i>
                         </button>
                     </div>
                 </div>

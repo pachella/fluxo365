@@ -53,13 +53,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   <!-- Customizações DaisyUI -->
   <style>
     .btn {
-      border-radius: 0.5rem !important;
+      border-radius: 4px !important;
     }
     .input {
-      border-radius: 0.5rem !important;
+      border-radius: 4px !important;
     }
     .card {
-      border-radius: 0.75rem !important;
+      border-radius: 4px !important;
+    }
+    .alert {
+      border-radius: 4px !important;
+    }
+
+    /* Logo branco no tema escuro */
+    .dark .logo-fluxo {
+      filter: brightness(0) invert(1);
     }
   </style>
 
@@ -78,7 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   <div class="w-full max-w-md">
     <!-- Logo -->
     <div class="text-center mb-8">
-      <img src="https://fluxo365.com/wp-content/uploads/2026/01/logo_fluxo.svg" alt="Fluxo365" class="h-10 mx-auto">
+      <img src="https://fluxo365.com/wp-content/uploads/2026/01/logo_fluxo.svg" alt="Fluxo365" class="h-10 mx-auto logo-fluxo">
     </div>
 
     <div class="card bg-base-100 shadow-xl">

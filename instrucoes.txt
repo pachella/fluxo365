@@ -1,0 +1,38 @@
+=================================================================
+INSTRUÇÕES DE DESENVOLVIMENTO - FLUXO365 CRM
+=================================================================
+
+## FORMULÁRIOS
+
+1. **Princípio: Máximo de limpeza visual**
+   - Evitar labels sempre que possível
+   - Usar inputs grandes (input-lg do DaisyUI)
+   - Border radius: 4px (não muito arredondado)
+   - Placeholders descritivos e claros
+   - Apenas usar labels quando EXTREMAMENTE necessário
+
+2. **Padrão de Input**
+   - Tamanho: Large (input-lg)
+   - Border radius: 4px
+   - Placeholder suficientemente descritivo
+   - Exemplo: "Digite seu nome completo" ao invés de label "Nome:"
+
+3. **Exemplo de formulário limpo:**
+   ```html
+   <input type="text"
+          placeholder="Nome completo"
+          class="input input-lg input-bordered w-full">
+   <input type="email"
+          placeholder="seu@email.com"
+          class="input input-lg input-bordered w-full">
+   ```
+
+   ❌ EVITAR:
+   ```html
+   <label>Nome:</label>
+   <input type="text" class="input">
+   ```
+
+=================================================================
+ÚLTIMA ATUALIZAÇÃO: 2026-01-16
+=================================================================

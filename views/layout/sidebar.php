@@ -65,7 +65,7 @@ if ($permissionManager->isAdmin()) {
   <!-- Logo Header -->
   <div class="p-4 border-b border-base-300">
     <div class="flex items-center justify-between">
-      <img src="https://fluxo365.com/wp-content/uploads/2026/01/logo_fluxo.svg" alt="Fluxo365" class="h-7">
+      <img src="https://fluxo365.com/wp-content/uploads/2026/01/logo_fluxo.svg" alt="Fluxo365" class="h-7 logo-fluxo">
 
       <!-- Theme Toggle -->
       <label class="swap swap-rotate">
@@ -102,7 +102,7 @@ if ($permissionManager->isAdmin()) {
 
   <!-- Perfil do usuário -->
   <div class="p-4 border-t border-base-300 bg-base-200">
-    <div class="flex items-center gap-2">
+    <div class="flex items-center gap-2 mb-2">
       <div class="avatar placeholder">
         <div class="bg-primary text-primary-content rounded-full w-9">
           <span class="text-base font-bold">
@@ -111,17 +111,16 @@ if ($permissionManager->isAdmin()) {
         </div>
       </div>
       <div class="flex-1 min-w-0">
-        <div class="flex items-center gap-2">
-          <p class="text-sm font-medium truncate"><?= htmlspecialchars($_SESSION["user_name"] ?? 'Usuário') ?></p>
-          <a href="/auth/logout.php" class="btn btn-ghost btn-xs opacity-60 hover:opacity-100" title="Sair">
-            <i data-feather="log-out" class="w-3.5 h-3.5"></i>
-          </a>
-        </div>
-        <div class="flex items-center justify-between mt-0.5">
-          <p class="text-xs opacity-60"><?= $roleLabel ?></p>
-          <span class="text-xs opacity-40"><?= getAppVersion() ?></span>
-        </div>
+        <p class="text-sm font-medium truncate"><?= htmlspecialchars($_SESSION["user_name"] ?? 'Usuário') ?></p>
+        <p class="text-xs opacity-60"><?= $roleLabel ?></p>
       </div>
+    </div>
+    <div class="flex items-center justify-between">
+      <span class="text-xs opacity-40"><?= getAppVersion() ?></span>
+      <a href="/auth/logout.php" class="btn btn-ghost btn-xs opacity-60 hover:opacity-100" title="Sair">
+        <i data-feather="log-out" class="w-3.5 h-3.5"></i>
+        Sair
+      </a>
     </div>
   </div>
 </aside>
