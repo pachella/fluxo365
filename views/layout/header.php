@@ -38,7 +38,7 @@ require_once(__DIR__ . "/../../core/cache_helper.php");
   <style>
     /* Badges com mais padding e cores que se adaptam ao dark mode */
     .badge {
-      border-radius: 4px !important;
+      border-radius: 8px !important;
       padding: 0.5rem 0.875rem !important; /* py-2 px-3.5 */
       font-weight: 500;
     }
@@ -81,26 +81,20 @@ require_once(__DIR__ . "/../../core/cache_helper.php");
       border: 1px solid rgba(236, 72, 153, 0.3);
     }
 
-    /* Botões com border radius quadrado */
+    /* Botões com border radius arredondado */
     .btn {
-      border-radius: 4px !important;
-    }
-    .btn-sm {
-      border-radius: 4px !important;
-    }
-    .btn-xs {
-      border-radius: 4px !important;
+      border-radius: 8px !important;
     }
 
-    /* Cards e inputs com border radius quadrado */
+    /* Cards e inputs com border radius arredondado */
     .card {
-      border-radius: 4px !important;
+      border-radius: 8px !important;
     }
     .input {
-      border-radius: 4px !important;
+      border-radius: 8px !important;
     }
     .alert {
-      border-radius: 4px !important;
+      border-radius: 8px !important;
     }
 
     /* Tabelas com separação visual entre linhas */
@@ -144,6 +138,16 @@ require_once(__DIR__ . "/../../core/cache_helper.php");
       top: 15px;
       right: 15px;
       z-index: 9999;
+    }
+
+    /* Sidebar branca no tema claro */
+    :root:not(.dark) aside#sidebar {
+      background-color: white !important;
+    }
+
+    /* Conteúdo cinza no tema claro */
+    :root:not(.dark) main {
+      background-color: #f3f4f6 !important;
     }
   </style>
   <!-- Feather icons -->
@@ -262,7 +266,11 @@ require_once(__DIR__ . "/../../core/cache_helper.php");
 
   <!-- Theme Toggle - Fixo no canto superior direito -->
   <div id="theme-toggle-fixed">
-    <input type="checkbox" id="theme-toggle" class="toggle toggle-lg" />
+    <label class="swap swap-rotate btn btn-ghost btn-circle">
+      <input type="checkbox" id="theme-toggle" class="theme-controller" />
+      <i data-feather="sun" class="swap-off w-6 h-6"></i>
+      <i data-feather="moon" class="swap-on w-6 h-6"></i>
+    </label>
   </div>
 
   <!-- Script do Toggle Dark Mode -->

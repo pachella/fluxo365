@@ -53,16 +53,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   <!-- Customizações DaisyUI -->
   <style>
     .btn {
-      border-radius: 4px !important;
+      border-radius: 8px !important;
     }
     .input {
-      border-radius: 4px !important;
+      border-radius: 8px !important;
     }
     .card {
-      border-radius: 4px !important;
+      border-radius: 8px !important;
     }
     .alert {
-      border-radius: 4px !important;
+      border-radius: 8px !important;
     }
 
     /* Logo branco no tema escuro */
@@ -117,7 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <form method="POST" action="" class="space-y-4">
           <!-- E-mail -->
-          <label class="input input-bordered input-lg flex items-center gap-2">
+          <label class="input input-bordered flex items-center gap-2">
             <i data-feather="mail" class="w-5 h-5 opacity-60"></i>
             <input
               type="email"
@@ -130,7 +130,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
           <!-- Senha -->
           <div class="space-y-2">
-            <label class="input input-bordered input-lg flex items-center gap-2">
+            <label class="input input-bordered flex items-center gap-2">
               <i data-feather="lock" class="w-5 h-5 opacity-60"></i>
               <input
                 type="password"
@@ -145,7 +145,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
           </div>
 
           <!-- Botão Submit -->
-          <button type="submit" class="btn btn-primary btn-lg w-full">Entrar</button>
+          <button type="submit" class="btn btn-primary w-full">Entrar</button>
         </form>
 
         <!-- Link para Registro -->
