@@ -120,6 +120,20 @@ function getButtonStyles($pdo) {
     .text-primary {
         color: {$primaryColor} !important;
     }
+
+    /* Menu ativo - background clean com cor primária */
+    .menu li > a.active {
+        background-color: {$primaryColor}20 !important;
+        color: {$primaryColor} !important;
+        border: 1px solid {$primaryColor}40 !important;
+        font-weight: 600 !important;
+    }
+
+    .dark .menu li > a.active {
+        background-color: {$primaryColor}20 !important;
+        color: {$primaryColor} !important;
+        border: 1px solid {$primaryColor}40 !important;
+    }
     ";
 
     return $styles;

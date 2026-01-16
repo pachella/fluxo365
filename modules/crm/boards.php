@@ -35,6 +35,66 @@ try {
 }
 ?>
 
+<style>
+.board-card {
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.board-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.board-card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem;
+}
+
+.board-card-footer {
+    border-top: 1px solid;
+    padding: 0.75rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.dark .board-card-footer {
+    border-color: #3f3f46;
+}
+
+.board-card-footer {
+    border-color: #e5e7eb;
+}
+
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    opacity: 0.6;
+    margin-bottom: 0.25rem;
+}
+
+.stat-value {
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+</style>
+
 <div class="w-full max-w-full overflow-x-hidden">
     <!-- Header -->
     <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 gap-3">
@@ -65,42 +125,44 @@ try {
         <!-- Grid de Quadros -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <?php foreach ($boards as $board): ?>
-                <div class="card bg-base-200 shadow hover:shadow-lg transition-shadow cursor-pointer"
-                     onclick="window.location.href='/dashboard?page=crm/board&id=<?= $board['id'] ?>'">
-                    <div class="card-body">
-                        <!-- Cor do quadro -->
-                        <div class="w-full h-2 rounded-full mb-3" style="background-color: <?= htmlspecialchars($board['color']) ?>"></div>
+                <div class="card bg-base-200 shadow board-card" onclick="window.location.href='/crm/board?id=<?= $board['id'] ?>'">
+                    <div class="board-card-body">
+                        <!-- Barra de cor -->
+                        <div class="w-full h-2 rounded-full mb-4" style="background-color: <?= htmlspecialchars($board['color']) ?>"></div>
 
-                        <h2 class="card-title">
+                        <h2 class="font-bold text-lg mb-2">
                             <?= htmlspecialchars($board['name']) ?>
                         </h2>
 
                         <?php if ($board['description']): ?>
-                            <p class="text-sm opacity-60 line-clamp-2">
+                            <p class="text-sm opacity-60 line-clamp-2 mb-3">
                                 <?= htmlspecialchars($board['description']) ?>
                             </p>
                         <?php endif; ?>
 
                         <!-- Estatísticas -->
-                        <div class="flex gap-4 mt-4 text-sm opacity-60">
-                            <div class="flex items-center gap-1">
-                                <i data-feather="columns" class="w-4 h-4"></i>
-                                <span><?= $board['columns_count'] ?> colunas</span>
+                        <div class="stat-grid">
+                            <div class="stat-item">
+                                <div class="stat-label">Colunas</div>
+                                <div class="stat-value"><?= $board['columns_count'] ?></div>
                             </div>
-                            <div class="flex items-center gap-1">
-                                <i data-feather="credit-card" class="w-4 h-4"></i>
-                                <span><?= $board['cards_count'] ?> cards</span>
+                            <div class="stat-item">
+                                <div class="stat-label">Cards</div>
+                                <div class="stat-value"><?= $board['cards_count'] ?></div>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Ações -->
-                        <div class="card-actions justify-end mt-4">
-                            <button onclick="event.stopPropagation(); editBoard(<?= $board['id'] ?>, '<?= htmlspecialchars($board['name'], ENT_QUOTES) ?>', '<?= htmlspecialchars($board['description'] ?? '', ENT_QUOTES) ?>', '<?= htmlspecialchars($board['color']) ?>')"
-                                    class="btn btn-action btn-sm" title="Editar">
+                    <!-- Footer com Ações -->
+                    <div class="board-card-footer">
+                        <button onclick="event.stopPropagation(); window.location.href='/crm/board?id=<?= $board['id'] ?>'" class="btn btn-ghost btn-sm btn-square" title="Abrir quadro">
+                            <i data-feather="external-link" class="w-4 h-4"></i>
+                        </button>
+                        <div class="flex gap-1">
+                            <button onclick="event.stopPropagation(); editBoard(<?= $board['id'] ?>, '<?= htmlspecialchars($board['name'], ENT_QUOTES) ?>', '<?= htmlspecialchars($board['description'] ?? '', ENT_QUOTES) ?>', '<?= htmlspecialchars($board['color']) ?>')" class="btn btn-ghost btn-sm btn-square" title="Editar">
                                 <i data-feather="edit-2" class="w-4 h-4"></i>
                             </button>
-                            <button onclick="event.stopPropagation(); deleteBoard(<?= $board['id'] ?>, '<?= htmlspecialchars($board['name'], ENT_QUOTES) ?>')"
-                                    class="btn btn-action btn-sm" title="Excluir">
+                            <button onclick="event.stopPropagation(); deleteBoard(<?= $board['id'] ?>, '<?= htmlspecialchars($board['name'], ENT_QUOTES) ?>')" class="btn btn-ghost btn-sm btn-square text-error" title="Excluir">
                                 <i data-feather="trash-2" class="w-4 h-4"></i>
                             </button>
                         </div>
@@ -270,32 +332,37 @@ async function updateBoard(data) {
 async function deleteBoard(id, name) {
     const result = await Swal.fire({
         title: 'Tem certeza?',
-        text: `Deseja excluir o quadro "${name}"? Todos os cards e colunas serão perdidos.`,
+        text: `Deseja realmente excluir o quadro "${name}"?`,
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonText: 'Sim, excluir',
-        cancelButtonText: 'Cancelar',
-        confirmButtonColor: '#ef4444'
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Sim, excluir!',
+        cancelButtonText: 'Cancelar'
     });
 
-    if (!result.isConfirmed) return;
+    if (result.isConfirmed) {
+        try {
+            const formData = new FormData();
+            formData.append('id', id);
 
-    try {
-        const res = await fetch(`/core/crud/delete.php?module=crm&entity=board&id=${id}`, {
-            method: 'POST'
-        });
-
-        const response = await res.text();
-
-        if (res.ok && response === "success") {
-            Swal.fire('Excluído!', 'Quadro excluído com sucesso', 'success').then(() => {
-                window.location.reload();
+            const res = await fetch('/core/crud/delete.php?module=crm&entity=board', {
+                method: 'POST',
+                body: formData
             });
-        } else {
-            Swal.fire('Erro!', response || 'Erro ao excluir quadro', 'error');
+
+            const responseText = await res.text();
+
+            if (res.ok && responseText === "success") {
+                Swal.fire('Excluído!', 'Quadro excluído com sucesso!', 'success').then(() => {
+                    window.location.reload();
+                });
+            } else {
+                Swal.fire('Erro!', responseText || 'Erro ao excluir quadro', 'error');
+            }
+        } catch (error) {
+            Swal.fire('Erro!', 'Erro ao excluir quadro', 'error');
         }
-    } catch (error) {
-        Swal.fire('Erro!', 'Erro ao excluir quadro', 'error');
     }
 }
 </script>
