@@ -62,6 +62,20 @@ if ($permissionManager->isAdmin()) {
 
 <!-- Sidebar -->
 <aside id="sidebar" class="fixed lg:static inset-y-0 left-0 transform -translate-x-full lg:translate-x-0 w-64 bg-base-200 shadow-lg h-screen transition-transform duration-300 ease-in-out z-50 flex flex-col">
+  <!-- Logo Header -->
+  <div class="p-4 border-b border-base-300">
+    <div class="flex items-center justify-between">
+      <img src="https://fluxo365.com/wp-content/uploads/2026/01/logo_fluxo.svg" alt="Fluxo365" class="h-7">
+
+      <!-- Theme Toggle -->
+      <label class="swap swap-rotate">
+        <input type="checkbox" id="theme-toggle" class="theme-controller" />
+        <i data-feather="sun" class="swap-off w-5 h-5"></i>
+        <i data-feather="moon" class="swap-on w-5 h-5"></i>
+      </label>
+    </div>
+  </div>
+
   <!-- Header da sidebar (mobile) -->
   <div class="lg:hidden flex items-center justify-between p-4 border-b border-base-300">
     <h2 class="text-lg font-bold">Menu</h2>
@@ -71,7 +85,7 @@ if ($permissionManager->isAdmin()) {
   </div>
 
   <nav class="flex-1 p-4 overflow-y-auto">
-    <ul class="menu menu-vertical w-full">
+    <ul class="menu menu-vertical w-full" style="gap: 5px;">
       <?php foreach ($moduleStructure as $config): ?>
         <li>
           <a href="<?= $config['url'] ?>" class="<?= isActive($config['name'], $currentPage) ?>">
@@ -88,25 +102,26 @@ if ($permissionManager->isAdmin()) {
 
   <!-- Perfil do usuário -->
   <div class="p-4 border-t border-base-300 bg-base-200">
-    <div class="flex items-center gap-3 mb-2">
+    <div class="flex items-center gap-2">
       <div class="avatar placeholder">
-        <div class="bg-primary text-primary-content rounded-full w-10">
-          <span class="text-xl font-bold">
+        <div class="bg-primary text-primary-content rounded-full w-9">
+          <span class="text-base font-bold">
             <?= strtoupper(substr($_SESSION["user_name"] ?? 'U', 0, 1)) ?>
           </span>
         </div>
       </div>
       <div class="flex-1 min-w-0">
-        <p class="text-sm font-medium truncate"><?= htmlspecialchars($_SESSION["user_name"] ?? 'Usuário') ?></p>
-        <p class="text-xs opacity-60"><?= $roleLabel ?></p>
+        <div class="flex items-center gap-2">
+          <p class="text-sm font-medium truncate"><?= htmlspecialchars($_SESSION["user_name"] ?? 'Usuário') ?></p>
+          <a href="/auth/logout.php" class="btn btn-ghost btn-xs opacity-60 hover:opacity-100" title="Sair">
+            <i data-feather="log-out" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+        <div class="flex items-center justify-between mt-0.5">
+          <p class="text-xs opacity-60"><?= $roleLabel ?></p>
+          <span class="text-xs opacity-40"><?= getAppVersion() ?></span>
+        </div>
       </div>
-    </div>
-    <div class="flex items-center justify-between">
-      <a href="/auth/logout.php" class="btn btn-error btn-xs">
-        <i data-feather="log-out" class="w-3 h-3"></i>
-        Sair
-      </a>
-      <span class="text-xs opacity-40"><?= getAppVersion() ?></span>
     </div>
   </div>
 </aside>

@@ -5,24 +5,25 @@ $error = "";
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = trim($_POST["email"]);
     $password = trim($_POST["password"]);
-    
+
     // Buscar usuário no banco
     $stmt = $pdo->prepare("SELECT * FROM users WHERE email = :email LIMIT 1");
     $stmt->bindParam(":email", $email, PDO::PARAM_STR);
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
-    
+
     // Verificar senha
     if ($user && password_verify($password, $user["password"])) {
         $_SESSION["user_id"]   = $user["id"];
         $_SESSION["user_name"] = $user["name"];
         $_SESSION["user_role"] = $user["role"];
-        
+        $_SESSION["user_email"] = $user["email"];
+
         // ✅ SETAR CLIENT_ID PARA CLIENTES E AFILIADOS
         if (($user["role"] === "client" || $user["role"] === "affiliate") && !empty($user["client_id"])) {
             $_SESSION["client_id"] = $user["client_id"];
         }
-        
+
         // ✅ REDIRECIONAR TODOS PARA /dashboard - O dashboard.php faz o roteamento correto
         header("Location: ../dashboard");
         exit;
@@ -36,156 +37,148 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login | Formtalk</title>
+  <title>Login | Fluxo365</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://unpkg.com/feather-icons"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      daisyui: {
+        themes: ["light", "dark"],
+      }
+    }
+  </script>
+
+  <!-- Customizações DaisyUI -->
   <style>
-    .btn-supersites {
-      background-color: #4EA44B;
+    .btn {
+      border-radius: 0.5rem !important;
     }
-    .btn-supersites:hover {
-      background-color: #00AE5C;
+    .input {
+      border-radius: 0.5rem !important;
     }
-    
-    .input-with-icon {
-      position: relative;
-      margin-bottom: 1rem;
-    }
-    
-    .input-with-icon i {
-      position: absolute;
-      left: 1rem;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #9ca3af;
-      font-size: 1rem;
-      pointer-events: none;
-    }
-    
-    .input-with-icon .toggle-password {
-      left: auto;
-      right: 1rem;
-      pointer-events: auto;
-      cursor: pointer;
-    }
-    
-    .input-with-icon input {
-      width: 100%;
-      padding: 0.875rem 0.75rem 0.875rem 2.75rem;
-      border: 1px solid #d1d5db;
-      border-radius: 0.5rem;
-      font-size: 0.9375rem;
-      outline: none;
-      transition: all 0.2s;
-    }
-    
-    .input-with-icon.password-field input {
-      padding-right: 2.75rem;
-    }
-    
-    .toggle-password:hover {
-      color: #6b7280;
-    }
-    
-    .input-with-icon input:focus {
-      border-color: #00AE5C;
-      box-shadow: 0 0 0 3px rgba(100, 207, 114, 0.1);
-    }
-    
-    .input-with-icon input::placeholder {
-      color: #9ca3af;
+    .card {
+      border-radius: 0.75rem !important;
     }
   </style>
+
+  <!-- Dark Mode Script -->
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
 </head>
-<body class="bg-gray-50 flex items-center justify-center min-h-screen py-8 px-4">
+<body class="bg-base-200 flex items-center justify-center min-h-screen py-8 px-4">
   <div class="w-full max-w-md">
     <!-- Logo -->
     <div class="text-center mb-8">
-      <img src="/uploads/system/logo.png" alt="Supersites" class="h-10 mx-auto">
+      <img src="https://fluxo365.com/wp-content/uploads/2026/01/logo_fluxo.svg" alt="Fluxo365" class="h-10 mx-auto">
     </div>
-    
-    <div class="bg-white shadow-sm rounded-2xl p-8">
-      <h1 class="text-2xl font-bold text-gray-900 mb-1">Bem-vindo de volta</h1>
-      <p class="text-gray-600 text-sm mb-6">
-        Faça login para acessar sua conta
-      </p>
-      
-      <?php if (!empty($error)): ?>
-        <div class="bg-red-50 border border-red-200 text-red-700 p-3 rounded-lg mb-6 text-sm">
-          <?= htmlspecialchars($error) ?>
-        </div>
-      <?php endif; ?>
-      
-      <form method="POST" action="">
-        <!-- E-mail -->
-        <div class="input-with-icon">
-          <i class="fa-solid fa-envelope"></i>
-          <input 
-            type="email" 
-            id="email" 
-            name="email" 
-            required
-            placeholder="E-mail"
-            value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
-        </div>
-        
-        <!-- Senha -->
-        <div class="input-with-icon password-field">
-          <i class="fa-solid fa-key"></i>
-          <input 
-            type="password" 
-            id="password" 
-            name="password" 
-            required
-            placeholder="Senha">
-          <i class="fa-solid fa-eye toggle-password" onclick="togglePassword()"></i>
-        </div>
-        
-        <!-- Link Esqueci a senha -->
-        <div class="text-right mb-6">
-          <a href="forgot.php" class="text-sm text-[#4EA44B] font-medium hover:underline">
-            Esqueci minha senha
-          </a>
-        </div>
-        
-        <!-- Botão Submit -->
-        <button 
-          type="submit" 
-          class="w-full btn-supersites text-white font-semibold py-3 rounded-lg transition-all hover:shadow-lg mb-6">
-          Entrar
-        </button>
-        
+
+    <div class="card bg-base-100 shadow-xl">
+      <div class="card-body">
+        <h1 class="card-title text-2xl mb-1">Bem-vindo de volta</h1>
+        <p class="text-sm opacity-60 mb-6">Faça login para acessar sua conta</p>
+
+        <?php if (!empty($error)): ?>
+          <div class="alert alert-error mb-6">
+            <i data-feather="alert-circle" class="w-4 h-4"></i>
+            <span><?= htmlspecialchars($error) ?></span>
+          </div>
+        <?php endif; ?>
+
+        <form method="POST" action="" class="space-y-4">
+          <!-- E-mail -->
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">E-mail</span>
+            </label>
+            <input
+              type="email"
+              name="email"
+              required
+              placeholder="seu@email.com"
+              class="input input-bordered w-full"
+              value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
+          </div>
+
+          <!-- Senha -->
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text">Senha</span>
+              <a href="forgot.php" class="label-text-alt link link-primary">Esqueceu a senha?</a>
+            </label>
+            <input
+              type="password"
+              name="password"
+              required
+              placeholder="••••••••"
+              class="input input-bordered w-full">
+          </div>
+
+          <!-- Botão Submit -->
+          <button type="submit" class="btn btn-primary w-full">Entrar</button>
+        </form>
+
         <!-- Link para Registro -->
-        <div class="text-center text-sm text-gray-600">
-          Não tem uma conta? 
-          <a href="register.php" class="text-[#4EA44B] font-medium hover:underline">
+        <div class="divider">OU</div>
+        <div class="text-center text-sm">
+          Não tem uma conta?
+          <a href="register.php" class="link link-primary font-medium">
             Criar conta
           </a>
         </div>
-      </form>
+      </div>
     </div>
-    
+
+    <!-- Theme Toggle -->
+    <div class="text-center mt-6">
+      <label class="swap swap-rotate btn btn-ghost btn-circle">
+        <input type="checkbox" id="theme-toggle-auth" class="theme-controller" />
+        <i data-feather="sun" class="swap-off w-5 h-5"></i>
+        <i data-feather="moon" class="swap-on w-5 h-5"></i>
+      </label>
+    </div>
+
     <!-- Footer -->
-    <p class="text-center text-xs text-gray-500 mt-8">
-     © 2025 Grupo Pachella- Formtalk. Todos os direitos reservados.
+    <p class="text-center text-xs opacity-50 mt-8">
+      © 2025 Fluxo365. Todos os direitos reservados.
     </p>
   </div>
-  
+
   <script>
-    function togglePassword() {
-      const passwordInput = document.getElementById('password');
-      const toggleIcon = document.querySelector('.toggle-password');
-      
-      if (passwordInput.type === 'password') {
-        passwordInput.type = 'text';
-        toggleIcon.classList.remove('fa-eye');
-        toggleIcon.classList.add('fa-eye-slash');
-      } else {
-        passwordInput.type = 'password';
-        toggleIcon.classList.remove('fa-eye-slash');
-        toggleIcon.classList.add('fa-eye');
+    // Renderizar ícones do Feather
+    feather.replace();
+
+    // Theme toggle
+    document.addEventListener('DOMContentLoaded', () => {
+      const themeToggle = document.getElementById('theme-toggle-auth');
+      if (themeToggle) {
+        const html = document.documentElement;
+        const currentTheme = localStorage.getItem('theme') || 'light';
+
+        themeToggle.checked = (currentTheme === 'dark');
+
+        themeToggle.addEventListener('change', () => {
+          if (themeToggle.checked) {
+            html.classList.add('dark');
+            html.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+          } else {
+            html.classList.remove('dark');
+            html.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+          }
+          feather.replace();
+        });
       }
-    }
+    });
   </script>
 </body>
 </html>

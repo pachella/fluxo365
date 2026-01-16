@@ -33,6 +33,37 @@ require_once(__DIR__ . "/../../core/cache_helper.php");
       }
     }
   </script>
+
+  <!-- Customizações DaisyUI -->
+  <style>
+    /* Badges com mais padding e menos arredondamento */
+    .badge {
+      border-radius: 0.375rem !important; /* rounded-md */
+      padding: 0.375rem 0.75rem !important; /* px-3 py-1.5 */
+    }
+    .badge-sm {
+      padding: 0.25rem 0.5rem !important; /* px-2 py-1 */
+    }
+    .badge-xs {
+      padding: 0.125rem 0.375rem !important; /* px-1.5 py-0.5 */
+    }
+
+    /* Botões menos arredondados */
+    .btn {
+      border-radius: 0.5rem !important; /* rounded-lg */
+    }
+    .btn-sm {
+      border-radius: 0.375rem !important; /* rounded-md */
+    }
+    .btn-xs {
+      border-radius: 0.25rem !important; /* rounded */
+    }
+
+    /* Cards menos arredondados */
+    .card {
+      border-radius: 0.5rem !important; /* rounded-lg */
+    }
+  </style>
   <!-- Feather icons -->
   <script src="https://unpkg.com/feather-icons"></script>
   <!-- CSS do SweetAlert2 -->
@@ -149,22 +180,35 @@ require_once(__DIR__ . "/../../core/cache_helper.php");
 
   <!-- Script do Toggle Dark Mode -->
   <script>
-    const themeToggle = document.getElementById('theme-toggle');
-    if (themeToggle) {
-      const html = document.documentElement;
+    // Sincronizar checkbox com tema atual
+    document.addEventListener('DOMContentLoaded', () => {
+      const themeToggle = document.getElementById('theme-toggle');
+      if (themeToggle) {
+        const html = document.documentElement;
+        const currentTheme = localStorage.getItem('theme') || 'light';
 
-      themeToggle.addEventListener('click', () => {
-        if (html.classList.contains('dark')) {
-          html.classList.remove('dark');
-          html.setAttribute('data-theme', 'light');
-          localStorage.setItem('theme', 'light');
-        } else {
-          html.classList.add('dark');
-          html.setAttribute('data-theme', 'dark');
-          localStorage.setItem('theme', 'dark');
-        }
-      });
-    }
+        // Sincronizar estado inicial do checkbox
+        themeToggle.checked = (currentTheme === 'dark');
+
+        // Handler do toggle
+        themeToggle.addEventListener('change', () => {
+          if (themeToggle.checked) {
+            html.classList.add('dark');
+            html.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+          } else {
+            html.classList.remove('dark');
+            html.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+          }
+
+          // Re-renderizar ícones do Feather
+          if (typeof feather !== 'undefined') {
+            feather.replace();
+          }
+        });
+      }
+    });
 
     // Variável global do role do usuário
     window.userRole = '<?= $_SESSION["user_role"] ?? "user" ?>';
