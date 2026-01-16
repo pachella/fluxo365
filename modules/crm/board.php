@@ -112,6 +112,15 @@ try {
     align-items: center;
 }
 
+.dark .kanban-column-header {
+    border-top-color: #3f3f46;
+    border-bottom: 1px solid #3f3f46;
+}
+
+.kanban-column-header {
+    border-bottom: 1px solid #e5e7eb;
+}
+
 .kanban-cards {
     flex: 1;
     padding: 0.5rem;
@@ -194,22 +203,15 @@ try {
                 <div class="kanban-column-header bg-base-200" style="border-top: 3px solid <?= htmlspecialchars($column['color']) ?>">
                     <div class="flex items-center gap-2">
                         <span><?= htmlspecialchars($column['name']) ?></span>
-                        <span class="badge badge-sm"><?= count($cards[$column['id']] ?? []) ?></span>
+                        <span class="badge badge-sm opacity-60"><?= count($cards[$column['id']] ?? []) ?></span>
                     </div>
-                    <div class="dropdown dropdown-end">
-                        <button tabindex="0" class="btn btn-ghost btn-xs btn-circle">
-                            <i data-feather="more-vertical" class="w-4 h-4"></i>
+                    <div class="flex gap-1">
+                        <button onclick="event.stopPropagation(); editColumn(<?= $column['id'] ?>, '<?= htmlspecialchars($column['name'], ENT_QUOTES) ?>', '<?= htmlspecialchars($column['color']) ?>')" class="btn btn-ghost btn-sm btn-square">
+                            <i data-feather="edit-2" class="w-4 h-4"></i>
                         </button>
-                        <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 z-50">
-                            <li><a onclick="editColumn(<?= $column['id'] ?>, '<?= htmlspecialchars($column['name'], ENT_QUOTES) ?>', '<?= htmlspecialchars($column['color']) ?>')">
-                                <i data-feather="edit-2" class="w-4 h-4"></i>
-                                Editar
-                            </a></li>
-                            <li><a onclick="deleteColumn(<?= $column['id'] ?>, '<?= htmlspecialchars($column['name'], ENT_QUOTES) ?>')">
-                                <i data-feather="trash-2" class="w-4 h-4"></i>
-                                Excluir
-                            </a></li>
-                        </ul>
+                        <button onclick="event.stopPropagation(); deleteColumn(<?= $column['id'] ?>, '<?= htmlspecialchars($column['name'], ENT_QUOTES) ?>')" class="btn btn-ghost btn-sm btn-square text-error">
+                            <i data-feather="trash-2" class="w-4 h-4"></i>
+                        </button>
                     </div>
                 </div>
                 <div class="kanban-cards bg-base-200" data-column-id="<?= $column['id'] ?>">
