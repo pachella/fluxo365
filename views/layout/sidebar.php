@@ -105,6 +105,12 @@ if ($permissionManager->isAdmin()) {
         <p class="text-sm font-medium truncate"><?= htmlspecialchars($_SESSION["user_name"] ?? 'Usuário') ?></p>
         <p class="text-xs opacity-60"><?= $roleLabel ?></p>
       </div>
+      <!-- Toggle de tema -->
+      <label class="swap swap-rotate btn btn-ghost btn-sm btn-circle">
+        <input type="checkbox" id="theme-toggle" class="theme-controller" />
+        <i data-feather="sun" class="swap-off w-4 h-4"></i>
+        <i data-feather="moon" class="swap-on w-4 h-4"></i>
+      </label>
     </div>
     <div class="flex items-center justify-between">
       <span class="text-xs opacity-40"><?= getAppVersion() ?></span>

@@ -45,14 +45,22 @@ class CrudHandler {
                 if (isset($fieldConfig['type'])) {
                     switch ($fieldConfig['type']) {
                         case 'int':
-                            $value = intval($value);
+                            $value = trim($value) === '' ? null : intval($value);
+                            // Se é 0 e o campo não é required, considerar como NULL
+                            if ($value === 0 && empty($fieldConfig['required'])) {
+                                $value = null;
+                            }
                             break;
                         case 'float':
-                            $value = floatval($value);
+                            $value = trim($value) === '' ? null : floatval($value);
                             break;
                         case 'string':
                         case 'text':
                             $value = trim($value);
+                            // Se é string vazia e não é required, considerar como NULL
+                            if ($value === '' && empty($fieldConfig['required'])) {
+                                $value = null;
+                            }
                             break;
                     }
                 }

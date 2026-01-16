@@ -91,6 +91,16 @@ try {
     max-width: 320px;
     display: flex;
     flex-direction: column;
+    cursor: move;
+}
+
+.kanban-column.sortable-ghost {
+    opacity: 0.4;
+}
+
+.kanban-column.sortable-drag {
+    transform: rotate(2deg);
+    cursor: grabbing;
 }
 
 .kanban-column-header {
@@ -180,7 +190,7 @@ try {
     <!-- Kanban Board -->
     <div class="kanban-container">
         <?php foreach ($columns as $column): ?>
-            <div class="kanban-column">
+            <div class="kanban-column" data-column-id="<?= $column['id'] ?>">
                 <div class="kanban-column-header bg-base-200" style="border-top: 3px solid <?= htmlspecialchars($column['color']) ?>">
                     <div class="flex items-center gap-2">
                         <span><?= htmlspecialchars($column['name']) ?></span>
@@ -265,7 +275,7 @@ if (typeof feather !== 'undefined') {
     feather.replace();
 }
 
-// Inicializar Sortable em cada coluna
+// Inicializar Sortable em cada coluna (para cards)
 document.addEventListener('DOMContentLoaded', () => {
     const columns = document.querySelectorAll('.kanban-cards');
 
@@ -286,6 +296,24 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Inicializar Sortable para as colunas (reordenação)
+    const kanbanContainer = document.querySelector('.kanban-container');
+    if (kanbanContainer) {
+        new Sortable(kanbanContainer, {
+            animation: 150,
+            handle: '.kanban-column-header',
+            ghostClass: 'sortable-ghost',
+            dragClass: 'sortable-drag',
+            onEnd: function(evt) {
+                // Coletar nova ordem das colunas
+                const columns = Array.from(kanbanContainer.querySelectorAll('.kanban-column'));
+                const order = columns.map(col => col.getAttribute('data-column-id'));
+
+                reorderColumns(order);
+            }
+        });
+    }
 });
 
 // Mover card
@@ -313,11 +341,40 @@ async function moveCard(cardId, columnId, position) {
     }
 }
 
+// Reordenar colunas
+async function reorderColumns(order) {
+    try {
+        const formData = new FormData();
+        formData.append('board_id', boardId);
+        formData.append('order', JSON.stringify(order));
+
+        const res = await fetch('/modules/crm/columns/reorder.php', {
+            method: 'POST',
+            body: formData
+        });
+
+        const result = await res.text();
+
+        if (!res.ok || result !== "success") {
+            Swal.fire('Erro!', result || 'Erro ao reordenar colunas', 'error');
+            location.reload();
+        }
+    } catch (error) {
+        Swal.fire('Erro!', 'Erro ao reordenar colunas', 'error');
+        location.reload();
+    }
+}
+
 // Modal de adicionar card
 function showAddCardModal(columnId) {
-    const tagsOptions = boardTags.map(tag =>
-        `<option value="${tag.id}" style="color: ${tag.color}">${tag.name}</option>`
-    ).join('');
+    const tagsCheckboxes = boardTags.map(tag => `
+        <label class="flex items-center gap-2 p-2 rounded cursor-pointer hover:bg-base-200" style="border: 2px solid ${tag.color}20;">
+            <input type="checkbox" class="checkbox checkbox-sm" value="${tag.id}" data-tag-checkbox />
+            <span class="badge badge-sm" style="background-color: ${tag.color}20; color: ${tag.color}; border: 1px solid ${tag.color}40;">
+                ${tag.name}
+            </span>
+        </label>
+    `).join('');
 
     const usersOptions = boardUsers.map(user =>
         `<option value="${user.id}">${user.name}</option>`
@@ -346,9 +403,12 @@ function showAddCardModal(columnId) {
                 </select>
 
                 ${boardTags.length > 0 ? `
-                    <select id="card_tags" class="select select-bordered w-full" multiple>
-                        ${tagsOptions}
-                    </select>
+                    <div>
+                        <label class="block text-sm opacity-60 mb-2">Tags:</label>
+                        <div class="space-y-2 max-h-40 overflow-y-auto p-2 border border-base-300 rounded-lg">
+                            ${tagsCheckboxes}
+                        </div>
+                    </div>
                 ` : ''}
             </div>
         `,
@@ -363,9 +423,7 @@ function showAddCardModal(columnId) {
                 return false;
             }
 
-            const tags = document.getElementById('card_tags')
-                ? Array.from(document.getElementById('card_tags').selectedOptions).map(o => o.value)
-                : [];
+            const tags = Array.from(document.querySelectorAll('[data-tag-checkbox]:checked')).map(cb => cb.value);
 
             return {
                 column_id: columnId,
@@ -422,9 +480,16 @@ async function showCardModal(cardId) {
             return;
         }
 
-        const tagsOptions = boardTags.map(tag => {
-            const isSelected = card.tags.includes(tag.id) ? 'selected' : '';
-            return `<option value="${tag.id}" ${isSelected} style="color: ${tag.color}">${tag.name}</option>`;
+        const tagsCheckboxes = boardTags.map(tag => {
+            const isChecked = card.tags && card.tags.includes(tag.id) ? 'checked' : '';
+            return `
+                <label class="flex items-center gap-2 p-2 rounded cursor-pointer hover:bg-base-200" style="border: 2px solid ${tag.color}20;">
+                    <input type="checkbox" class="checkbox checkbox-sm" value="${tag.id}" ${isChecked} data-tag-checkbox />
+                    <span class="badge badge-sm" style="background-color: ${tag.color}20; color: ${tag.color}; border: 1px solid ${tag.color}40;">
+                        ${tag.name}
+                    </span>
+                </label>
+            `;
         }).join('');
 
         const usersOptions = boardUsers.map(user => {
@@ -455,9 +520,12 @@ async function showCardModal(cardId) {
                     </select>
 
                     ${boardTags.length > 0 ? `
-                        <select id="card_tags" class="select select-bordered w-full" multiple>
-                            ${tagsOptions}
-                        </select>
+                        <div>
+                            <label class="block text-sm opacity-60 mb-2">Tags:</label>
+                            <div class="space-y-2 max-h-40 overflow-y-auto p-2 border border-base-300 rounded-lg">
+                                ${tagsCheckboxes}
+                            </div>
+                        </div>
                     ` : ''}
 
                     <button onclick="deleteCard(${cardId})" class="btn btn-error btn-sm w-full">
@@ -477,9 +545,7 @@ async function showCardModal(cardId) {
                     return false;
                 }
 
-                const tags = document.getElementById('card_tags')
-                    ? Array.from(document.getElementById('card_tags').selectedOptions).map(o => o.value)
-                    : [];
+                const tags = Array.from(document.querySelectorAll('[data-tag-checkbox]:checked')).map(cb => cb.value);
 
                 return {
                     id: cardId,

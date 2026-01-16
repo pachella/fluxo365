@@ -132,37 +132,36 @@ require_once(__DIR__ . "/../../core/cache_helper.php");
       background-color: rgba(255, 255, 255, 0.05) !important;
     }
 
-    /* Toggle de tema fixo no canto superior direito */
-    #theme-toggle-fixed {
-      position: fixed;
-      top: 15px;
-      right: 15px;
-      z-index: 9999;
-    }
-
-    /* Sidebar branca no tema claro */
+    /* ===== TEMA CLARO ===== */
+    /* Sidebar branca */
     :root:not(.dark) aside#sidebar {
       background-color: white !important;
     }
 
-    /* Conteúdo cinza no tema claro */
+    /* Conteúdo cinza */
     :root:not(.dark) main {
       background-color: #f3f4f6 !important;
     }
 
-    /* Cards - tema claro: background branco */
-    :root:not(.dark) .card {
+    /* Cards, boxes e colunas Kanban - brancos */
+    :root:not(.dark) .card,
+    :root:not(.dark) .kanban-column,
+    :root:not(.dark) .kanban-cards {
       background-color: white !important;
     }
 
-    /* Cards - tema escuro: mesma cor da sidebar */
-    .dark .card {
-      background-color: #27272a !important;
+    /* ===== TEMA ESCURO (DaisyUI Dark) ===== */
+    /* Sidebar, cards, boxes e colunas Kanban - todos mesma cor */
+    .dark aside#sidebar,
+    .dark .card,
+    .dark .kanban-column,
+    .dark .kanban-cards {
+      background-color: hsl(var(--b2)) !important;
     }
 
-    /* Sidebar no tema escuro */
-    .dark aside#sidebar {
-      background-color: #27272a !important;
+    /* Background do main no tema escuro */
+    .dark main {
+      background-color: hsl(var(--b1)) !important;
     }
   </style>
   <!-- Feather icons -->
@@ -278,15 +277,6 @@ require_once(__DIR__ . "/../../core/cache_helper.php");
   </script>
 </head>
 <body class="bg-base-100 flex h-screen overflow-hidden">
-
-  <!-- Theme Toggle - Fixo no canto superior direito -->
-  <div id="theme-toggle-fixed">
-    <label class="swap swap-rotate btn btn-ghost btn-circle">
-      <input type="checkbox" id="theme-toggle" class="theme-controller" />
-      <i data-feather="sun" class="swap-off w-6 h-6"></i>
-      <i data-feather="moon" class="swap-on w-6 h-6"></i>
-    </label>
-  </div>
 
   <!-- Script do Toggle Dark Mode -->
   <script>
