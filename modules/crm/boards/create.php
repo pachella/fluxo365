@@ -1,30 +1,31 @@
 <?php
+ob_clean();
 session_start();
-require_once("../../core/db.php");
-
-header('Content-Type: application/json');
+require_once(__DIR__ . "/../../core/db.php");
 
 if (!isset($_SESSION["user_id"])) {
-    echo json_encode(['success' => false, 'error' => 'Não autorizado']);
+    http_response_code(401);
+    echo "Não autorizado";
     exit;
 }
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-    echo json_encode(['success' => false, 'error' => 'Método não permitido']);
-    exit;
-}
-
-$name = trim($_POST['name'] ?? '');
-$description = trim($_POST['description'] ?? '');
-$color = trim($_POST['color'] ?? '#6366f1');
-$userId = $_SESSION['user_id'];
-
-if (empty($name)) {
-    echo json_encode(['success' => false, 'error' => 'Nome é obrigatório']);
+    http_response_code(405);
+    echo "Método não permitido";
     exit;
 }
 
 try {
+    $name = trim($_POST['name'] ?? '');
+    $description = trim($_POST['description'] ?? '');
+    $color = trim($_POST['color'] ?? '#6366f1');
+    $userId = $_SESSION['user_id'];
+
+    if (empty($name)) {
+        echo "Nome é obrigatório";
+        exit;
+    }
+
     // Criar quadro
     $stmt = $pdo->prepare("
         INSERT INTO crm_boards (name, description, color, user_id)
@@ -58,9 +59,12 @@ try {
         ]);
     }
 
-    echo json_encode(['success' => true, 'board_id' => $boardId]);
+    echo "success";
 
 } catch (PDOException $e) {
-    error_log('Erro ao criar quadro: ' . $e->getMessage());
-    echo json_encode(['success' => false, 'error' => 'Erro ao criar quadro']);
+    http_response_code(500);
+    echo "Erro no banco de dados: " . $e->getMessage();
+} catch (Exception $e) {
+    http_response_code(500);
+    echo "Erro interno: " . $e->getMessage();
 }

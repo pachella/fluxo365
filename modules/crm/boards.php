@@ -177,14 +177,14 @@ async function createBoard(data) {
             body: formData
         });
 
-        const result = await res.json();
+        const result = await res.text();
 
-        if (result.success) {
+        if (res.ok && result === "success") {
             Swal.fire('Sucesso!', 'Quadro criado com sucesso', 'success').then(() => {
                 window.location.reload();
             });
         } else {
-            Swal.fire('Erro!', result.error || 'Erro ao criar quadro', 'error');
+            Swal.fire('Erro!', result || 'Erro ao criar quadro', 'error');
         }
     } catch (error) {
         Swal.fire('Erro!', 'Erro ao criar quadro', 'error');
@@ -252,14 +252,14 @@ async function updateBoard(data) {
             body: formData
         });
 
-        const result = await res.json();
+        const result = await res.text();
 
-        if (result.success) {
+        if (res.ok && result === "success") {
             Swal.fire('Sucesso!', 'Quadro atualizado com sucesso', 'success').then(() => {
                 window.location.reload();
             });
         } else {
-            Swal.fire('Erro!', result.error || 'Erro ao atualizar quadro', 'error');
+            Swal.fire('Erro!', result || 'Erro ao atualizar quadro', 'error');
         }
     } catch (error) {
         Swal.fire('Erro!', 'Erro ao atualizar quadro', 'error');
@@ -285,14 +285,14 @@ async function deleteBoard(id, name) {
             method: 'POST'
         });
 
-        const response = await res.json();
+        const response = await res.text();
 
-        if (response.success) {
+        if (res.ok && response === "success") {
             Swal.fire('Excluído!', 'Quadro excluído com sucesso', 'success').then(() => {
                 window.location.reload();
             });
         } else {
-            Swal.fire('Erro!', response.error || 'Erro ao excluir quadro', 'error');
+            Swal.fire('Erro!', response || 'Erro ao excluir quadro', 'error');
         }
     } catch (error) {
         Swal.fire('Erro!', 'Erro ao excluir quadro', 'error');

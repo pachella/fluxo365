@@ -1,34 +1,35 @@
 <?php
+ob_clean();
 session_start();
-require_once("../../core/db.php");
-
-header('Content-Type: application/json');
+require_once(__DIR__ . "/../../core/db.php");
 
 if (!isset($_SESSION["user_id"])) {
-    echo json_encode(['success' => false, 'error' => 'Não autorizado']);
+    http_response_code(401);
+    echo "Não autorizado";
     exit;
 }
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-    echo json_encode(['success' => false, 'error' => 'Método não permitido']);
-    exit;
-}
-
-$id = intval($_GET['id'] ?? 0);
-$userId = $_SESSION['user_id'];
-
-if ($id <= 0) {
-    echo json_encode(['success' => false, 'error' => 'ID inválido']);
+    http_response_code(405);
+    echo "Método não permitido";
     exit;
 }
 
 try {
+    $id = intval($_GET['id'] ?? 0);
+    $userId = $_SESSION['user_id'];
+
+    if ($id <= 0) {
+        echo "ID inválido";
+        exit;
+    }
+
     // Verificar se o quadro pertence ao usuário
     $stmt = $pdo->prepare("SELECT id FROM crm_boards WHERE id = ? AND user_id = ?");
     $stmt->execute([$id, $userId]);
 
     if (!$stmt->fetch()) {
-        echo json_encode(['success' => false, 'error' => 'Quadro não encontrado']);
+        echo "Quadro não encontrado";
         exit;
     }
 
@@ -36,9 +37,12 @@ try {
     $stmt = $pdo->prepare("DELETE FROM crm_boards WHERE id = ? AND user_id = ?");
     $stmt->execute([$id, $userId]);
 
-    echo json_encode(['success' => true]);
+    echo "success";
 
 } catch (PDOException $e) {
-    error_log('Erro ao deletar quadro: ' . $e->getMessage());
-    echo json_encode(['success' => false, 'error' => 'Erro ao deletar quadro']);
+    http_response_code(500);
+    echo "Erro no banco de dados: " . $e->getMessage();
+} catch (Exception $e) {
+    http_response_code(500);
+    echo "Erro interno: " . $e->getMessage();
 }

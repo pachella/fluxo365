@@ -84,123 +84,122 @@ async function loadTable(searchQuery = '') {
 
 function showUserFormModal(userData = null) {
     const isEdit = userData !== null;
-    const classes = getThemeClasses();
-    
+
     const formHTML = `
         <form id="modalUserForm" class="text-left space-y-4">
             <input type="hidden" name="id" value="${isEdit ? userData.id : ''}">
-            
-            <div class="border-b ${classes.border} pb-2 mb-4">
-                <h3 class="text-sm font-medium ${classes.text}">Dados Pessoais</h3>
-            </div>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <input type="text" name="name" placeholder="Nome completo *"
-                       value="${isEdit ? userData.name || '' : ''}"
-                       class="w-full rounded-lg px-3 py-2 text-sm ${classes.input}" required>
-                
-                <input type="email" name="email" placeholder="E-mail *"
-                       value="${isEdit ? userData.email || '' : ''}"
-                       class="w-full rounded-lg px-3 py-2 text-sm ${classes.input}" required>
-            </div>
-            
-            <div class="border-b ${classes.border} pb-2 mb-4">
-                <h3 class="text-sm font-medium ${classes.text}">Configurações</h3>
-            </div>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <select name="role" class="w-full rounded-lg px-3 py-2 text-sm ${classes.select}">
-                    <option value="admin" ${isEdit && userData.role === 'admin' ? 'selected' : ''}>Administrador</option>
-                    <option value="client" ${isEdit && userData.role === 'client' ? 'selected' : ''}>Cliente</option>
-                    <option value="affiliate" ${isEdit && userData.role === 'affiliate' ? 'selected' : ''}>Afiliado</option>
-                </select>
-                
-                <select name="status" class="w-full rounded-lg px-3 py-2 text-sm ${classes.select}">
-                    <option value="active" ${isEdit && userData.status === 'active' ? 'selected' : (!isEdit ? 'selected' : '')}>Ativo</option>
-                    <option value="inactive" ${isEdit && userData.status === 'inactive' ? 'selected' : ''}>Inativo</option>
-                    <option value="suspended" ${isEdit && userData.status === 'suspended' ? 'selected' : ''}>Suspenso</option>
-                </select>
-            </div>
-            
-            <div class="border-b ${classes.border} pb-2 mb-4">
-                <h3 class="text-sm font-medium ${classes.text}">Senha ${isEdit ? '(deixe vazio para manter atual)' : ''}</h3>
-            </div>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <input type="password" name="password" placeholder="${isEdit ? 'Nova senha (opcional)' : 'Senha *'}"
-                       class="w-full rounded-lg px-3 py-2 text-sm ${classes.input}" ${!isEdit ? 'required' : ''}>
-                
-                <input type="password" name="password_confirm" placeholder="Confirmar senha"
-                       class="w-full rounded-lg px-3 py-2 text-sm ${classes.input}" ${!isEdit ? 'required' : ''}>
+
+            <div class="space-y-3">
+                <label class="input input-bordered flex items-center gap-2">
+                    <i data-feather="user" class="w-5 h-5 opacity-60"></i>
+                    <input type="text" name="name" placeholder="Nome completo" class="grow"
+                           value="${isEdit ? userData.name || '' : ''}" required />
+                </label>
+
+                <label class="input input-bordered flex items-center gap-2">
+                    <i data-feather="mail" class="w-5 h-5 opacity-60"></i>
+                    <input type="email" name="email" placeholder="E-mail" class="grow"
+                           value="${isEdit ? userData.email || '' : ''}" required />
+                </label>
+
+                <label class="input input-bordered flex items-center gap-2">
+                    <i data-feather="shield" class="w-5 h-5 opacity-60"></i>
+                    <select name="role" class="grow bg-transparent border-0 outline-none focus:outline-none" style="padding:0;">
+                        <option value="admin" ${isEdit && userData.role === 'admin' ? 'selected' : ''}>Administrador</option>
+                        <option value="client" ${isEdit && userData.role === 'client' ? 'selected' : ''}>Cliente</option>
+                        <option value="affiliate" ${isEdit && userData.role === 'affiliate' ? 'selected' : ''}>Afiliado</option>
+                    </select>
+                </label>
+
+                <label class="input input-bordered flex items-center gap-2">
+                    <i data-feather="activity" class="w-5 h-5 opacity-60"></i>
+                    <select name="status" class="grow bg-transparent border-0 outline-none focus:outline-none" style="padding:0;">
+                        <option value="active" ${isEdit && userData.status === 'active' ? 'selected' : (!isEdit ? 'selected' : '')}>Ativo</option>
+                        <option value="inactive" ${isEdit && userData.status === 'inactive' ? 'selected' : ''}>Inativo</option>
+                        <option value="suspended" ${isEdit && userData.status === 'suspended' ? 'selected' : ''}>Suspenso</option>
+                    </select>
+                </label>
+
+                ${!isEdit || true ? `
+                <label class="input input-bordered flex items-center gap-2">
+                    <i data-feather="lock" class="w-5 h-5 opacity-60"></i>
+                    <input type="password" name="password" placeholder="${isEdit ? 'Nova senha (opcional)' : 'Senha'}" class="grow" ${!isEdit ? 'required' : ''} />
+                </label>
+
+                <label class="input input-bordered flex items-center gap-2">
+                    <i data-feather="lock" class="w-5 h-5 opacity-60"></i>
+                    <input type="password" name="password_confirm" placeholder="Confirmar senha" class="grow" ${!isEdit ? 'required' : ''} />
+                </label>
+                ` : ''}
             </div>
         </form>
     `;
     
-    const footerLeft = `
-        <button type="button" onclick="saveFormUser(${isEdit})" 
-                class="inline-flex items-center px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 dark:bg-zinc-600 dark:hover:bg-zinc-500 text-white text-sm font-medium rounded-lg transition-colors">
-            Salvar
-        </button>
-    `;
-    
-    const footerRight = `
-        <button type="button" onclick="Swal.close()" 
-                class="text-sm ${classes.textMuted} hover:${classes.text} transition-colors">
-            Cancelar
-        </button>
-    `;
-    
     Swal.fire({
-        html: createFormModal({
-            title: isEdit ? 'Editar Usuário' : 'Novo Usuário',
-            content: formHTML,
-            footer: {
-                left: footerLeft,
-                right: footerRight
+        title: isEdit ? 'Editar Usuário' : 'Novo Usuário',
+        html: formHTML,
+        width: window.innerWidth < 640 ? '95%' : '600px',
+        showCancelButton: true,
+        confirmButtonText: 'Salvar',
+        cancelButtonText: 'Cancelar',
+        preConfirm: () => {
+            const form = document.getElementById('modalUserForm');
+            const formData = new FormData(form);
+
+            const name = formData.get('name').trim();
+            const email = formData.get('email').trim();
+            const password = formData.get('password').trim();
+            const passwordConfirm = formData.get('password_confirm').trim();
+
+            if (!name) {
+                Swal.showValidationMessage('Nome é obrigatório');
+                return false;
             }
-        }),
-        width: window.innerWidth < 640 ? '95%' : '700px',
-        showConfirmButton: false,
-        showCancelButton: false
+
+            if (!email || !email.includes('@')) {
+                Swal.showValidationMessage('E-mail válido é obrigatório');
+                return false;
+            }
+
+            if (!isEdit && !password) {
+                Swal.showValidationMessage('Senha é obrigatória');
+                return false;
+            }
+
+            if (password && password !== passwordConfirm) {
+                Swal.showValidationMessage('Senhas não conferem');
+                return false;
+            }
+
+            if (password && password.length < 6) {
+                Swal.showValidationMessage('Senha deve ter pelo menos 6 caracteres');
+                return false;
+            }
+
+            return formData;
+        },
+        didOpen: () => {
+            if (typeof feather !== 'undefined') {
+                feather.replace();
+            }
+        }
+    }).then(async (result) => {
+        if (result.isConfirmed) {
+            await saveFormUser(isEdit, result.value);
+        }
     });
 }
 
 // Salvar usuário
-window.saveFormUser = async function(isEdit) {
-    const form = document.getElementById('modalUserForm');
-    const formData = new FormData(form);
-    
-    const name = formData.get('name').trim();
-    const email = formData.get('email').trim();
-    const password = formData.get('password').trim();
-    const passwordConfirm = formData.get('password_confirm').trim();
-    
-    if (!name) {
-        Swal.showValidationMessage('Nome é obrigatório');
-        return;
-    }
-    
-    if (!email || !email.includes('@')) {
-        Swal.showValidationMessage('E-mail válido é obrigatório');
-        return;
-    }
-    
-    if (!isEdit && !password) {
-        Swal.showValidationMessage('Senha é obrigatória');
-        return;
-    }
-    
-    if (password && password !== passwordConfirm) {
-        Swal.showValidationMessage('Senhas não conferem');
-        return;
-    }
-    
-    if (password && password.length < 6) {
-        Swal.showValidationMessage('Senha deve ter pelo menos 6 caracteres');
-        return;
-    }
-    
-    Swal.showLoading();
+window.saveFormUser = async function(isEdit, formData) {
+    Swal.fire({
+        title: 'Salvando...',
+        didOpen: () => {
+            Swal.showLoading();
+        },
+        allowOutsideClick: false,
+        showConfirmButton: false
+    });
     
     try {
         const res = await fetch("/modules/users/save.php", {
