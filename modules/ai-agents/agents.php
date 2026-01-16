@@ -58,57 +58,160 @@ try {
 <style>
 .agent-card {
     transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .agent-card:hover {
     transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
-.agent-status-badge {
+.agent-card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.agent-card-footer {
+    border-top: 1px solid;
+    padding: 0.75rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.dark .agent-card-footer {
+    border-color: #3f3f46;
+}
+
+.agent-card-footer {
+    border-color: #e5e7eb;
+}
+
+.agent-badge {
     display: inline-flex;
     align-items: center;
-    gap: 0.25rem;
-    padding: 0.25rem 0.75rem;
-    border-radius: 9999px;
+    gap: 0.375rem;
+    padding: 0.375rem 0.75rem;
+    border-radius: 6px;
     font-size: 0.75rem;
     font-weight: 600;
 }
 
-.agent-status-badge.active {
-    background-color: #10b98120;
-    color: #10b981;
+.agent-status-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.agent-status-badge.paused {
-    background-color: #6b728020;
-    color: #6b7280;
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
 .stat-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.25rem;
+    text-align: center;
 }
 
-.stat-item-label {
+.stat-label {
     font-size: 0.75rem;
     opacity: 0.6;
+    margin-bottom: 0.25rem;
 }
 
-.stat-item-value {
-    font-size: 1rem;
+.stat-value {
+    font-size: 1.125rem;
     font-weight: 700;
 }
 
-/* Tabs lifted style */
-.tabs-lifted {
-    border-bottom: 2px solid;
+/* Tabs sem linha intensa */
+.tabs-lifted > .tab:not(.tab-active):not([disabled]):hover {
+    background-color: transparent;
+}
+
+.tabs-lifted .tab {
+    border-bottom-color: transparent !important;
+}
+
+.tab-content {
+    border-top: none !important;
+}
+
+/* Sidebar de anexos */
+.attachments-sidebar {
+    width: 180px;
+    border-left: 1px solid;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.dark .attachments-sidebar {
+    border-color: #3f3f46;
+    background-color: #27272a;
+}
+
+.attachments-sidebar {
+    border-color: #e5e7eb;
+    background-color: #f9fafb;
+}
+
+.attachment-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.75rem;
+    border-radius: 6px;
+    cursor: grab;
+    transition: all 0.2s;
+    border: 2px dashed transparent;
+}
+
+.attachment-item:hover {
+    border-color: #6366f1;
+    background-color: rgba(99, 102, 241, 0.1);
+}
+
+.attachment-item:active {
+    cursor: grabbing;
+}
+
+.attachment-icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 0.25rem;
+}
+
+.attachment-name {
+    font-size: 0.625rem;
+    text-align: center;
+    word-break: break-word;
+    max-width: 100%;
+}
+
+.upload-status {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.625rem;
+    margin-top: 0.25rem;
+}
+
+.upload-status.success {
+    color: #10b981;
 }
 </style>
 
 <div class="w-full max-w-full overflow-x-hidden">
-    <!-- Header com Skeleton Loading -->
+    <!-- Header -->
     <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 gap-3">
         <div>
             <h1 class="text-xl sm:text-2xl md:text-3xl font-bold">Agentes de IA</h1>
@@ -116,7 +219,7 @@ try {
         </div>
         <button onclick="showCreateAgentModal()" class="btn btn-primary">
             <i data-feather="plus" class="w-5 h-5"></i>
-            Novo Agente
+            Criar Novo Agente
         </button>
     </div>
 
@@ -126,7 +229,7 @@ try {
             <div class="card-body text-center py-16">
                 <i data-feather="cpu" class="w-16 h-16 mx-auto mb-4 opacity-40"></i>
                 <h2 class="text-xl font-bold mb-2">Nenhum agente criado</h2>
-                <p class="opacity-60 mb-6">Configure um novo agente para criar um novo agente de inteligência artificial</p>
+                <p class="opacity-60 mb-6">Configure um novo agente de inteligência artificial</p>
                 <button onclick="showCreateAgentModal()" class="btn btn-primary mx-auto">
                     <i data-feather="plus" class="w-5 h-5"></i>
                     Criar Primeiro Agente
@@ -138,72 +241,70 @@ try {
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <?php foreach ($agents as $agent): ?>
                 <div class="card bg-base-200 shadow agent-card">
-                    <div class="card-body">
+                    <div class="card-body agent-card-body p-5">
                         <!-- Header do Card -->
-                        <div class="flex items-start justify-between mb-3">
+                        <div class="flex items-center gap-3 mb-4">
                             <div class="avatar placeholder">
-                                <div class="w-12 h-12 rounded-full" style="background-color: <?= htmlspecialchars($agent['color']) ?>">
-                                    <span class="text-xl text-white font-bold">
-                                        <i data-feather="cpu" class="w-6 h-6"></i>
-                                    </span>
+                                <div class="w-14 h-14 rounded-full" style="background-color: <?= htmlspecialchars($agent['color']) ?>">
+                                    <i data-feather="cpu" class="w-7 h-7 text-white"></i>
                                 </div>
                             </div>
-
-                            <!-- Status Toggle -->
-                            <label class="swap swap-rotate" onclick="event.stopPropagation(); toggleAgentStatus(<?= $agent['id'] ?>, '<?= $agent['status'] ?>')">
-                                <input type="checkbox" <?= $agent['status'] === 'active' ? 'checked' : '' ?> />
-                                <span class="swap-on agent-status-badge active">
-                                    <i data-feather="play-circle" class="w-3 h-3"></i>
-                                    Ativo
-                                </span>
-                                <span class="swap-off agent-status-badge paused">
-                                    <i data-feather="pause-circle" class="w-3 h-3"></i>
-                                    Pausado
-                                </span>
-                            </label>
+                            <div class="flex-1 min-w-0">
+                                <h3 class="font-bold text-base truncate"><?= htmlspecialchars($agent['name']) ?></h3>
+                                <?php if ($agent['whatsapp_number']): ?>
+                                    <p class="text-xs opacity-60 truncate">
+                                        <span class="uppercase font-semibold">WhatsApp:</span> <?= htmlspecialchars($agent['whatsapp_number']) ?>
+                                    </p>
+                                <?php endif; ?>
+                            </div>
                         </div>
 
-                        <h2 class="card-title text-lg mb-1">
-                            <?= htmlspecialchars($agent['name']) ?>
-                        </h2>
-
-                        <?php if ($agent['whatsapp_number']): ?>
-                            <p class="text-xs opacity-60 mb-2">
-                                <i data-feather="smartphone" class="w-3 h-3 inline"></i>
-                                <?= htmlspecialchars($agent['whatsapp_number']) ?>
-                            </p>
-                        <?php endif; ?>
-
-                        <div class="badge badge-sm badge-outline mb-3">
-                            <i data-feather="zap" class="w-3 h-3 mr-1"></i>
-                            <?= htmlspecialchars(strtoupper($agent['model'])) ?>
+                        <!-- Badge do Modelo -->
+                        <div class="mb-3">
+                            <span class="agent-badge" style="background-color: #6366f120; color: #6366f1; border: 1px solid #6366f140;">
+                                <i data-feather="zap" class="w-3 h-3"></i>
+                                <?= htmlspecialchars(strtoupper($agent['model'])) ?>
+                            </span>
+                            <span class="agent-badge ml-2" style="background-color: #9333ea20; color: #9333ea; border: 1px solid #9333ea40;">
+                                Pausado
+                            </span>
                         </div>
 
                         <!-- Estatísticas -->
-                        <div class="grid grid-cols-3 gap-2 mt-4 pt-4 border-t border-base-300">
+                        <div class="stat-grid">
                             <div class="stat-item">
-                                <span class="stat-item-label">Créditos</span>
-                                <span class="stat-item-value"><?= number_format($agent['credits_spent']) ?></span>
+                                <div class="stat-label">Créditos gastos</div>
+                                <div class="stat-value"><?= number_format($agent['credits_spent']) ?></div>
                             </div>
                             <div class="stat-item">
-                                <span class="stat-item-label">Conversas</span>
-                                <span class="stat-item-value"><?= $agent['conversations_count'] ?></span>
+                                <div class="stat-label">Conversas em atendimento</div>
+                                <div class="stat-value"><?= $agent['conversations_count'] ?></div>
                             </div>
                             <div class="stat-item">
-                                <span class="stat-item-label">Pausadas</span>
-                                <span class="stat-item-value"><?= $agent['paused_conversations'] ?></span>
+                                <div class="stat-label">Conversas pausadas</div>
+                                <div class="stat-value"><?= $agent['paused_conversations'] ?></div>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Ações -->
-                        <div class="card-actions justify-end mt-4">
-                            <button onclick="viewAgentConversations(<?= $agent['id'] ?>)" class="btn btn-sm btn-ghost" title="Ver conversas">
+                    <!-- Footer com Ações -->
+                    <div class="agent-card-footer">
+                        <div class="agent-status-toggle">
+                            <input
+                                type="checkbox"
+                                class="toggle toggle-success toggle-sm"
+                                <?= $agent['status'] === 'active' ? 'checked' : '' ?>
+                                onchange="toggleAgentStatus(<?= $agent['id'] ?>, '<?= $agent['status'] ?>')"
+                            />
+                        </div>
+                        <div class="flex gap-1">
+                            <button onclick="viewAgentConversations(<?= $agent['id'] ?>)" class="btn btn-ghost btn-sm btn-square" title="Ver conversas">
                                 <i data-feather="message-square" class="w-4 h-4"></i>
                             </button>
-                            <button onclick="editAgent(<?= $agent['id'] ?>)" class="btn btn-sm btn-ghost" title="Configurar">
+                            <button onclick="editAgent(<?= $agent['id'] ?>)" class="btn btn-ghost btn-sm btn-square" title="Configurar">
                                 <i data-feather="settings" class="w-4 h-4"></i>
                             </button>
-                            <button onclick="deleteAgent(<?= $agent['id'] ?>, '<?= htmlspecialchars($agent['name'], ENT_QUOTES) ?>')" class="btn btn-sm btn-ghost text-error" title="Excluir">
+                            <button onclick="deleteAgent(<?= $agent['id'] ?>, '<?= htmlspecialchars($agent['name'], ENT_QUOTES) ?>')" class="btn btn-ghost btn-sm btn-square text-error" title="Excluir">
                                 <i data-feather="trash-2" class="w-4 h-4"></i>
                             </button>
                         </div>
@@ -214,9 +315,9 @@ try {
     <?php endif; ?>
 </div>
 
-<!-- Modal de Criar/Editar Agente com Tabs Lifted -->
+<!-- Modal de Criar/Editar Agente -->
 <dialog id="agentModal" class="modal">
-    <div class="modal-box max-w-4xl">
+    <div class="modal-box max-w-5xl">
         <form method="dialog">
             <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
         </form>
@@ -229,73 +330,88 @@ try {
             <div role="tablist" class="tabs tabs-lifted">
                 <!-- Aba Instruções -->
                 <input type="radio" name="agent_tabs" role="tab" class="tab" aria-label="Instruções" checked />
-                <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
-                    <div class="flex items-center gap-4 mb-6">
-                        <!-- Avatar/Cor do Agente -->
-                        <div>
-                            <label class="label">
-                                <span class="label-text font-semibold">Cor do Agente</span>
-                            </label>
-                            <div class="flex items-center gap-2">
-                                <input type="color" id="color" name="color" value="#8b5cf6" class="w-16 h-16 rounded-lg cursor-pointer" />
-                                <div class="avatar placeholder">
-                                    <div id="previewAvatar" class="w-16 h-16 rounded-full" style="background-color: #8b5cf6">
-                                        <i data-feather="cpu" class="w-8 h-8 text-white"></i>
-                                    </div>
+                <div role="tabpanel" class="tab-content bg-base-100 rounded-box p-6">
+                    <!-- Linha superior: Cor, Nome e WhatsApp -->
+                    <div class="flex gap-4 mb-6">
+                        <!-- Cor do Agente -->
+                        <div class="flex flex-col items-center gap-2">
+                            <div class="avatar placeholder">
+                                <div id="previewAvatar" class="w-16 h-16 rounded-full cursor-pointer" style="background-color: #8b5cf6" onclick="document.getElementById('color').click()">
+                                    <i data-feather="cpu" class="w-8 h-8 text-white"></i>
                                 </div>
                             </div>
+                            <input type="color" id="color" name="color" value="#8b5cf6" class="opacity-0 w-0 h-0" />
                         </div>
 
                         <!-- Nome e WhatsApp -->
-                        <div class="flex-1">
-                            <div class="form-control mb-3">
-                                <label class="label">
-                                    <span class="label-text font-semibold">Nome do Agente *</span>
-                                </label>
-                                <input type="text" id="name" name="name" placeholder="Ex: Romildo" class="input input-bordered" required />
-                            </div>
+                        <div class="flex-1 flex flex-col gap-3">
+                            <label class="input input-bordered flex items-center gap-2">
+                                <i data-feather="user" class="w-5 h-5 opacity-60"></i>
+                                <input type="text" id="name" name="name" placeholder="Nome do agente" class="grow" required />
+                            </label>
 
-                            <div class="form-control">
-                                <label class="label">
-                                    <span class="label-text font-semibold">WhatsApp Vinculado</span>
-                                </label>
-                                <input type="text" id="whatsapp_number" name="whatsapp_number" placeholder="Ex: Xiaomi" class="input input-bordered" />
-                            </div>
+                            <label class="input input-bordered flex items-center gap-2">
+                                <i data-feather="smartphone" class="w-5 h-5 opacity-60"></i>
+                                <input type="text" id="whatsapp_number" name="whatsapp_number" placeholder="WhatsApp vinculado" class="grow" />
+                            </label>
                         </div>
                     </div>
 
-                    <div class="form-control">
-                        <label class="label">
-                            <span class="label-text font-semibold">Instruções do Sistema</span>
-                            <a href="#" class="label-text-alt link link-primary">Criar instruções com ajuda</a>
-                        </label>
-                        <textarea id="system_instructions" name="system_instructions" rows="8" class="textarea textarea-bordered" placeholder="Você é um agente chamado Romildo, seu papel é atender os clientes da Suportezi. A Suportezi é uma plataforma de atendimento com foco em uma aplicação de criação de sites com inteligência artificial, email, suporte e manutenção, além de, claro, o recurso de atendimento com IA sem a"></textarea>
-                        <div class="flex items-center justify-between mt-2">
-                            <div class="flex flex-wrap gap-1">
-                                <button type="button" class="btn btn-xs btn-outline">
-                                    <i data-feather="flag" class="w-3 h-3"></i>
-                                    Negrito
+                    <!-- Instruções básicas com sidebar de anexos -->
+                    <div class="flex gap-0 border border-base-300 rounded-lg overflow-hidden">
+                        <div class="flex-1 p-4">
+                            <div class="flex items-center justify-between mb-3">
+                                <label class="font-semibold text-sm">Instruções básicas</label>
+                                <a href="#" class="text-xs link link-primary">Criar instruções com ajuda</a>
+                            </div>
+                            <textarea
+                                id="system_instructions"
+                                name="system_instructions"
+                                rows="12"
+                                class="textarea textarea-bordered w-full"
+                                placeholder="Você é um agente chamado Romildo, seu papel é atender os clientes da Suportezi. A Suportezi é uma plataforma de atendimento com foco em uma aplicação de criação de sites com inteligência artificial, email, suporte e manutenção, além de, claro, o recurso de atendimento com IA sem a..."></textarea>
+
+                            <!-- Botões de formatação -->
+                            <div class="flex flex-wrap gap-1 mt-2">
+                                <button type="button" class="btn btn-xs btn-ghost">
+                                    <strong>B</strong>
                                 </button>
-                                <button type="button" class="btn btn-xs btn-outline">
-                                    <i data-feather="italic" class="w-3 h-3"></i>
-                                    Itálico
+                                <button type="button" class="btn btn-xs btn-ghost">
+                                    <em>I</em>
                                 </button>
-                                <button type="button" class="btn btn-xs btn-outline">
-                                    <i data-feather="list" class="w-3 h-3"></i>
-                                    H1
+                                <button type="button" class="btn btn-xs btn-ghost">H1</button>
+                                <button type="button" class="btn btn-xs btn-ghost">H2</button>
+                                <button type="button" class="btn btn-xs btn-ghost">H3</button>
+                                <button type="button" class="btn btn-xs btn-ghost">Lista</button>
+                                <button type="button" class="btn btn-xs btn-ghost">Link</button>
+                                <button type="button" class="btn btn-xs btn-ghost ml-auto">
+                                    <i data-feather="maximize-2" class="w-3 h-3"></i>
+                                    Tela Cheia
                                 </button>
-                                <button type="button" class="btn btn-xs btn-outline">
-                                    <i data-feather="hash" class="w-3 h-3"></i>
-                                    H2
-                                </button>
-                                <button type="button" class="btn btn-xs btn-outline">
-                                    <i data-feather="list" class="w-3 h-3"></i>
-                                    UL
-                                </button>
-                                <button type="button" class="btn btn-xs btn-outline">
-                                    <i data-feather="list" class="w-3 h-3"></i>
-                                    Link
-                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Sidebar de Anexos -->
+                        <div class="attachments-sidebar">
+                            <div class="text-center mb-3">
+                                <div class="flex flex-col items-center gap-2 p-3 border-2 border-dashed border-base-300 rounded-lg cursor-pointer hover:border-primary" onclick="document.getElementById('knowledge_file').click()">
+                                    <i data-feather="upload" class="w-6 h-6 opacity-60"></i>
+                                    <span class="text-xs opacity-60">Arraste mais arquivos aqui</span>
+                                </div>
+                                <input type="file" id="knowledge_file" name="knowledge_file" accept=".pdf,.txt,.csv" multiple class="hidden" onchange="handleFileUpload(this)" />
+                            </div>
+
+                            <!-- Lista de arquivos anexados -->
+                            <div id="attachmentsList">
+                                <!-- Exemplo de arquivo -->
+                                <div class="attachment-item" draggable="true" ondragstart="handleDragStart(event, 'capa_v26.pdf')">
+                                    <i data-feather="file-text" class="attachment-icon text-error"></i>
+                                    <span class="attachment-name">capa_v26.pdf</span>
+                                    <div class="upload-status success">
+                                        <i data-feather="check-circle" class="w-3 h-3"></i>
+                                        <span>Upload concluído • 4.43 MB</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -303,39 +419,31 @@ try {
 
                 <!-- Aba Conhecimento -->
                 <input type="radio" name="agent_tabs" role="tab" class="tab" aria-label="Conhecimento" />
-                <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                <div role="tabpanel" class="tab-content bg-base-100 rounded-box p-6">
                     <h4 class="font-semibold mb-4">Adicionar Conhecimentos</h4>
                     <div class="text-center py-12 bg-base-200 rounded-lg border-2 border-dashed border-base-300">
                         <i data-feather="upload-cloud" class="w-12 h-12 mx-auto mb-3 opacity-40"></i>
                         <p class="text-sm mb-2">Clique para fazer upload do arquivo escolhido aqui</p>
                         <p class="text-xs opacity-60">Formatos suportados: PDF, TXT, CSV (máx. 10MB por arquivo)</p>
-                        <input type="file" id="knowledge_file" name="knowledge_file" accept=".pdf,.txt,.csv" multiple class="file-input file-input-bordered file-input-sm mt-4 max-w-xs" />
+                        <input type="file" id="knowledge_file_tab" name="knowledge_file_tab" accept=".pdf,.txt,.csv" multiple class="file-input file-input-bordered file-input-sm mt-4 max-w-xs" />
                     </div>
 
-                    <!-- Lista de arquivos (será populada dinamicamente) -->
                     <div id="knowledgeFilesList" class="mt-4"></div>
-
-                    <div class="flex justify-between mt-6">
-                        <button type="button" class="btn btn-sm btn-outline" onclick="document.getElementById('knowledge_file').click()">
-                            <i data-feather="upload" class="w-4 h-4"></i>
-                            Enviar
-                        </button>
-                    </div>
                 </div>
 
                 <!-- Aba Configurações -->
                 <input type="radio" name="agent_tabs" role="tab" class="tab" aria-label="Configurações" />
-                <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                <div role="tabpanel" class="tab-content bg-base-100 rounded-box p-6">
                     <div class="form-control mb-4">
-                        <label class="label">
-                            <span class="label-text font-semibold">Modelo de IA *</span>
+                        <label class="input input-bordered flex items-center gap-2">
+                            <i data-feather="zap" class="w-5 h-5 opacity-60"></i>
+                            <select id="model" name="model" class="grow bg-transparent">
+                                <option value="gpt-5-nano">GPT-5 nano</option>
+                                <option value="gpt-4-turbo">GPT-4 Turbo</option>
+                                <option value="gpt-4">GPT-4</option>
+                                <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
+                            </select>
                         </label>
-                        <select id="model" name="model" class="select select-bordered">
-                            <option value="gpt-5-nano">GPT-5 nano</option>
-                            <option value="gpt-4-turbo">GPT-4 Turbo</option>
-                            <option value="gpt-4">GPT-4</option>
-                            <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
-                        </select>
                         <label class="label">
                             <span class="label-text-alt text-warning">
                                 <i data-feather="alert-circle" class="w-3 h-3 inline"></i>
@@ -346,95 +454,90 @@ try {
 
                     <h4 class="font-semibold mb-3">Opções do Agente</h4>
 
-                    <div class="form-control mb-3">
-                        <label class="label cursor-pointer justify-start gap-4">
-                            <input type="checkbox" id="has_audio" name="has_audio" value="1" class="toggle toggle-success" checked />
-                            <span class="label-text">
-                                <span class="font-semibold">Ouvir áudio</span>
-                                <span class="badge badge-warning badge-xs ml-2">Consome 1 crédito por áudio</span>
-                            </span>
+                    <div class="space-y-3">
+                        <label class="label cursor-pointer justify-start gap-4 p-3 rounded-lg hover:bg-base-200">
+                            <input type="checkbox" id="has_audio" name="has_audio" value="1" class="toggle toggle-success toggle-sm" checked />
+                            <div class="flex-1">
+                                <span class="font-semibold block">Ouvir áudio</span>
+                                <span class="text-xs opacity-60">Consome 1 crédito por áudio</span>
+                            </div>
+                        </label>
+
+                        <label class="label cursor-pointer justify-start gap-4 p-3 rounded-lg hover:bg-base-200">
+                            <input type="checkbox" id="analyze_images" name="analyze_images" value="1" class="toggle toggle-success toggle-sm" checked />
+                            <div class="flex-1">
+                                <span class="font-semibold block">Analisar imagens</span>
+                                <span class="text-xs opacity-60">Consome 1 crédito por imagem</span>
+                            </div>
+                        </label>
+
+                        <label class="label cursor-pointer justify-start gap-4 p-3 rounded-lg hover:bg-base-200">
+                            <input type="checkbox" id="quotes_enabled" name="quotes_enabled" value="1" class="toggle toggle-success toggle-sm" checked />
+                            <div class="flex-1">
+                                <span class="font-semibold block">Aparecer "Digite..." / "Gravando..."</span>
+                            </div>
+                        </label>
+
+                        <label class="label cursor-pointer justify-start gap-4 p-3 rounded-lg hover:bg-base-200">
+                            <input type="checkbox" id="pause_attendance" name="pause_attendance" value="1" class="toggle toggle-success toggle-sm" checked />
+                            <div class="flex-1">
+                                <span class="font-semibold block">Pausar agente no atendimento humano</span>
+                            </div>
+                        </label>
+
+                        <label class="label cursor-pointer justify-start gap-4 p-3 rounded-lg hover:bg-base-200">
+                            <input type="checkbox" id="group_messages" name="group_messages" value="1" class="toggle toggle-success toggle-sm" checked />
+                            <div class="flex-1">
+                                <span class="font-semibold block">Agrupar mensagens</span>
+                            </div>
                         </label>
                     </div>
 
-                    <div class="form-control mb-3">
-                        <label class="label cursor-pointer justify-start gap-4">
-                            <input type="checkbox" id="analyze_images" name="analyze_images" value="1" class="toggle toggle-success" checked />
-                            <span class="label-text">
-                                <span class="font-semibold">Analisar imagens</span>
-                                <span class="badge badge-warning badge-xs ml-2">Consome 1 crédito por imagem</span>
-                            </span>
-                        </label>
-                    </div>
-
-                    <div class="form-control mb-3">
-                        <label class="label cursor-pointer justify-start gap-4">
-                            <input type="checkbox" id="quotes_enabled" name="quotes_enabled" value="1" class="toggle toggle-success" checked />
-                            <span class="label-text font-semibold">Aparecer "Digite..." / "Gravando..."</span>
-                        </label>
-                    </div>
-
-                    <div class="form-control mb-3">
-                        <label class="label cursor-pointer justify-start gap-4">
-                            <input type="checkbox" id="pause_attendance" name="pause_attendance" value="1" class="toggle toggle-success" checked />
-                            <span class="label-text font-semibold">Pausar agente no atendimento humano</span>
-                        </label>
-                    </div>
-
-                    <div class="form-control mb-4">
-                        <label class="label cursor-pointer justify-start gap-4">
-                            <input type="checkbox" id="group_messages" name="group_messages" value="1" class="toggle toggle-success" checked />
-                            <span class="label-text font-semibold">Agrupar mensagens</span>
-                        </label>
-                    </div>
-
-                    <div class="form-control">
+                    <div class="form-control mt-6">
                         <label class="label">
                             <span class="label-text font-semibold">Quantidade de mensagens de histórico</span>
                         </label>
-                        <div class="flex items-center gap-3">
-                            <input type="number" id="history_limit" name="history_limit" value="10" min="1" max="100" class="input input-bordered w-24" />
+                        <label class="input input-bordered flex items-center gap-2">
+                            <i data-feather="clock" class="w-5 h-5 opacity-60"></i>
+                            <input type="number" id="history_limit" name="history_limit" value="10" min="1" max="100" class="grow" />
                             <span class="text-sm opacity-60">segundos</span>
-                        </div>
+                        </label>
                         <label class="label">
-                            <span class="label-text-alt opacity-60">O agente irá manter na quantização de mensagens do histórico o quanto maior, mais mensagens o agente vai ter pra lembrar, mas mais créditos</span>
+                            <span class="label-text-alt opacity-60">Quanto maior, mais mensagens o agente vai lembrar, mas mais créditos consome</span>
                         </label>
                     </div>
                 </div>
 
                 <!-- Aba CRM -->
                 <input type="radio" name="agent_tabs" role="tab" class="tab" aria-label="CRM" />
-                <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
-                    <div class="form-control mb-4">
-                        <label class="label">
-                            <span class="label-text font-semibold">Quadro CRM *</span>
+                <div role="tabpanel" class="tab-content bg-base-100 rounded-box p-6">
+                    <div class="space-y-4">
+                        <label class="input input-bordered flex items-center gap-2">
+                            <i data-feather="trello" class="w-5 h-5 opacity-60"></i>
+                            <select id="crm_board_id" name="crm_board_id" class="grow bg-transparent">
+                                <option value="">Selecione um quadro CRM</option>
+                                <?php foreach ($crmBoards as $board): ?>
+                                    <option value="<?= $board['id'] ?>"><?= htmlspecialchars($board['name']) ?></option>
+                                <?php endforeach; ?>
+                            </select>
                         </label>
-                        <select id="crm_board_id" name="crm_board_id" class="select select-bordered">
-                            <option value="">Selecione um quadro</option>
-                            <?php foreach ($crmBoards as $board): ?>
-                                <option value="<?= $board['id'] ?>"><?= htmlspecialchars($board['name']) ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
 
-                    <div class="form-control mb-4">
-                        <label class="label">
-                            <span class="label-text font-semibold">Etapa *</span>
+                        <label class="input input-bordered flex items-center gap-2">
+                            <i data-feather="flag" class="w-5 h-5 opacity-60"></i>
+                            <input type="text" id="crm_stage" name="crm_stage" placeholder="Etapa (ex: Onboarding)" class="grow" />
                         </label>
-                        <input type="text" id="crm_stage" name="crm_stage" placeholder="Ex: Onboarding" class="input input-bordered" />
-                    </div>
 
-                    <div class="form-control mb-4">
-                        <label class="label">
-                            <span class="label-text font-semibold">Valor padrão no card</span>
+                        <label class="input input-bordered flex items-center gap-2">
+                            <i data-feather="dollar-sign" class="w-5 h-5 opacity-60"></i>
+                            <input type="text" id="crm_default_value" name="crm_default_value" placeholder="Valor padrão no card (ex: R$ 0,00)" class="grow" />
                         </label>
-                        <input type="text" id="crm_default_value" name="crm_default_value" placeholder="R$ 0,00" class="input input-bordered" />
-                    </div>
 
-                    <div class="form-control">
-                        <label class="label">
-                            <span class="label-text font-semibold">Observação padrão</span>
-                        </label>
-                        <textarea id="crm_default_observation" name="crm_default_observation" rows="4" class="textarea textarea-bordered" placeholder="Coletar o nome e mail e necessidade do cliente e joga lá imediatamente no CRM."></textarea>
+                        <div>
+                            <label class="label">
+                                <span class="label-text font-semibold">Observação padrão</span>
+                            </label>
+                            <textarea id="crm_default_observation" name="crm_default_observation" rows="4" class="textarea textarea-bordered w-full" placeholder="Coletar o nome e mail e necessidade do cliente e adicionar ao CRM."></textarea>
+                        </div>
                     </div>
 
                     <div class="alert alert-info mt-6">
@@ -474,11 +577,45 @@ document.getElementById('color')?.addEventListener('input', function(e) {
     document.getElementById('previewAvatar').style.backgroundColor = color;
 });
 
+// Drag and drop de arquivos
+function handleDragStart(event, filename) {
+    event.dataTransfer.setData('text/plain', filename);
+    event.dataTransfer.effectAllowed = 'copy';
+}
+
+// Upload de arquivos
+function handleFileUpload(input) {
+    const files = input.files;
+    const container = document.getElementById('attachmentsList');
+
+    Array.from(files).forEach(file => {
+        const item = document.createElement('div');
+        item.className = 'attachment-item';
+        item.draggable = true;
+        item.ondragstart = (e) => handleDragStart(e, file.name);
+
+        const size = (file.size / (1024 * 1024)).toFixed(2);
+
+        item.innerHTML = `
+            <i data-feather="file-text" class="attachment-icon text-error"></i>
+            <span class="attachment-name">${file.name}</span>
+            <div class="upload-status success">
+                <i data-feather="check-circle" class="w-3 h-3"></i>
+                <span>Upload concluído • ${size} MB</span>
+            </div>
+        `;
+
+        container.appendChild(item);
+        feather.replace();
+    });
+}
+
 // Modal de criar agente
 function showCreateAgentModal() {
     document.getElementById('modalTitle').textContent = 'Criar Novo Agente';
     document.getElementById('agentForm').reset();
     document.getElementById('agent_id').value = '';
+    document.getElementById('previewAvatar').style.backgroundColor = '#8b5cf6';
     document.getElementById('agentModal').showModal();
     if (typeof feather !== 'undefined') {
         feather.replace();
