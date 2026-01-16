@@ -1,16 +1,17 @@
 <?php
+ob_clean();
 session_start();
-require_once("../../core/db.php");
-
-header('Content-Type: application/json');
+require_once(__DIR__ . "/../../core/db.php");
 
 if (!isset($_SESSION["user_id"])) {
-    echo json_encode(['success' => false, 'error' => 'Não autorizado']);
+    http_response_code(401);
+    echo "Não autorizado";
     exit;
 }
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-    echo json_encode(['success' => false, 'error' => 'Método não permitido']);
+    http_response_code(405);
+    echo "Método não permitido";
     exit;
 }
 
@@ -20,7 +21,8 @@ $newPosition = intval($_POST['position'] ?? 0);
 $userId = $_SESSION['user_id'];
 
 if ($cardId <= 0 || $newColumnId <= 0 || $newPosition < 0) {
-    echo json_encode(['success' => false, 'error' => 'Dados inválidos']);
+    http_response_code(400);
+    echo "Dados inválidos";
     exit;
 }
 
@@ -40,7 +42,8 @@ try {
 
     if (!$card) {
         $pdo->rollBack();
-        echo json_encode(['success' => false, 'error' => 'Card não encontrado']);
+        http_response_code(404);
+        echo "Card não encontrado";
         exit;
     }
 
@@ -56,7 +59,8 @@ try {
 
     if (!$newColumn) {
         $pdo->rollBack();
-        echo json_encode(['success' => false, 'error' => 'Coluna destino não encontrada']);
+        http_response_code(404);
+        echo "Coluna destino não encontrada";
         exit;
     }
 
@@ -114,10 +118,19 @@ try {
     }
 
     $pdo->commit();
-    echo json_encode(['success' => true]);
+    echo "success";
 
 } catch (PDOException $e) {
-    $pdo->rollBack();
+    if ($pdo->inTransaction()) {
+        $pdo->rollBack();
+    }
+    http_response_code(500);
     error_log('Erro ao mover card: ' . $e->getMessage());
-    echo json_encode(['success' => false, 'error' => 'Erro ao mover card']);
+    echo "Erro ao mover card: " . $e->getMessage();
+} catch (Exception $e) {
+    if ($pdo->inTransaction()) {
+        $pdo->rollBack();
+    }
+    http_response_code(500);
+    echo "Erro interno: " . $e->getMessage();
 }

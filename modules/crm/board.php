@@ -287,6 +287,8 @@ document.addEventListener('DOMContentLoaded', () => {
             dragClass: 'sortable-drag',
             filter: '.btn',
             preventOnFilter: false,
+            delay: 100,
+            delayOnTouchOnly: false,
             onEnd: function(evt) {
                 const cardId = evt.item.getAttribute('data-card-id');
                 const newColumnId = evt.to.getAttribute('data-column-id');
@@ -329,10 +331,10 @@ async function moveCard(cardId, columnId, position) {
             body: formData
         });
 
-        const result = await res.json();
+        const result = await res.text();
 
-        if (!result.success) {
-            Swal.fire('Erro!', result.error || 'Erro ao mover card', 'error');
+        if (!res.ok || result !== "success") {
+            Swal.fire('Erro!', result || 'Erro ao mover card', 'error');
             location.reload();
         }
     } catch (error) {
