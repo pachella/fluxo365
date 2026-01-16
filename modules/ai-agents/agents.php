@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once(__DIR__ . "/../core/db.php");
-require_once(__DIR__ . "/../core/PermissionManager.php");
+require_once("../../core/db.php");
+require_once("../../core/PermissionManager.php");
 
 if (!isset($_SESSION["user_id"])) {
     header("Location: /auth/login");
