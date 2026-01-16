@@ -1,17 +1,30 @@
 <?php
-session_start();
-require_once("../../core/db.php");
-require_once("../../core/PermissionManager.php");
+// Detectar se já há sessão ativa
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Incluir dependências apenas se ainda não foram incluídas
+if (!isset($pdo)) {
+    require_once(__DIR__ . "/../../core/db.php");
+}
+
+if (!class_exists('PermissionManager')) {
+    require_once(__DIR__ . "/../../core/PermissionManager.php");
+}
 
 if (!isset($_SESSION["user_id"])) {
     header("Location: /auth/login");
     exit;
 }
 
-$permissionManager = new PermissionManager(
-    $_SESSION['user_role'],
-    $_SESSION['user_id'] ?? null
-);
+// Usar PermissionManager global se existir, senão criar
+if (!isset($permissionManager)) {
+    $permissionManager = new PermissionManager(
+        $_SESSION['user_role'],
+        $_SESSION['user_id'] ?? null
+    );
+}
 
 $userId = $_SESSION['user_id'];
 
