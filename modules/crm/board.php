@@ -392,19 +392,19 @@ async function createCard(data) {
         const formData = new FormData();
         Object.keys(data).forEach(key => formData.append(key, data[key]));
 
-        const res = await fetch('/modules/crm/cards/create.php', {
+        const res = await fetch('/core/crud/save.php?module=crm&entity=card', {
             method: 'POST',
             body: formData
         });
 
-        const result = await res.json();
+        const result = await res.text();
 
-        if (result.success) {
+        if (res.ok && result === "success") {
             Swal.fire('Sucesso!', 'Card criado com sucesso', 'success').then(() => {
                 location.reload();
             });
         } else {
-            Swal.fire('Erro!', result.error || 'Erro ao criar card', 'error');
+            Swal.fire('Erro!', result || 'Erro ao criar card', 'error');
         }
     } catch (error) {
         Swal.fire('Erro!', 'Erro ao criar card', 'error');
@@ -509,19 +509,19 @@ async function updateCard(data) {
         const formData = new FormData();
         Object.keys(data).forEach(key => formData.append(key, data[key]));
 
-        const res = await fetch('/modules/crm/cards/update.php', {
+        const res = await fetch('/core/crud/save.php?module=crm&entity=card', {
             method: 'POST',
             body: formData
         });
 
-        const result = await res.json();
+        const result = await res.text();
 
-        if (result.success) {
+        if (res.ok && result === "success") {
             Swal.fire('Sucesso!', 'Card atualizado com sucesso', 'success').then(() => {
                 location.reload();
             });
         } else {
-            Swal.fire('Erro!', result.error || 'Erro ao atualizar card', 'error');
+            Swal.fire('Erro!', result || 'Erro ao atualizar card', 'error');
         }
     } catch (error) {
         Swal.fire('Erro!', 'Erro ao atualizar card', 'error');
@@ -543,18 +543,18 @@ async function deleteCard(cardId) {
     if (!result.isConfirmed) return;
 
     try {
-        const res = await fetch(`/modules/crm/cards/delete.php?id=${cardId}`, {
+        const res = await fetch(`/core/crud/delete.php?module=crm&entity=card&id=${cardId}`, {
             method: 'POST'
         });
 
-        const response = await res.json();
+        const response = await res.text();
 
-        if (response.success) {
+        if (res.ok && response === "success") {
             Swal.fire('Excluído!', 'Card excluído com sucesso', 'success').then(() => {
                 location.reload();
             });
         } else {
-            Swal.fire('Erro!', response.error || 'Erro ao excluir card', 'error');
+            Swal.fire('Erro!', response || 'Erro ao excluir card', 'error');
         }
     } catch (error) {
         Swal.fire('Erro!', 'Erro ao excluir card', 'error');
@@ -610,19 +610,19 @@ async function createColumn(data) {
         const formData = new FormData();
         Object.keys(data).forEach(key => formData.append(key, data[key]));
 
-        const res = await fetch('/modules/crm/columns/create.php', {
+        const res = await fetch('/core/crud/save.php?module=crm&entity=column', {
             method: 'POST',
             body: formData
         });
 
-        const result = await res.json();
+        const result = await res.text();
 
-        if (result.success) {
+        if (res.ok && result === "success") {
             Swal.fire('Sucesso!', 'Coluna criada com sucesso', 'success').then(() => {
                 location.reload();
             });
         } else {
-            Swal.fire('Erro!', result.error || 'Erro ao criar coluna', 'error');
+            Swal.fire('Erro!', result || 'Erro ao criar coluna', 'error');
         }
     } catch (error) {
         Swal.fire('Erro!', 'Erro ao criar coluna', 'error');
@@ -678,19 +678,19 @@ async function updateColumn(data) {
         const formData = new FormData();
         Object.keys(data).forEach(key => formData.append(key, data[key]));
 
-        const res = await fetch('/modules/crm/columns/update.php', {
+        const res = await fetch('/core/crud/save.php?module=crm&entity=column', {
             method: 'POST',
             body: formData
         });
 
-        const result = await res.json();
+        const result = await res.text();
 
-        if (result.success) {
+        if (res.ok && result === "success") {
             Swal.fire('Sucesso!', 'Coluna atualizada com sucesso', 'success').then(() => {
                 location.reload();
             });
         } else {
-            Swal.fire('Erro!', result.error || 'Erro ao atualizar coluna', 'error');
+            Swal.fire('Erro!', result || 'Erro ao atualizar coluna', 'error');
         }
     } catch (error) {
         Swal.fire('Erro!', 'Erro ao atualizar coluna', 'error');
@@ -712,13 +712,13 @@ async function deleteColumn(id, name) {
     if (!result.isConfirmed) return;
 
     try {
-        const res = await fetch(`/modules/crm/columns/delete.php?id=${id}`, {
+        const res = await fetch(`/core/crud/delete.php?module=crm&entity=column&id=${id}`, {
             method: 'POST'
         });
 
-        const response = await res.json();
+        const response = await res.text();
 
-        if (response.success) {
+        if (res.ok && response === "success") {
             Swal.fire('Excluído!', 'Coluna excluída com sucesso', 'success').then(() => {
                 location.reload();
             });
@@ -823,19 +823,19 @@ async function createTag(data) {
         const formData = new FormData();
         Object.keys(data).forEach(key => formData.append(key, data[key]));
 
-        const res = await fetch('/modules/crm/tags/create.php', {
+        const res = await fetch('/core/crud/save.php?module=crm&entity=tag', {
             method: 'POST',
             body: formData
         });
 
-        const result = await res.json();
+        const result = await res.text();
 
-        if (result.success) {
+        if (res.ok && result === "success") {
             Swal.fire('Sucesso!', 'Tag criada com sucesso', 'success').then(() => {
                 location.reload();
             });
         } else {
-            Swal.fire('Erro!', result.error || 'Erro ao criar tag', 'error');
+            Swal.fire('Erro!', result || 'Erro ao criar tag', 'error');
         }
     } catch (error) {
         Swal.fire('Erro!', 'Erro ao criar tag', 'error');
@@ -891,19 +891,19 @@ async function updateTag(data) {
         const formData = new FormData();
         Object.keys(data).forEach(key => formData.append(key, data[key]));
 
-        const res = await fetch('/modules/crm/tags/update.php', {
+        const res = await fetch('/core/crud/save.php?module=crm&entity=tag', {
             method: 'POST',
             body: formData
         });
 
-        const result = await res.json();
+        const result = await res.text();
 
-        if (result.success) {
+        if (res.ok && result === "success") {
             Swal.fire('Sucesso!', 'Tag atualizada com sucesso', 'success').then(() => {
                 location.reload();
             });
         } else {
-            Swal.fire('Erro!', result.error || 'Erro ao atualizar tag', 'error');
+            Swal.fire('Erro!', result || 'Erro ao atualizar tag', 'error');
         }
     } catch (error) {
         Swal.fire('Erro!', 'Erro ao atualizar tag', 'error');
@@ -925,18 +925,18 @@ async function deleteTag(id, name) {
     if (!result.isConfirmed) return;
 
     try {
-        const res = await fetch(`/modules/crm/tags/delete.php?id=${id}`, {
+        const res = await fetch(`/core/crud/delete.php?module=crm&entity=tag&id=${id}`, {
             method: 'POST'
         });
 
-        const response = await res.json();
+        const response = await res.text();
 
-        if (response.success) {
+        if (res.ok && response === "success") {
             Swal.fire('Excluído!', 'Tag excluída com sucesso', 'success').then(() => {
                 location.reload();
             });
         } else {
-            Swal.fire('Erro!', response.error || 'Erro ao excluir tag', 'error');
+            Swal.fire('Erro!', response || 'Erro ao excluir tag', 'error');
         }
     } catch (error) {
         Swal.fire('Erro!', 'Erro ao excluir tag', 'error');

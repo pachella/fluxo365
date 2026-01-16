@@ -150,17 +150,13 @@ require_once(__DIR__ . "/../../core/cache_helper.php");
       background-color: #f3f4f6 !important;
     }
 
-    /* Cards e envólucros - tema claro: background branco */
-    :root:not(.dark) .card,
-    :root:not(.dark) .bg-base-100,
-    :root:not(.dark) .bg-base-200 {
+    /* Cards - tema claro: background branco */
+    :root:not(.dark) .card {
       background-color: white !important;
     }
 
-    /* Cards e envólucros - tema escuro: mesma cor da sidebar */
-    .dark .card,
-    .dark .bg-base-100,
-    .dark .bg-base-200 {
+    /* Cards - tema escuro: mesma cor da sidebar */
+    .dark .card {
       background-color: #27272a !important;
     }
 
