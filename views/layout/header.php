@@ -18,9 +18,7 @@ require_once(__DIR__ . "/../../core/cache_helper.php");
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard | Supersites</title>
-  <!-- Favicon -->
-  <link rel="icon" type="image/webp" href="https://formtalk.app/wp-content/uploads/2025/11/cropped-favicon-20251107044740-32x32.webp">
+  <title>Dashboard | Fluxo365</title>
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- DaisyUI via CDN -->
