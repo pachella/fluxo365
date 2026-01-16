@@ -149,6 +149,25 @@ require_once(__DIR__ . "/../../core/cache_helper.php");
     :root:not(.dark) main {
       background-color: #f3f4f6 !important;
     }
+
+    /* Cards e envólucros - tema claro: background branco */
+    :root:not(.dark) .card,
+    :root:not(.dark) .bg-base-100,
+    :root:not(.dark) .bg-base-200 {
+      background-color: white !important;
+    }
+
+    /* Cards e envólucros - tema escuro: mesma cor da sidebar */
+    .dark .card,
+    .dark .bg-base-100,
+    .dark .bg-base-200 {
+      background-color: #27272a !important;
+    }
+
+    /* Sidebar no tema escuro */
+    .dark aside#sidebar {
+      background-color: #27272a !important;
+    }
   </style>
   <!-- Feather icons -->
   <script src="https://unpkg.com/feather-icons"></script>
