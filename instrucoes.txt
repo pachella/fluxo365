@@ -15,16 +15,23 @@ INSTRUÇÕES DE DESENVOLVIMENTO - FLUXO365 CRM
    - Tamanho: Large (input-lg)
    - Border radius: 4px
    - Placeholder suficientemente descritivo
+   - SEMPRE usar ícones (padrão DaisyUI com flex items-center gap-2)
    - Exemplo: "Digite seu nome completo" ao invés de label "Nome:"
 
 3. **Exemplo de formulário limpo:**
    ```html
-   <input type="text"
-          placeholder="Nome completo"
-          class="input input-lg input-bordered w-full">
-   <input type="email"
-          placeholder="seu@email.com"
-          class="input input-lg input-bordered w-full">
+   <!-- Input com ícone (padrão DaisyUI) -->
+   <label class="input input-bordered input-lg flex items-center gap-2">
+     <i data-feather="user" class="w-5 h-5 opacity-60"></i>
+     <input type="text" placeholder="Nome completo" class="grow">
+   </label>
+
+   <!-- Input de busca com loading spinner -->
+   <label class="input input-bordered input-lg flex items-center gap-2">
+     <i data-feather="search" class="w-5 h-5 opacity-60"></i>
+     <input type="text" placeholder="Buscar..." class="grow">
+     <span class="loading loading-spinner loading-sm hidden"></span>
+   </label>
    ```
 
    ❌ EVITAR:
@@ -32,6 +39,14 @@ INSTRUÇÕES DE DESENVOLVIMENTO - FLUXO365 CRM
    <label>Nome:</label>
    <input type="text" class="input">
    ```
+
+## TEMA CLARO/ESCURO
+
+1. **Toggle fixo no canto superior direito**
+   - Posição: fixed, top: 15px, right: 15px
+   - Componente: toggle toggle-lg do DaisyUI
+   - Z-index: 9999 para ficar sempre visível
+   - Sincronizado com localStorage
 
 =================================================================
 ÚLTIMA ATUALIZAÇÃO: 2026-01-16

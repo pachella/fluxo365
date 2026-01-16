@@ -137,6 +137,14 @@ require_once(__DIR__ . "/../../core/cache_helper.php");
     .dark .btn-action:hover {
       background-color: rgba(255, 255, 255, 0.05) !important;
     }
+
+    /* Toggle de tema fixo no canto superior direito */
+    #theme-toggle-fixed {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      z-index: 9999;
+    }
   </style>
   <!-- Feather icons -->
   <script src="https://unpkg.com/feather-icons"></script>
@@ -251,6 +259,11 @@ require_once(__DIR__ . "/../../core/cache_helper.php");
   </script>
 </head>
 <body class="bg-base-100 flex h-screen overflow-hidden">
+
+  <!-- Theme Toggle - Fixo no canto superior direito -->
+  <div id="theme-toggle-fixed">
+    <input type="checkbox" id="theme-toggle" class="toggle toggle-lg" />
+  </div>
 
   <!-- Script do Toggle Dark Mode -->
   <script>

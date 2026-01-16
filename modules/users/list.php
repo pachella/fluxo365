@@ -16,17 +16,15 @@ if (!isset($_SESSION["user_id"])) {
 
 <!-- Header responsivo -->
 <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 mb-4">
-    <button id="btnNewUser" class="btn btn-primary w-full sm:w-auto">
-        <i data-feather="plus" class="w-4 h-4"></i>
+    <button id="btnNewUser" class="btn btn-primary btn-lg w-full sm:w-auto">
+        <i data-feather="plus" class="w-5 h-5"></i>
         Novo Usuário
     </button>
-    <div class="relative w-full sm:w-64">
-        <input type="text" id="searchUser" placeholder="Buscar usuário..."
-               class="input input-bordered w-full input-sm">
-        <div id="searchLoading" class="hidden absolute right-3 top-2.5">
-            <span class="loading loading-spinner loading-xs"></span>
-        </div>
-    </div>
+    <label class="input input-bordered input-lg flex items-center gap-2 w-full sm:w-80">
+        <i data-feather="search" class="w-5 h-5 opacity-60"></i>
+        <input type="text" id="searchUser" placeholder="Buscar usuário..." class="grow" />
+        <span id="searchLoading" class="loading loading-spinner loading-sm hidden"></span>
+    </label>
 </div>
 
 <div id="users-table">

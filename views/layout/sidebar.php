@@ -63,17 +63,8 @@ if ($permissionManager->isAdmin()) {
 <!-- Sidebar -->
 <aside id="sidebar" class="fixed lg:static inset-y-0 left-0 transform -translate-x-full lg:translate-x-0 w-64 bg-base-200 shadow-lg h-screen transition-transform duration-300 ease-in-out z-50 flex flex-col">
   <!-- Logo Header -->
-  <div class="p-4 border-b border-base-300">
-    <div class="flex items-center justify-between">
-      <img src="https://fluxo365.com/wp-content/uploads/2026/01/logo_fluxo.svg" alt="Fluxo365" class="h-7 logo-fluxo">
-
-      <!-- Theme Toggle -->
-      <label class="swap swap-rotate">
-        <input type="checkbox" id="theme-toggle" class="theme-controller" />
-        <i data-feather="sun" class="swap-off w-5 h-5"></i>
-        <i data-feather="moon" class="swap-on w-5 h-5"></i>
-      </label>
-    </div>
+  <div class="p-4 border-b border-base-300 flex items-center justify-center">
+    <img src="https://fluxo365.com/wp-content/uploads/2026/01/logo_fluxo.svg" alt="Fluxo365" class="h-7 logo-fluxo">
   </div>
 
   <!-- Header da sidebar (mobile) -->

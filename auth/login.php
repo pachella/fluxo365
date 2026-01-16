@@ -69,6 +69,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     .dark .logo-fluxo {
       filter: brightness(0) invert(1);
     }
+
+    /* Toggle de tema fixo no canto superior direito */
+    #theme-toggle-fixed {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      z-index: 9999;
+    }
   </style>
 
   <!-- Dark Mode Script -->
@@ -83,6 +91,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   </script>
 </head>
 <body class="bg-base-200 flex items-center justify-center min-h-screen py-8 px-4">
+
+  <!-- Theme Toggle - Fixo no canto superior direito -->
+  <div id="theme-toggle-fixed">
+    <input type="checkbox" id="theme-toggle-auth" class="toggle toggle-lg" />
+  </div>
+
   <div class="w-full max-w-md">
     <!-- Logo -->
     <div class="text-center mb-8">
@@ -103,35 +117,35 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <form method="POST" action="" class="space-y-4">
           <!-- E-mail -->
-          <div class="form-control">
-            <label class="label">
-              <span class="label-text">E-mail</span>
-            </label>
+          <label class="input input-bordered input-lg flex items-center gap-2">
+            <i data-feather="mail" class="w-5 h-5 opacity-60"></i>
             <input
               type="email"
               name="email"
               required
-              placeholder="seu@email.com"
-              class="input input-bordered w-full"
+              placeholder="Digite seu e-mail"
+              class="grow"
               value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
-          </div>
+          </label>
 
           <!-- Senha -->
-          <div class="form-control">
-            <label class="label">
-              <span class="label-text">Senha</span>
-              <a href="forgot.php" class="label-text-alt link link-primary">Esqueceu a senha?</a>
+          <div class="space-y-2">
+            <label class="input input-bordered input-lg flex items-center gap-2">
+              <i data-feather="lock" class="w-5 h-5 opacity-60"></i>
+              <input
+                type="password"
+                name="password"
+                required
+                placeholder="Digite sua senha"
+                class="grow">
             </label>
-            <input
-              type="password"
-              name="password"
-              required
-              placeholder="••••••••"
-              class="input input-bordered w-full">
+            <div class="text-right">
+              <a href="forgot.php" class="text-sm link link-primary">Esqueceu a senha?</a>
+            </div>
           </div>
 
           <!-- Botão Submit -->
-          <button type="submit" class="btn btn-primary w-full">Entrar</button>
+          <button type="submit" class="btn btn-primary btn-lg w-full">Entrar</button>
         </form>
 
         <!-- Link para Registro -->
@@ -143,15 +157,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
           </a>
         </div>
       </div>
-    </div>
-
-    <!-- Theme Toggle -->
-    <div class="text-center mt-6">
-      <label class="swap swap-rotate btn btn-ghost btn-circle">
-        <input type="checkbox" id="theme-toggle-auth" class="theme-controller" />
-        <i data-feather="sun" class="swap-off w-5 h-5"></i>
-        <i data-feather="moon" class="swap-on w-5 h-5"></i>
-      </label>
     </div>
 
     <!-- Footer -->
@@ -171,8 +176,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         const html = document.documentElement;
         const currentTheme = localStorage.getItem('theme') || 'light';
 
+        // Sincronizar estado inicial do checkbox
         themeToggle.checked = (currentTheme === 'dark');
 
+        // Handler do toggle
         themeToggle.addEventListener('change', () => {
           if (themeToggle.checked) {
             html.classList.add('dark');
@@ -183,7 +190,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             html.setAttribute('data-theme', 'light');
             localStorage.setItem('theme', 'light');
           }
-          feather.replace();
+
+          // Re-renderizar ícones do Feather
+          if (typeof feather !== 'undefined') {
+            feather.replace();
+          }
         });
       }
     });
