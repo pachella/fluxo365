@@ -1,8 +1,9 @@
 <?php
 return [
-    'name' => 'Agentes de IA',
+    'name' => 'ai-agents',
+    'label' => 'Agentes de IA',
     'icon' => 'cpu',
-    'route' => 'ai-agents/agents',
-    'roles' => ['admin', 'user'],
-    'order' => 30
+    'url' => '/dashboard?page=ai-agents/agents',
+    'order' => 30,
+    'roles' => ['admin', 'client']
 ];
