@@ -12,8 +12,8 @@ INSTRUÇÕES DE DESENVOLVIMENTO - FLUXO365 CRM
    - Apenas usar labels quando EXTREMAMENTE necessário
 
 2. **Padrão de Input**
-   - Tamanho: Large (input-lg)
-   - Border radius: 4px
+   - Tamanho: Padrão (sem -lg, era muito grande)
+   - Border radius: 8px
    - Placeholder suficientemente descritivo
    - SEMPRE usar ícones (padrão DaisyUI com flex items-center gap-2)
    - Exemplo: "Digite seu nome completo" ao invés de label "Nome:"
@@ -21,13 +21,13 @@ INSTRUÇÕES DE DESENVOLVIMENTO - FLUXO365 CRM
 3. **Exemplo de formulário limpo:**
    ```html
    <!-- Input com ícone (padrão DaisyUI) -->
-   <label class="input input-bordered input-lg flex items-center gap-2">
+   <label class="input input-bordered flex items-center gap-2">
      <i data-feather="user" class="w-5 h-5 opacity-60"></i>
      <input type="text" placeholder="Nome completo" class="grow">
    </label>
 
    <!-- Input de busca com loading spinner -->
-   <label class="input input-bordered input-lg flex items-center gap-2">
+   <label class="input input-bordered flex items-center gap-2">
      <i data-feather="search" class="w-5 h-5 opacity-60"></i>
      <input type="text" placeholder="Buscar..." class="grow">
      <span class="loading loading-spinner loading-sm hidden"></span>
@@ -42,11 +42,23 @@ INSTRUÇÕES DE DESENVOLVIMENTO - FLUXO365 CRM
 
 ## TEMA CLARO/ESCURO
 
-1. **Toggle fixo no canto superior direito**
+1. **Botão fixo no canto superior direito (dentro do sistema)**
    - Posição: fixed, top: 15px, right: 15px
-   - Componente: toggle toggle-lg do DaisyUI
+   - Componente: swap swap-rotate com ícones sol/lua
+   - Ícones: Feather (sun/moon) com w-6 h-6
+   - Animação: swap-rotate nativa do DaisyUI
    - Z-index: 9999 para ficar sempre visível
    - Sincronizado com localStorage
+
+2. **Cores do tema claro**
+   - Sidebar: branca (white)
+   - Conteúdo: cinza claro (#f3f4f6)
+
+## BORDER RADIUS
+
+1. **Padrão: 8px em todos componentes**
+   - Botões, inputs, cards, alerts, badges
+   - Não muito quadrado, não muito arredondado
 
 =================================================================
 ÚLTIMA ATUALIZAÇÃO: 2026-01-16
