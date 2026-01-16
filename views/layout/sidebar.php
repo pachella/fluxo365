@@ -60,7 +60,7 @@ if ($permissionManager->isAdmin()) {
 <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden hidden" onclick="closeSidebar()"></div>
 
 <!-- Sidebar -->
-<aside id="sidebar" class="fixed lg:static inset-y-0 left-0 transform -translate-x-full lg:translate-x-0 w-64 bg-white dark:bg-zinc-800 shadow-lg min-h-screen transition-transform duration-300 ease-in-out z-50 flex flex-col">
+<aside id="sidebar" class="fixed lg:static inset-y-0 left-0 transform -translate-x-full lg:translate-x-0 w-64 bg-white dark:bg-zinc-800 shadow-lg h-screen transition-transform duration-300 ease-in-out z-50 flex flex-col">
   <!-- Header da sidebar (mobile) -->
   <div class="lg:hidden flex items-center justify-between p-4 border-b border-gray-200 dark:border-zinc-700">
     <h2 class="text-lg font-bold text-gray-800 dark:text-gray-200">Menu</h2>
@@ -141,4 +141,4 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <!-- Área principal -->
-<main class="flex-1 p-4 lg:p-6 bg-gray-100 dark:bg-zinc-900 transition-colors duration-200">
+<main class="flex-1 p-4 lg:p-6 bg-gray-100 dark:bg-zinc-900 transition-colors duration-200 overflow-y-auto h-screen">
