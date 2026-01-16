@@ -172,7 +172,7 @@ async function createBoard(data) {
         formData.append('description', data.description);
         formData.append('color', data.color);
 
-        const res = await fetch('/modules/crm/boards/create.php', {
+        const res = await fetch('/core/crud/save.php?module=crm&entity=board', {
             method: 'POST',
             body: formData
         });
@@ -247,7 +247,7 @@ async function updateBoard(data) {
         formData.append('description', data.description);
         formData.append('color', data.color);
 
-        const res = await fetch('/modules/crm/boards/update.php', {
+        const res = await fetch('/core/crud/save.php?module=crm&entity=board', {
             method: 'POST',
             body: formData
         });
@@ -281,7 +281,7 @@ async function deleteBoard(id, name) {
     if (!result.isConfirmed) return;
 
     try {
-        const res = await fetch(`/modules/crm/boards/delete.php?id=${id}`, {
+        const res = await fetch(`/core/crud/delete.php?module=crm&entity=board&id=${id}`, {
             method: 'POST'
         });
 
