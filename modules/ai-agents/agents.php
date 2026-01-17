@@ -316,11 +316,8 @@ try {
 </div>
 
 <!-- Modal de Criar/Editar Agente -->
-<dialog id="agentModal" class="modal">
+<dialog id="agentModal" class="modal modal-bottom sm:modal-middle">
     <div class="modal-box max-w-5xl">
-        <form method="dialog">
-            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-        </form>
         <h3 class="font-bold text-lg mb-4" id="modalTitle">Criar Novo Agente</h3>
 
         <form id="agentForm" onsubmit="saveAgent(event)">
@@ -367,7 +364,7 @@ try {
                             <textarea
                                 id="system_instructions"
                                 name="system_instructions"
-                                rows="12"
+                                rows="6"
                                 class="textarea textarea-bordered w-full"
                                 placeholder="Você é um agente chamado Romildo, seu papel é atender os clientes da Suportezi. A Suportezi é uma plataforma de atendimento com foco em uma aplicação de criação de sites com inteligência artificial, email, suporte e manutenção, além de, claro, o recurso de atendimento com IA sem a..."></textarea>
 
@@ -561,6 +558,9 @@ try {
             </div>
         </form>
     </div>
+    <form method="dialog" class="modal-backdrop">
+        <button>close</button>
+    </form>
 </dialog>
 
 <script>
